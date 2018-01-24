@@ -4,8 +4,6 @@ Spring 2018
 John Fay & Lauren Patterson
 ```
 
-[TOC]
-
 ## UNIT 1: How has Falls Lake reservoir impacted streamflow  (*Focus*: EXCEL)
 
 #### What you will learn:
