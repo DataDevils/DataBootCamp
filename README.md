@@ -4,6 +4,19 @@ Spring 2018
 John Fay & Lauren Patterson
 ```
 
+## Why this course now?
+
+"The word of the year in the world of water is **digital**"
+
+* Increased recognition that access to water data and analytics is essential to better inform public policies and business decisions.
+* Technological advancements in satellites, drones, sensors and so on create more data that can be transformed into actionable information for water management.
+* Cultural, academic, and legislative shift towards open water data and transparency.
+
+Sources: [Imagine an Internet of Water](https://www.aspeninstitute.org/aspen-journal-of-ideas/imagine-internet-water/), 
+​                [3 Ways the course of water sustainability changed in 2017](https://www.greenbiz.com/article/3-ways-course-water-sustainability-changed-2017)
+
+---
+
 ## UNIT 1: How has Falls Lake reservoir impacted streamflow  (*Focus*: EXCEL)
 
 #### What you will learn:
