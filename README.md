@@ -17,7 +17,7 @@ Sources: [Imagine an Internet of Water](https://www.aspeninstitute.org/aspen-jou
 
 ---
 
-## UNIT 1: How has Falls Lake reservoir impacted streamflow<br>(*Focus*: EXCEL)
+## UNIT 1: How has Falls Lake reservoir impacted streamflow?<br>(*Focus*: EXCEL)
 
 #### What you will learn:
 
