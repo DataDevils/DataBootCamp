@@ -82,3 +82,12 @@ Often overlooked by the data analyst is the step of reviewing your analysis and 
 
 ---
 
+## Exercises -
+
+- ### <u>Task 1</u>: [Exploring monthly stream flows](./Streamflow_Task1.html)
+
+- ### <u>Task 2</u>: [Evaluating changes in 100 & 500 year floods](./Streamflow_Task2.html)
+
+- ### <u>Task 3</u>: [Evaluating changes in minimum flows](./Streamflow_Task3.html)
+
+- ### <u>Task 4:</u> [Evaluating annual stream flow changes over time](./Streamflow_Task4.html)
