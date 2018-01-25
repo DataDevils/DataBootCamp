@@ -1,8 +1,14 @@
+---
+Title: Water Data Boot Camp
+Author: John Fay and Lauren Patterson
+Date: Spring 2018
+---
+
+
+
 # Water Data Boot Camp
-```
-Spring 2018
-John Fay & Lauren Patterson
-```
+
+<https://datadevils.github.io/DataBootCamp/>
 
 ## Why this course now?
 
@@ -43,7 +49,7 @@ Sources: [Imagine an Internet of Water](https://www.aspeninstitute.org/aspen-jou
 
 ---
 
-## UNIT 2: Developing Water Balance Sheets from Online Data?   (*Focus*: R *or* Python)
+## UNIT 2: Developing Water Balance Sheets from Online Data?<br>  (*Focus*: R *or* Python)
 
 #### What you will learn:
 
@@ -86,7 +92,7 @@ Sources: [Imagine an Internet of Water](https://www.aspeninstitute.org/aspen-jou
 
 ---
 
-## UNIT 3: How often is Jordan Lake exceeding water quality limits? (Focus: Data Interaction and Visualization)
+## UNIT 3: How often is Jordan Lake exceeding water quality limits?<br>(Focus: Data Interaction and Visualization)
 
 #### What you will learn: 
 
