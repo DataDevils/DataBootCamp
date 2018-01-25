@@ -16,7 +16,8 @@ Date: Spring 2018
 
   ​
 
-* **[Unit 1: Water Flow](./Streamflow_Intro.html) (Excel)**
+* **Unit 1: Water Flow (Excel)**
+
   * [Background: How has Falls Lake reservoir impacted streamflow?](./Streamflow_Intro.html#header-n4)
 
   * [Analytical workflow: A Preview](./Streamflow_Intro.html#header-n14)
