@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>Analysis of Streamflow Data using Excel</title><link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --code-block-bg-color: inherit; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { background: rgb(181, 214, 252); text-shadow: none; }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; padding-bottom: 70px; white-space: pre-wrap; overflow-x: visible; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+.typora-export #write { margin: 0px auto; }
+#write > p:first-child, #write > ul:first-child, #write > ol:first-child, #write > pre:first-child, #write > blockquote:first-child, #write > div:first-child, #write > table:first-child { margin-top: 30px; }
+#write li > table:first-child { margin-top: -20px; }
+img { max-width: 100%; vertical-align: middle; }
+input, button, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+::before, ::after, * { box-sizing: border-box; }
+#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write div, #write pre { width: inherit; }
+#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6 { position: relative; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+p { -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
+.typora-export p { white-space: normal; }
+.mathjax-block { margin-top: 0px; margin-bottom: 0px; -webkit-margin-before: 0rem; -webkit-margin-after: 0rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: bold; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; margin: 4px 0px 0px; }
+figure { max-width: 100%; overflow-x: auto; margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 80px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+pre { white-space: pre-wrap; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: var(--code-block-bg-color); position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+.md-fences .CodeMirror.CodeMirror-wrap { top: -1.6em; margin-bottom: -1.6em; }
+.md-fences.mock-cm { white-space: pre-wrap; }
+.show-fences-line-number .md-fences { padding-left: 0px; }
+.show-fences-line-number .md-fences.mock-cm { padding-left: 40px; }
+.CodeMirror-line { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; padding-top: 1em; padding-bottom: 1em; }
+.footnotes + .footnotes { margin-top: -1em; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: transparent; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: normal; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li p, li .mathjax-block { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; }
+@media print {
+  html, body { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid-page; orphans: 2; }
+  p { orphans: 4; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 1cm; padding-right: 1cm; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  @page { margin: 20mm 0mm; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 2.86rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > img:only-child { display: block; margin: auto; }
+p .md-image:only-child { display: inline-block; width: 100%; text-align: center; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.mathjax-block { white-space: pre; overflow: hidden; width: 100%; }
+p + .mathjax-block { margin-top: -1.143rem; }
+.mathjax-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: none; box-shadow: none; }
+.task-list { list-style-type: none; }
+.task-list-item { position: relative; padding-left: 1em; }
+.task-list-item input { position: absolute; top: 0px; left: 0px; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc::after, .md-toc-content::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: bold; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+.md-tag { opacity: 0.5; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: monospace; }
+code { text-align: left; }
+h1 .md-tag, h2 .md-tag, h3 .md-tag, h4 .md-tag, h5 .md-tag, h6 .md-tag { font-weight: initial; opacity: 0.35; }
+a.md-print-anchor { border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: none !important; background: transparent !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.mathjax-block .MathJax_SVG_Display { text-align: center; margin: 1em 0em; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: monospace; }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: normal; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; }
+
+
+:root { --side-bar-bg-color: #fafafa; --control-text-color: #777; }
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: normal; src: local("Open Sans Regular"), url("./github/400.woff") format("woff"); }
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: normal; src: local("Open Sans Italic"), url("./github/400i.woff") format("woff"); }
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: bold; src: local("Open Sans Bold"), url("./github/700.woff") format("woff"); }
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: bold; src: local("Open Sans Bold Italic"), url("./github/700i.woff") format("woff"); }
+html { font-size: 14px; }
+body { font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(51, 51, 51); line-height: 1.6; }
+#write { max-width: 860px; margin: 0px auto; padding: 20px 30px 100px; }
+#write > ul:first-child, #write > ol:first-child { margin-top: 30px; }
+body > :first-child { margin-top: 0px !important; }
+body > :last-child { margin-bottom: 0px !important; }
+a { color: rgb(65, 131, 196); }
+h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; line-height: 1.4; cursor: text; }
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor { text-decoration: none; }
+h1 tt, h1 code { font-size: inherit; }
+h2 tt, h2 code { font-size: inherit; }
+h3 tt, h3 code { font-size: inherit; }
+h4 tt, h4 code { font-size: inherit; }
+h5 tt, h5 code { font-size: inherit; }
+h6 tt, h6 code { font-size: inherit; }
+h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; }
+h3 { font-size: 1.5em; line-height: 1.43; }
+h4 { font-size: 1.25em; }
+h5 { font-size: 1em; }
+h6 { font-size: 1em; color: rgb(119, 119, 119); }
+p, blockquote, ul, ol, dl, table { margin: 0.8em 0px; }
+li > ol, li > ul { margin: 0px; }
+hr { height: 4px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border-width: 0px 0px 1px; border-style: none none solid; border-top-color: initial; border-right-color: initial; border-left-color: initial; border-image: initial; overflow: hidden; box-sizing: content-box; border-bottom-color: rgb(221, 221, 221); }
+body > h2:first-child { margin-top: 0px; padding-top: 0px; }
+body > h1:first-child { margin-top: 0px; padding-top: 0px; }
+body > h1:first-child + h2 { margin-top: 0px; padding-top: 0px; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child { margin-top: 0px; padding-top: 0px; }
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 { margin-top: 0px; padding-top: 0px; }
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p { margin-top: 0px; }
+li p.first { display: inline-block; }
+ul, ol { padding-left: 30px; }
+ul:first-child, ol:first-child { margin-top: 0px; }
+ul:last-child, ol:last-child { margin-bottom: 0px; }
+blockquote { border-left: 4px solid rgb(221, 221, 221); padding: 0px 15px; color: rgb(119, 119, 119); }
+blockquote blockquote { padding-right: 0px; }
+table { padding: 0px; word-break: initial; }
+table tr { border-top: 1px solid rgb(204, 204, 204); margin: 0px; padding: 0px; }
+table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+table tr th { font-weight: bold; border: 1px solid rgb(204, 204, 204); text-align: left; margin: 0px; padding: 6px 13px; }
+table tr td { border: 1px solid rgb(204, 204, 204); text-align: left; margin: 0px; padding: 6px 13px; }
+table tr th:first-child, table tr td:first-child { margin-top: 0px; }
+table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); }
+.md-fences, code, tt { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 4px 0px; font-size: 0.9em; }
+.md-fences { margin-bottom: 15px; margin-top: 15px; padding: 8px 1em 6px; }
+.task-list { padding-left: 0px; }
+.task-list-item { padding-left: 32px; }
+.task-list-item input { top: 3px; left: 8px; }
+@media screen and (min-width: 914px) {
+}
+@media print {
+  html { font-size: 13px; }
+  table, pre { break-inside: avoid; }
+  pre { word-wrap: break-word; }
+}
+.md-fences { background-color: rgb(248, 248, 248); }
+#write pre.md-meta-block { padding: 1rem; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border: 0px; border-radius: 3px; color: rgb(119, 119, 119); margin-top: 0px !important; }
+.mathjax-block > .code-tooltip { bottom: 0.375rem; }
+#write > h3.md-focus::before { left: -1.5625rem; top: 0.375rem; }
+#write > h4.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+#write > h5.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+#write > h6.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+.md-image > .md-meta { border: 1px solid rgb(221, 221, 221); border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 4px 0px; font-size: 0.9em; color: inherit; }
+.md-tag { color: inherit; }
+.md-toc { margin-top: 5px; padding-bottom: 5px; }
+.sidebar-tabs { border-bottom: none; }
+#typora-quick-open { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); }
+#typora-quick-open-item { background-color: rgb(250, 250, 250); border-color: rgb(254, 254, 254) rgb(229, 229, 229) rgb(229, 229, 229) rgb(238, 238, 238); border-style: solid; border-width: 1px; }
+#md-notification::before { top: 10px; }
+.on-focus-mode blockquote { border-left-color: rgba(85, 85, 85, 0.12); }
+header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Arial, sans-serif; }
+.file-node-content:hover .file-node-icon, .file-node-content:hover .file-node-open-state { visibility: visible; }
+.mac-seamless-mode #typora-sidebar { background-color: var(--side-bar-bg-color); }
+.md-lang { color: rgb(180, 101, 77); }
+.boxed { border: 0.5px solid gray; padding: 1px 12px; }
+
+
+
+
+
+
+</style>
+</head>
+<body class='typora-export' >
+<div  id='write'  class = 'is-node'><p><a href='./index.html'>Water Data Boot Camp: Spring 2018</a></p><h1><a name='header-n493' class='md-header-anchor '></a>Unit 1: Task 1<br>Comparing Monthly Stream Flows Below Falls Lake</h1><p>Here we apply the Analytical Workflow introduced in the previous document. The general question posed to us is: <strong>How has the construction of Falls Lake altered monthly stream flow?</strong> Let&#39;s explore how we might tackle this question using our framework. </p><hr /><h2><a name='header-n6' class='md-header-anchor '></a>1. Clarify the question into an actionable task</h2><p>The initial question - &quot;How has the construction of Falls Lake altered stream flow?&quot; - is fairly specific, but it still includes a few vague aspects we need to clarify before making it actionable. We know we&#39;ll be looking at a specific location (somewhere downstream of Falls Lake) and a specific time range (before and after construction of Falls lake in 1980-1984). However, it&#39;s up to us to define the metric used to measure stream flow (cfs? cms? mgd?) and what defines &quot;altered stream flow&quot;. </p><p>Ideally, you&#39;d consult your team to clarify these issues, but often the answer is to &quot;figure that out yourself and get back to me&quot;. Since the issues seem somewhat minor, we&#39;ll take the approach of making decisions as we go. Perhaps data availability will dictate what we measure streamflow in, and perhaps we&#39;ll provide some plots of streamflow that will allow others to interpret whether Falls Lake &quot;altered&quot; streamflow...</p><hr /><h2><a name='header-n12' class='md-header-anchor '></a>2. Obtain, explore, and clean the data</h2><p>As mentioned above, we&#39;ve determined that we need streamflow data for some site below Falls Lake dam, and those data are provided via the USGS&#39; National Water Information System. The following steps outline the process of finding the appropriate gaging site and then the data we need to run our analysis. </p><h3><a name='header-n15' class='md-header-anchor '></a>♦ <u>Finding the streamflow data</u></h3><ol start='' ><li><p>Open the NWIS mapper in a browser: <a href='https://maps.waterdata.usgs.gov/mapper/index.html' target='_blank' >https://maps.waterdata.usgs.gov/mapper/index.html</a></p></li><li><p>Locate Falls Lake on the map. (Tip: Search for <code>Falls Lake, NC</code>)</p></li><li><p>On the map, visually follow the stream flowing out of Falls Lake dam until you find a gage site. Click on it, and it should reveal Site #: <code>02087500</code>, <code>NEUSE RIVER NEAR CLAYTON, NC</code>. This is the site we&#39;ll use for our analysis. </p><p><img src='media/image2.png' alt='Data Analytics Process Streamflow' /></p></li><li><p>Click on the <a href='https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=02087500'>Access Data</a> link. This brings up the interface for selecting which data you want to grab. </p></li><li><p>On this page, from the dropdown menu near the top, select <code>Time-series: Daily Data</code> and hit <code>GO</code>. This will open the form for selecting the current and historical stream flow data we want.</p></li><li><p>In this form:
+- Check the box next to <code>00060 Discharge</code>;</p><p>- Select <code>Tab-separated data</code> and <code>Display in browser</code> as the output format;</p><p>- Set the From date to <code>1930-10-01</code> and the End date to <code>2017-09-30</code> (note: the &quot;water year&quot; goes from Oct. to Sept.);</p><p>- And finally hit <code>Go</code>. This will call up a page with all the data you just requested. </p><p>​     <em>*  (If needed, this <a href='https://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=02087500&referred_module=sw&period=&begin_date=1930-10-01&end_date=2017-09-30'>LINK</a> will take you directly to the data...)</em></p></li></ol><p>Pause and look at what&#39;s provided. The first several lines begin with a &#39;#&#39; and display the dataset&#39;s <em>metadata</em>, i.e. data about the data. The first line without the &#39;#&#39; appears to be column headers, but the line after that looks different than the actual data values below that. (As it happens, this line indicates the data <em>length</em> and <em>type</em>: <code>5s</code> indicates a <code>s</code>tring that is <code>5</code> characters long. The other data types include <code>d</code> for <em>date</em>, and <code>n</code> for <em>numeric</em>.) </p><h3><a name='header-n48' class='md-header-anchor '></a>♦ <u>Getting the data into Excel</u></h3><blockquote><p>*<em>Before embarking on our work with Excel, be sure you are clear what each of the following refers to with respect to Excel:</em> <code>workbook</code>, <code>worksheet</code>, <code>row</code>, <code>column</code>, <code>cell</code>, <code>menu options</code>.</p></blockquote><p>Now that we have found the data, we need to get it into <em>Excel</em> so that each value is in its own cell. We&#39;ll discuss two, somewhat imperfect, methods to do this, each requiring a bit of manual editing. We also present a third, more automated method. However, while this third method may seem easier, it is less transparent and a bit unstable with the current release of <em>Excel</em>. <br/></p><h5><a name='header-n54' class='md-header-anchor '></a>Method 1</h5><ul><li>Select the entire contents of the web page containing the discharge data. (Tip: use <code>ctrl</code>-<code>a</code> )</li><li>Copy (<code>ctrl</code>-<code>c</code>) the contents from the browser and paste (<code>ctrl</code>-<code>v</code>) them into a new <em>Excel</em> worksheet. </li><li><em>Notice that the contents are lumped into a single column, which prevents us from properly working with the data. To fix this, you can use the <code>Text to Columns</code> command.</em></li><li>To convert text to data, first select the cells containing text you want to convert into columns. For us, its the entire first column, which you can select by click the header of Column <code>A</code>.</li><li>From the <code>Data</code> menu, click the <code>Text to Columns</code> command in the <code>Data Tools</code> panel. </li><li>In the wizard, specify that your data are <code>delimited</code> by a <code>space</code>, and then click <code>Finish</code>. </li></ul><p><em>This works, but not perfectly. Notice the data (starting in row 34) are in columns now, but the column headers don’t match the data fields until 2004 when minimum and maximum discharge were collected. We, need to be careful for these types of errors using this method. Let&#39;s look at an alternative method and see whether it works better...</em></p><h5><a name='header-n76' class='md-header-anchor '></a>Method 2</h5><ul><li>Clear the contents of your Excel spreadsheet and copy the contents of the NWIS data web page again, if necessary.</li><li>In your blank worksheet, right-click cell A1 and select <code>Paste Special...</code> from the context menu.</li><li>In the Paste Special wizard, select <code>text</code> and hit <code>OK</code>. Notice that the data are in the correct columns!</li><li>Rename the worksheet &quot;<code>Raw</code>&quot; and save your workbook. </li></ul><h5><a name='header-n90' class='md-header-anchor '></a>Method 3</h5><p><em>(Note, this method is somewhat buggy and may take a bit longer to run...)</em></p><ul><li>From the <code>Data</code> menu, select <code>From Web</code>. </li><li>In the <code>New Web Query</code> window, copy and paste the NWIS data web page&#39;s <a href='https://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=02087500&referred_module=sw&period=&begin_date=1930-10-01&end_date=2017-09-30'>URL</a> into the <code>Address:</code> box and click <code>Go</code>.</li><li>You&#39;ll see the data appear in this window; Click the orange arrow to select the data to import.</li><li>Click the <code>import</code> button. </li></ul><h3><a name='header-n107' class='md-header-anchor '></a>♦ <u>Cleaning the data</u></h3><p>While we now have the data we need, we should take a moment and <strong>tidy</strong> it up to facilitate analysis. (Hadley Wickham has an excellent paper on tidy data here: <a href='http://vita.had.co.nz/papers/tidy-data.html' target='_blank' >http://vita.had.co.nz/papers/tidy-data.html</a>). We&#39;ll begin by creating a tidier version of the raw data, but keeping the raw worksheet intact in case we make a mistake and need to revert to it. And with this copy, we&#39;ll remove the metadata and other extraneous items so that we have a clean, efficient dataset, ready for quick analysis. </p><ul><li><p><strong>Create a copy your <code>Raw</code> worksheet and rename it <code>EDA</code> (for exploratory data analysis):</strong> </p><ul><li><p>Right click the <code>Raw</code> worksheet tab, and select <code>Move or Copy...</code></p></li><li><p>Be sure, <code>create a copy</code> is checked and click <code>OK</code>. </p></li><li><p>Right click on the <code>Raw (2)</code> worksheet tab and select <code>Rename</code></p></li><li><p>Type in <code>EDA</code> as the new name</p><p>​		<strong>---All further work will be done in this EDA worksheet ---</strong></p></li></ul></li><li><p><strong>Delete the metadata rows and the data type specification row (rows 1-31 and 33):</strong></p><ul><li>Select the entire row by selecting the row number. Use <code>shift-click</code> to make continuous selections and <code>ctrl</code>-<code>click</code> to make disjunct selections.</li><li>Right-click and select <code>Delete</code>. </li></ul></li><li><p><strong>As we are only interested in <em>mean</em> discharge, we can remove the other columns:</strong> </p><ul><li><p>Delete all columns but <code>site_no</code>, <code>datetime</code>, and mean discharge, currently labeled <code>85235_00060_00003</code>. </p></li><li><p>Rename the <code>85235_00060_00003</code> as <code>Mean flow (cfs)</code></p><ul><li>How did we know the units are cfs? The metadata. Can you find this information?</li></ul><p><strong><em>* Note: It&#39;s always good to include the units in a field name!</em></strong></p></li></ul></li></ul><p>&nbsp;</p><h3><a name='header-n157' class='md-header-anchor '></a>♦ <u>Exploring the data: Plots</u></h3><p>While we now have our data in Excel, we should explore and inspect the data before we dive into our analysis. This may expose irregularities in the data, stemming either from our import process or in the dataset itself. <strong>Plots</strong> and <strong>summary statistics</strong> are a quick way to reveal any data gaps or outliers. We&#39;ll begin by looking at scatterplots of the data. </p><h5><a name='header-n160' class='md-header-anchor '></a>Create a scatterplot of discharge over time:</h5><ul><li><p>Choose the data you want to plot:</p><ul><li>Highlight cells <strong>B1</strong> and <strong>C1</strong>.</li><li>Press <code>ctrl</code>+<code>shift</code>+<code>↓</code> to select all data cells beneath your initial selection.</li></ul></li><li><p>Create a scatter plot with straight lines from your selected data:</p><ul><li>From the <strong>Insert</strong> menu, over in the <strong>Charts</strong> panel, select the <strong>scatterplot</strong> dropdown, and chose an appropriate chart type given the data. (Straight lines makes sense since our data are based on measurements.)</li></ul><p><em>Notice that the X-axis contains an odd sampling of dates and lots of dead space on either side. Different plot types behave differently in Excel, and scatterplots are finicky with dates, so we need to either manually adjust the x axis or chose a different plot type. We&#39;ll examine both ways...</em> </p></li><li><p>Format the X-axis to eliminate empty data space:</p><ul><li>Double-click the x-axis to open the <em>Format Axis</em> menu.</li><li>In the <em>Format Axis</em> panel, click the <em>Axis Options</em> icon (looks like a bar chart). </li><li>Notice that the axis bounds are currently set from 0 to 50,000. To set these to our data&#39;s minimum and maximum values, just type them in as dates, e.g., <code>1930-10-01</code> and <code>2017-09-30</code>. </li></ul></li><li><p><u>Or</u>, you can convert your scatterplot to a 2-d line plot.</p><ul><li>With the chart selected, and the <code>Design</code> tab active, select <code>Change Chart Type</code> to switch your scatterplot to a line plot. <em>Notice you can preview the design of a chart before committing to it.</em></li><li>Notice that the date format is much tidier with a line plot...</li></ul></li></ul><h5><a name='header-n204' class='md-header-anchor '></a>Adjust the aesthetics of your plot</h5><ul><li><p>Change the title to something meaningful, such as “Neuse Streamflow near Clayton, NC”</p></li><li><p>Add a y-axis label: <strong>Design</strong> -&gt; <strong>Add Chart Element</strong> -&gt; <strong>Axis Titles</strong> -&gt; <strong>Primary Vertical</strong></p></li><li><p>Change the y-axis bounds:</p><ul><li>Set the maximum to 23,000; note the minimum drops to -2000. Change the minimum to 0</li><li>Set the display units to <em>Thousands</em>. </li><li>Delete the gridlines</li><li>Play with the colors, font sizes, borders, etc. Try setting your plot to use narrower lines to show more detail. </li></ul></li></ul><h3><a name='header-n229' class='md-header-anchor '></a>• <em>Task: Altering the units of your data</em></h3><p><em>You remembered that scientists like the metric system and you need to convert the data from cubic feet per second to cubic meters per second. You&#39;ll need to create a new column with the discharge values in these units and re-create a new plot. Here are the steps:</em></p><ul><li><p><strong>Add a header in column <code>D</code>: &quot;Mean flow (cms)&quot;</strong></p></li><li><p><strong>Compute cms values from your cfs ones:</strong></p><ul><li>In cell <code>D2</code>, enter the formula <code>=C2*0.028316847</code> (0.028316847 is the conversion rate from cfs to cms). </li><li>To carry this formula down to all records, double click on the bottom right corner of the <code>D2</code> cell.</li></ul></li><li><p><strong>Check that the new values appear correct:</strong></p><ul><li><p>First, lock the header row so it doesn&#39;t disappear when scrolling</p><ul><li>Click <code>ctrl</code>-<code>home</code> to set the active cell as the top left cell <code>A1</code>.</li><li>Highlight Row 1</li><li>From the View menu, select <code>Freeze Top Row</code></li><li>Scroll down and examine the Discharge (cms) data. Note the header row stays put!</li></ul></li></ul></li><li><p><strong>Re-plot the data in cubic meters per second.</strong> </p><ul><li>Select your existing plot and click on the data line. That will indicate the columns of data on which the plot was based. </li><li>Click on the side of the blue rectangle and drag it so that it covers the column D, not C. </li><li>Change the y-axis label and bounds. </li><li>Reformat other aesthetics as needed...</li></ul></li></ul><hr /><h2><a name='header-n284' class='md-header-anchor '></a>○ EXERCISE 1: Altering units and plotting</h2><p>Your project manager looks at the chart but doesn’t like the metric system. Add a new column to convert discharge to millions of gallons per day. <u>Make a new plot and show side by side to the CFS plot</u>. (<code>1</code> CFS = <code>0.53817</code> MGD)</p><hr /><p>&nbsp;</p><h3><a name='header-n290' class='md-header-anchor '></a>♦ <u>Exploring the data: Grouping and summarizing data</u></h3><p><u>Know your data.</u> Whenever you get data, it’s good practice to look at and understand the raw data to make sure it looks reasonable and you understand something about its quality and content. One of the first things to assess in the metadata is how confident you are in the quality of the data being used in your analysis. Is the data fit for purpose?</p><h5><a name='header-n293' class='md-header-anchor '></a>How confident are we in the data?</h5><p>Our data included data-value qualification codes, and indication of the confidence we can have in the values reported. Let&#39;s examine our data in terms of those codes. We deleted these data from the table, so we&#39;ll have to add them back in to the data in our EDA worksheet. </p><ul><li><p><strong>Add a new column header to the table in the EDA worksheet; name it <code>Confidence</code>.</strong></p><p><em>We could copy and paste the data back into our table, as we haven&#39;t moved things around. However, it&#39;s useful to know how the vertical lookup, or</em> <code>VLOOKUP</code> <em>function works to join data from on table to another using a common joining field.</em></p></li><li><p><strong>Under the <code>Confidence</code> header you just created, enter the formula: <code>=VLOOKUP(B2,Raw!$C$34:$I$31810,7,FALSE)</code></strong></p></li></ul><p><em>There&#39;s a lot going on in that VLOOKUP formula, so lets explain it.</em> </p><p><em>First, the VLOOKUP function looks up a value by matching a given value in one table to a given value in another table, specified by a range of cells. In our example, this matching value is in cell <code>B2</code>, i.e. the date <code>10/1/1930</code>. VLOOKUP searches the range of cells specified in the second argument, <code>Raw!$C$34:$I$31810</code> for that value, and returns the value in the <code>7</code>th column of that range.</em> </p><p><em>What still may be confusing is how the range of cells is defined by <code>Raw!$C$34:$I$31810</code>. Here, <code>Raw!</code> tells Excel that the range of values is in the worksheet named &quot;Raw&quot;, not the current worksheet. The range of cells in the &quot;Raw&quot; worksheet is <code>C34</code> to <code>I31801</code>, but the <code>$</code> indicates that, as we copy this formula to other cells, this range should remain static. Otherwise, if we copied the formula to the cell below it the range would dynamical update  from <code>C34:I31810</code> to <code>C35:I31811</code>, but in our case, we want the lookup range to be locked in.</em> </p><ul><li><strong>Double click the bottom corner to copy this function down to all records in our table.</strong> Now we have re-added the confidence values back to our data table!</li></ul><p>Now, let&#39;s add into our worksheet a table listing how many records are associated with each confidence value. A look at the metadata indicate three data-value qualification codes: <em>A</em>, <em>P</em>, and <em>e</em>. Let&#39;s first confirm what values are contained in our dataset. We can do this quickly by setting up a data filter:</p><ul><li><p><strong>Create a Filter for the <code>Confidence</code> column to reveal a list of unique values</strong></p><ul><li>Select the entire Confidence column.</li><li>With the <strong>Home</strong> menu active, select <strong>Sort &amp; Filter</strong>&gt;<strong>Filter</strong> (from the <strong>Editing</strong> panel)</li></ul></li></ul><p>You&#39;ll now see that the header cell has a dropdown arrow. Click this arrow and it will list all the unique values, and you&#39;ll see that our data indeed has three values, but they are slightly different than what was listed in the metadata. They are: <strong>A</strong>, <strong>A:e</strong>, and <strong>P</strong>. </p><p>Now to create the table listing how many records are associated with these three values. The <code>countif</code> tool is useful here.</p><ul><li><p><strong>Create a table listing the number of records associated with each Confidence code using COUNTIF</strong> </p><ul><li>Somewhere in your EDA worksheet, create two header cells: <code>Confidence code</code> and <code>Count</code>.</li><li>Under the <code>Confidence Code</code> header cell, enter three label cells, one for each confidence code: <code>A</code>, <code>A:e</code>, and <code>P</code>,</li><li>To the left of each label cell, start typing the formula <code>=countif(</code> </li><li>To specify the <em>range</em> portion of this formula, select the top data cell in the Confidence column (E2), and then press <code>shift</code>+ <code>ctrl</code>+<code>↓</code>. (It should result in <code>E2:E31778</code>)</li><li>To specify the <em>criteria</em> portion of the formula, select the label cell containing the confidence code you want to count. This should be immediately to the left of the cell into which you are typing the formula. The value for <code>A</code> should be <code>31601</code>.</li><li>Before copying this formula down, you need to add <code>$</code> to your range so that it remains locked in: Edit the range in your formula from  <code>E2:E31778</code> to  <code>E$2:E$31778</code>.</li><li>Now, double-click the lower right corner of the cell to copy the formula down for the other two confidence codes. </li></ul></li></ul><p>With this table you can interpret the results. What proportion of the data is reliable? Would a plot be helpful?</p><p>&nbsp;</p><h5><a name='header-n362' class='md-header-anchor '></a>Examine Summary Statistics of our Data</h5><p>Summary statistics provide another quick way to examine our data for peculiarities. Here, we&#39;ll outline the process for computing min, max, mean, and percentiles from our data in Excel. We&#39;ll simplify this procedure by creating a name for the range of <code>Mean flow (cms)</code> data cell. </p><ul><li><p>Assign <code>CMS</code> as the name of the range of <code>Mean flow (cms)</code> cells:</p><ul><li>Select all the data cells under the <code>Mean flow (cms)</code> header</li><li>Type <code>ctrl</code>-<code>F3</code> to open the Name Manager and click <code>New</code> to add a new named range of cells.</li><li>Enter CMS as the Name. Note the range is set to what we highlighted as we open the Name Manger. Click <code>OK</code>.</li><li>Close the Name Manger. Now we can just type <code>CFS</code> in any formula and it will refer to that range of cells. We&#39;ll see below how this works. </li></ul></li><li><p>Create a skeleton table with labels: <code>Min</code>, <code>P10</code>, <code>P25</code>, <code>P75</code>, <code>P90</code>, <code>Median</code>, <code>Average</code>, and <code>Max</code></p></li><li><p>Insert the appropriate formula for each, using the range of <code>Mean flow (cms)</code> cells for each. </p><ul><li><p>min: <code>=MIN(CMS)</code></p></li><li><p>P10:  <code>=PERCENTILE.INC(CMS,0.1)</code></p><ul><li><code>INC</code> means inclusive: where the percentile value must be between 0 and 1</li><li>Alternatively, <code>EXC</code> requires the percentile to be between 1/n and 1-1/n, where n is the number of elements </li><li>Calculate P25, P75, P90 following the same format</li></ul></li><li><p>median: <code>=MEDIAN(CMS)</code></p></li><li><p>average: <code>=AVERAGE(CMS)</code></p></li><li><p>max: <code>=MAX(CMS)</code></p></li></ul></li></ul><p>Now that we know how to compute summary statistics, let&#39;s examine whether building Falls Lake had a noticeable impact on these values. We can do this by computing summary statistics for subsets of the discharge data, with one subset containing the discharge before 1980, when construction of the lake started, and after 1984, after the dam was completed. </p><ul><li><p>Create named ranges for discharge data before 1980 and after 1984</p><ul><li>A quick way to do this is search for 1980 and select 12/31/1979 and up with <code>shift</code>+<code>ctrl</code>+<code>↑</code>. With these records selected, assign a name as we did above. </li><li>Then search for 1984 and select from 1/1/1984 and down (<code>shift</code>+<code>ctrl</code>+<code>↓</code>), and name that range. </li></ul></li><li><p>Compute summary stats for these new ranges as you did above. (Tip: you can use <code>ctrl</code>+<code>H</code> to replace the named range <code>CMS</code> with the new names you created for easy update.)</p></li></ul><p>What do you notice? Particularly with regards to min and max streamflow. Does that make sense given what you know about reservoirs?</p><h5><a name='header-n432' class='md-header-anchor '></a>Is there seasonal variation in streamflow?</h5><p>To examine seasonal (or monthly) variation in streamflow, we need to extract the months from our date values. We&#39;ll also convert calendar years into water years, which run from October thru September. </p><ul><li><p>Parse out the Date to include Year and Month</p><ul><li>Insert three new columns in your EDA worksheet by right-clicking on Column C and selecting <code>Insert</code> three times.</li><li>Name these columns <code>year</code>, <code>month</code>, and <code>water year</code></li><li>In the Year column, use the <code>=Year()</code> function to extract the year from the corresponding cell in the <code>datetime</code> column.</li><li>Repeat for the month column. </li><li>Change the format of these cells from <em>General</em> to <em>Number</em> by highlighting the columns and selecting <code>Number</code> from the dropdown list in the <strong>Number</strong> panel in the <strong>Home</strong> menu. </li><li>Extend these formulas to the cells below. </li></ul></li><li><p>Water year runs from October to September. We adjust the year column to account for this information using <code>IF</code></p><ul><li>Create a new column for water year. </li><li>Use the <code>IF</code> function to assign the value to the cell in the <code>year</code> column if the month value is <code>&gt;= 10</code>, otherwise, set the value of the year column minus 1:  <code>=IF(D2&gt;=10,C2,C2-1)</code>.</li><li>Change the format of the cell from General to Number, if necessary. </li><li>Extend the formula to the cells below, examining to ensure the calculations are correct. </li></ul></li><li><p>Create a table skeleton of average streamflow by month (1-12) over the different time periods (period of record, pre1980, and post1984).</p></li><li><p>Use the <code>AVERAGEIF()</code> function to compute the average discharge of records where the month equals the specified month. Here, the <em>range</em> will be the range of cells in the month column, the criteria will be the month (e.g. &#39;1&#39;), and the average range will be the range of discharge values.</p></li></ul><p>What do you observe? Would a plot of the results facilitate interpretation? </p><hr /><h2><a name='header-n483' class='md-header-anchor '></a>○ Exercise 2: Compute total streamflow by water year</h2><p>Repeat the above using <code>SUMIF</code> for annual streamflow based on the water year.</p><hr /><h2><a name='header-n487' class='md-header-anchor '></a> </h2></div>
+</body>
+</html>

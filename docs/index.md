@@ -21,18 +21,17 @@ Date: Spring 2018
 
   * [Analytical workflow: A Preview](./Streamflow.html#header-n12)
 
-  * Applying the Analytical Workflow: Exploring Monthly Stream Flows
+  * <u>Task</u>: [Exploring monthly stream flows](./Streamflow_Task1.html)
 
-    * Obtaining the data
-    * Exploring the data
+  * <u>Task</u>: [Evaluating changes in 100 & 500 year floods](./Streamflow_Task2.html)
 
-  * <u>Task</u>: Exploring monthly stream flows
+  * <u>Task</u>: [Evaluating changes in minimum flows](./Streamflow_Task3.html)
 
-  * <u>Task</u>: Evaluating changes in 100 & 500 year floods
+  * <u>Task:</u> [Evaluating annual stream flow changes over time](./Streamflow_Task4.html)
 
-  * <u>Task</u>: Evaluating changes in minimum flows
+  * Teaser: Water Flow Analysis in `R`
 
-  * <u>Task</u> Evaluating annual stream flow changes over time
+  * Teaser: Water Flow Analysis in `Python`
 
     ​
 

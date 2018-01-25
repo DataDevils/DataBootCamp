@@ -4,15 +4,15 @@ Author: Lauren Patterson and John Fay
 Date: Spring 2018
 ---
 
+[Water Data Boot Camp: Spring 2018](./index.html)
+
 # Unit 1: Task 1<br>Comparing Monthly Stream Flows Below Falls Lake
 
 Here we apply the Analytical Workflow introduced in the previous document. The general question posed to us is: **How has the construction of Falls Lake altered monthly stream flow?** Let's explore how we might tackle this question using our framework. 
 
-[TOC]
-
 ---
 
-## • Clarify the question into an actionable task
+## 1. Clarify the question into an actionable task
 
 The initial question - "How has the construction of Falls Lake altered stream flow?" - is fairly specific, but it still includes a few vague aspects we need to clarify before making it actionable. We know we'll be looking at a specific location (somewhere downstream of Falls Lake) and a specific time range (before and after construction of Falls lake in 1980-1984). However, it's up to us to define the metric used to measure stream flow (cfs? cms? mgd?) and what defines "altered stream flow". 
 
@@ -20,11 +20,11 @@ Ideally, you'd consult your team to clarify these issues, but often the answer i
 
 ---
 
-## • Obtain the data
+## 2. Obtain, explore, and clean the data
 
 As mentioned above, we've determined that we need streamflow data for some site below Falls Lake dam, and those data are provided via the USGS' National Water Information System. The following steps outline the process of finding the appropriate gaging site and then the data we need to run our analysis. 
 
-#### <u>Finding the streamflow data</u>
+### ♦ <u>Finding the streamflow data</u>
 
 1. Open the NWIS mapper in a browser: https://maps.waterdata.usgs.gov/mapper/index.html
 
@@ -51,9 +51,9 @@ As mentioned above, we've determined that we need streamflow data for some site 
 
 Pause and look at what's provided. The first several lines begin with a '#' and display the dataset's *metadata*, i.e. data about the data. The first line without the '#' appears to be column headers, but the line after that looks different than the actual data values below that. (As it happens, this line indicates the data *length* and *type*: `5s` indicates a `s`tring that is `5` characters long. The other data types include `d` for *date*, and `n` for *numeric*.) 
 
-#### <u>Getting the data into Excel</u>
+### ♦ <u>Getting the data into Excel</u>
 
-\**Before embarking on our work with Excel, be sure you are clear what each of the following refers to with respect to Excel:* `workbook`, `worksheet`, `row`, `column`, `cell`, `menu options`.
+> \**Before embarking on our work with Excel, be sure you are clear what each of the following refers to with respect to Excel:* `workbook`, `worksheet`, `row`, `column`, `cell`, `menu options`.
 
 Now that we have found the data, we need to get it into *Excel* so that each value is in its own cell. We'll discuss two, somewhat imperfect, methods to do this, each requiring a bit of manual editing. We also present a third, more automated method. However, while this third method may seem easier, it is less transparent and a bit unstable with the current release of *Excel*.   
 
@@ -84,15 +84,11 @@ Now that we have found the data, we need to get it into *Excel* so that each val
 - You'll see the data appear in this window; Click the orange arrow to select the data to import.
 - Click the `import` button. 
 
----
 
-## • Explore & clean the data
 
-While we now have our data in Excel, we should explore and inspect the data before we dive into our analysis. This may expose irregularities in the data, stemming either from our import process or in the dataset itself. **Plots** and **summary statistics** are a quick way to reveal any data gaps or outliers. 
+### ♦ <u>Cleaning the data</u>
 
-#### Create a copy of the raw data and clean it up
-
-We'll begin by creating a tidier version of the raw data, but keeping the raw worksheet intact in case we make a mistake and need to revert to it. And with this copy, we'll remove the metadata and other extraneous items so that we have a clean, efficient dataset, ready for quick analysis. 
+While we now have the data we need, we should take a moment and **tidy** it up to facilitate analysis. (Hadley Wickham has an excellent paper on tidy data here: http://vita.had.co.nz/papers/tidy-data.html). We'll begin by creating a tidier version of the raw data, but keeping the raw worksheet intact in case we make a mistake and need to revert to it. And with this copy, we'll remove the metadata and other extraneous items so that we have a clean, efficient dataset, ready for quick analysis. 
 
 - **Create a copy your `Raw` worksheet and rename it `EDA` (for exploratory data analysis):** 
   - Right click the `Raw` worksheet tab, and select `Move or Copy...`
@@ -117,54 +113,58 @@ We'll begin by creating a tidier version of the raw data, but keeping the raw wo
 
     * How did we know the units are cfs? The metadata. Can you find this information?
 
-    *\*Note: It's always good to include the units in a field name!*
+    ***\* Note: It's always good to include the units in a field name!***
 
 
-#### Plot streamflow data to look for gaps/outliers
 
-* **Create a scatterplot of discharge over time**:
 
-  * Choose the data you want to plot:
+### ♦ <u>Exploring the data: Plots</u>
 
-    * Highlight cells B1 and C1.
-    * Press `ctrl`+`shift`+`↓` to select all data cells beneath your initial selection.
+While we now have our data in Excel, we should explore and inspect the data before we dive into our analysis. This may expose irregularities in the data, stemming either from our import process or in the dataset itself. **Plots** and **summary statistics** are a quick way to reveal any data gaps or outliers. We'll begin by looking at scatterplots of the data. 
 
-  * Create a scatter plot with straight lines from your selected data:
+##### Create a scatterplot of discharge over time:
 
-    * From the `Insert` menu, over in the `Charts` panel, select the scatterplot dropdown, and chose an appropriate chart type given the data. (Straight lines makes sense since our data are based on measurements.)
+* Choose the data you want to plot:
 
-    *Notice that the X-axis contains an odd sampling of dates and lots of dead space on either side. Different plot types behave differently in Excel, and scatterplots are finicky with dates, so we need to either manually adjust the x axis or chose a different plot type. We'll examine both ways...* 
+  * Highlight cells **B1** and **C1**.
+  * Press `ctrl`+`shift`+`↓` to select all data cells beneath your initial selection.
 
-  * Format the X-axis to eliminate empty data space:
+* Create a scatter plot with straight lines from your selected data:
 
-    * Double-click the x-axis to open the *Format Axis* menu.
-    * In the *Format Axis* panel, click the *Axis Options* icon (looks like a bar chart). 
-    * Notice that the axis bounds are currently set from 0 to 50,000. To set these to our data's minimum and maximum values, just type them in as dates, e.g., `1930-10-01` and `2017-09-30`. 
+  * From the **Insert** menu, over in the **Charts** panel, select the **scatterplot** dropdown, and chose an appropriate chart type given the data. (Straight lines makes sense since our data are based on measurements.)
 
-  * <u>Or</u>, you can convert your scatterplot to a 2-d line plot.
+  *Notice that the X-axis contains an odd sampling of dates and lots of dead space on either side. Different plot types behave differently in Excel, and scatterplots are finicky with dates, so we need to either manually adjust the x axis or chose a different plot type. We'll examine both ways...* 
 
-    * With the chart selected, and the `Design` tab active, select `Change Chart Type` to switch your scatterplot to a line plot. *Notice you can preview the design of a chart before committing to it.*
-    * Notice that the date format is much tidier with a line plot...
+* Format the X-axis to eliminate empty data space:
 
-* **Adjust the aesthetics of your plot**
+  * Double-click the x-axis to open the *Format Axis* menu.
+  * In the *Format Axis* panel, click the *Axis Options* icon (looks like a bar chart). 
+  * Notice that the axis bounds are currently set from 0 to 50,000. To set these to our data's minimum and maximum values, just type them in as dates, e.g., `1930-10-01` and `2017-09-30`. 
 
-  * Change the title to something meaningful, such as “Neuse Streamflow near Clayton, NC”
+* <u>Or</u>, you can convert your scatterplot to a 2-d line plot.
 
-  * Add a y-axis label: `Design` -> `Add Chart Element` -> `Axis Titles` -> `Primary Vertical`
+  * With the chart selected, and the `Design` tab active, select `Change Chart Type` to switch your scatterplot to a line plot. *Notice you can preview the design of a chart before committing to it.*
+  * Notice that the date format is much tidier with a line plot...
 
-  * Change the y-axis bounds:
+##### Adjust the aesthetics of your plot
 
-    * Set the maximum to 23,000; note the minimum drops to -2000. Change the minimum to 0
+* Change the title to something meaningful, such as “Neuse Streamflow near Clayton, NC”
 
-    * Set the display units to *Thousands*. 
+* Add a y-axis label: **Design** -> **Add Chart Element** -> **Axis Titles** -> **Primary Vertical**
 
-    * Delete the gridlines
+* Change the y-axis bounds:
 
-    * Play with the colors, font sizes, borders, etc. Try setting your plot to use narrower lines to show more detail. 
+  * Set the maximum to 23,000; note the minimum drops to -2000. Change the minimum to 0
 
-* **Save your workbook...**
+  * Set the display units to *Thousands*. 
 
-#### Alter the units of your data
+  * Delete the gridlines
+
+  * Play with the colors, font sizes, borders, etc. Try setting your plot to use narrower lines to show more detail. 
+
+
+
+### • *Task: Altering the units of your data*
 
 *You remembered that scientists like the metric system and you need to convert the data from cubic feet per second to cubic meters per second. You'll need to create a new column with the discharge values in these units and re-create a new plot. Here are the steps:*
 
@@ -184,22 +184,18 @@ We'll begin by creating a tidier version of the raw data, but keeping the raw wo
   * Change the y-axis label and bounds. 
   * Reformat other aesthetics as needed...
 
-```html
-EXERCISE 1: 
-Your project manager looks at the chart but doesn’t like the metric system. Add a new column to convert discharge to millions of gallons per day. Make a new plot and show side by side to the CFS plot. (1 CFS = 0.53817 MGD)
-```
-
-
 
 ---
 
-## Execute your Analysis - Plot data in mgal/day
+## ○ EXERCISE 1: Altering units and plotting
 
-Your project manager looks at the chart but doesn’t like the metric system. Add a new column to convert discharge to millions of gallons per day. Make a new plot and show side by side to the CFS plot. (1 CFS = 0.53817 MGD)
+Your project manager looks at the chart but doesn’t like the metric system. Add a new column to convert discharge to millions of gallons per day. <u>Make a new plot and show side by side to the CFS plot</u>. (`1` CFS = `0.53817` MGD)
 
 ---
 
-### Summarize and plot data
+
+
+### ♦ <u>Exploring the data: Grouping and summarizing data</u>
 
 <u>Know your data.</u> Whenever you get data, it’s good practice to look at and understand the raw data to make sure it looks reasonable and you understand something about its quality and content. One of the first things to assess in the metadata is how confident you are in the quality of the data being used in your analysis. Is the data fit for purpose?
 
@@ -225,9 +221,9 @@ Now, let's add into our worksheet a table listing how many records are associate
 
 * **Create a Filter for the `Confidence` column to reveal a list of unique values**
   * Select the entire Confidence column.
-  * With the `Home` menu active, select `Sort & Filter`>`Filter` (from the `Editing` panel)
+  * With the **Home** menu active, select **Sort & Filter**>**Filter** (from the **Editing** panel)
 
-You'll now see that the header cell has a dropdown arrow. Click this arrow and it will list all the unique values, and you'll see that our data indeed has three values, but they are slightly different than what was listed in the metadata. They are: A, A:e, and P. 
+You'll now see that the header cell has a dropdown arrow. Click this arrow and it will list all the unique values, and you'll see that our data indeed has three values, but they are slightly different than what was listed in the metadata. They are: **A**, **A:e**, and **P**. 
 
 Now to create the table listing how many records are associated with these three values. The `countif` tool is useful here.
 
@@ -282,7 +278,7 @@ To examine seasonal (or monthly) variation in streamflow, we need to extract the
   * Name these columns `year`, `month`, and `water year`
   * In the Year column, use the `=Year()` function to extract the year from the corresponding cell in the `datetime` column.
   * Repeat for the month column. 
-  * Change the format of these cells from *General* to *Number* by highlighting the columns and selecting `Number` from the dropdown list in the `Number` panel in the `Home` menu. 
+  * Change the format of these cells from *General* to *Number* by highlighting the columns and selecting `Number` from the dropdown list in the **Number** panel in the **Home** menu. 
   * Extend these formulas to the cells below. 
 * Water year runs from October to September. We adjust the year column to account for this information using `IF`
   * Create a new column for water year. 
@@ -294,7 +290,9 @@ To examine seasonal (or monthly) variation in streamflow, we need to extract the
 
 What do you observe? Would a plot of the results facilitate interpretation? 
 
-### ♦ Exercise: Compute total streamflow by water year
+---
+
+## ○ Exercise 2: Compute total streamflow by water year
 
 Repeat the above using `SUMIF` for annual streamflow based on the water year.
 
