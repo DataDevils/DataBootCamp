@@ -56,7 +56,7 @@ Now that we have the background, let's get started creating our own Python envir
 * Install Pandas:
   `conda install pandas`
 
-* Just as you installed pandas, install the following Python packages: <u>jupyter</u>, <u>matplotlib</u>, <u>seaborn</u>, <u>requests</u>, and <u>spyder</u>. 
+* Just as you installed pandas, install the following Python packages: <u>jupyter</u>, <u>matplotlib</u>, <u>seaborn</u>, <u>requests</u>, <u>leaflet</u>, <u>scikit-learn</u>, and <u>spyder</u>. 
 
 * Save your configuration to a file:
   `conda list --explicit > datadevils.yml`
