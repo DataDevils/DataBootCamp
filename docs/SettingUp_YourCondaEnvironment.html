@@ -38,7 +38,8 @@ p { -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-star
 a { cursor: pointer; }
 sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; }
 #write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; margin: 4px 0px 0px; }
-figure { max-width: 100%; overflow-x: auto; margin: 0px; }
+#write > figure:first-child { margin-top: 16px; }
+figure { overflow-x: auto; margin: -8px 0px 0px -8px; max-width: calc(100% + 16px); padding: 8px; }
 tr { break-inside: avoid; break-after: auto; }
 thead { display: table-header-group; }
 table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
@@ -225,7 +226,7 @@ header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Aria
 <code>conda env list</code></p></li><li><p>Activate your environment:
 <code>activate datadevil</code></p></li><li><p>List the packages that were installed in this environment:
 <code>conda list</code></p></li><li><p>Install Pandas:
-<code>conda install pandas</code></p></li><li><p>Just as you installed pandas, install the following Python packages: <u>jupyter</u>, <u>matplotlib</u>, <u>seaborn</u>, <u>requests</u>, and <u>spyder</u>. </p></li><li><p>Save your configuration to a file:
+<code>conda install pandas</code></p></li><li><p>Just as you installed pandas, install the following Python packages: <u>jupyter</u>, <u>matplotlib</u>, <u>seaborn</u>, <u>requests</u>, <u>leaflet</u>, <u>scikit-learn</u>, and <u>spyder</u>. </p></li><li><p>Save your configuration to a file:
 <code>conda list --explicit &gt; datadevils.yml</code></p></li></ul><p>*With this text file, you - or others - can rebuild your environment easily with the following command:
 <code>conda create --name &lt;env&gt; --file datadevils.yml</code></p><p>&nbsp;</p><p><strong>OK, we now have plenty of packages to get us going!</strong></p></div>
 </body>
