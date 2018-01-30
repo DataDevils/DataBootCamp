@@ -85,6 +85,10 @@ Now that we have found the data, we need to get it into *Excel* so that each val
 - Click the `import` button. 
 
 
+Once you have your data imported, rename the worksheet to `Raw`. We'll be adding more worksheets to your Excel workbook and this will help identify which contains the original, raw data. 
+
+![Fig1_1_RawData](media/Fig1_1_RawData.jpg)
+
 
 ### ♦ <u>Cleaning the data</u>
 
@@ -116,7 +120,7 @@ While we now have the data we need, we should take a moment and **tidy** it up t
     ***\* Note: It's always good to include the units in a field name!***
 
 
-
+![Fig1_2_EDAsheet](media/Fig1_2_EDAsheet.jpg)
 
 ### ♦ <u>Exploring the data: Plots</u>
 
@@ -141,7 +145,7 @@ While we now have our data in Excel, we should explore and inspect the data befo
   * In the *Format Axis* panel, click the *Axis Options* icon (looks like a bar chart). 
   * Notice that the axis bounds are currently set from 0 to 50,000. To set these to our data's minimum and maximum values, just type them in as dates, e.g., `1930-10-01` and `2017-09-30`. 
 
-* <u>Or</u>, you can convert your scatterplot to a 2-d line plot.
+* **Or**, you can convert your scatterplot to a 2-d line plot.
 
   * With the chart selected, and the `Design` tab active, select `Change Chart Type` to switch your scatterplot to a line plot. *Notice you can preview the design of a chart before committing to it.*
   * Notice that the date format is much tidier with a line plot...
@@ -149,19 +153,20 @@ While we now have our data in Excel, we should explore and inspect the data befo
 ##### Adjust the aesthetics of your plot
 
 * Change the title to something meaningful, such as “Neuse Streamflow near Clayton, NC”
-
 * Add a y-axis label: **Design** -> **Add Chart Element** -> **Axis Titles** -> **Primary Vertical**
-
+  * Enter something useful like "Streamflow (cfs)"
 * Change the y-axis bounds:
 
   * Set the maximum to 23,000; note the minimum drops to -2000. Change the minimum to 0
 
   * Set the display units to *Thousands*. 
 
+* Play with the colors, font sizes, borders, etc. 
   * Delete the gridlines
+  * Try setting your plot to use narrower lines to show more detail. 
 
-  * Play with the colors, font sizes, borders, etc. Try setting your plot to use narrower lines to show more detail. 
 
+![Fig1_3_StreamflowPlot](media/Fig1_3_StreamflowPlot.jpg)
 
 
 ### • *Task: Altering the units of your data*
@@ -183,7 +188,10 @@ While we now have our data in Excel, we should explore and inspect the data befo
   * Click on the side of the blue rectangle and drag it so that it covers the column D, not C. 
   * Change the y-axis label and bounds. 
   * Reformat other aesthetics as needed...
+    * Change the scale and label of the y-axis
 
+
+![Fig1_4_StreamflowPlot_cms](media/Fig1_4_StreamflowPlot_cms.jpg)
 
 ---
 
@@ -238,6 +246,8 @@ Now to create the table listing how many records are associated with these three
 
 With this table you can interpret the results. What proportion of the data is reliable? Would a plot be helpful?
 
+![Fig1_6_ConfidenceTable](media/Fig1_6_ConfidenceTable.jpg)
+
 
 
 ##### Examine Summary Statistics of our Data
@@ -248,7 +258,7 @@ Summary statistics provide another quick way to examine our data for peculiariti
   * Select all the data cells under the `Mean flow (cms)` header
   * Type `ctrl`-`F3` to open the Name Manager and click `New` to add a new named range of cells.
   * Enter CMS as the Name. Note the range is set to what we highlighted as we open the Name Manger. Click `OK`.
-  * Close the Name Manger. Now we can just type `CFS` in any formula and it will refer to that range of cells. We'll see below how this works. 
+  * Close the Name Manger. Now we can just type `CMS` in any formula and it will refer to that range of cells. We'll see below how this works. 
 * Create a skeleton table with labels: `Min`, `P10`, `P25`, `P75`, `P90`, `Median`, `Average`, and `Max`
 * Insert the appropriate formula for each, using the range of `Mean flow (cms)` cells for each. 
   * min: `=MIN(CMS)`
@@ -282,19 +292,19 @@ To examine seasonal (or monthly) variation in streamflow, we need to extract the
   * Extend these formulas to the cells below. 
 * Water year runs from October to September. We adjust the year column to account for this information using `IF`
   * Create a new column for water year. 
-  * Use the `IF` function to assign the value to the cell in the `year` column if the month value is `>= 10`, otherwise, set the value of the year column minus 1:  `=IF(D2>=10,C2,C2-1)`.
+  * Use the `IF` function to assign the value to the cell in the `year` column if the month value is `< 10`, otherwise, set the value of the year column plus 1:  `=IF(D2<10,C2,C2+1)`.
   * Change the format of the cell from General to Number, if necessary. 
   * Extend the formula to the cells below, examining to ensure the calculations are correct. 
 * Create a table skeleton of average streamflow by month (1-12) over the different time periods (period of record, pre1980, and post1984).
 * Use the `AVERAGEIF()` function to compute the average discharge of records where the month equals the specified month. Here, the *range* will be the range of cells in the month column, the criteria will be the month (e.g. '1'), and the average range will be the range of discharge values.
 
-What do you observe? Would a plot of the results facilitate interpretation? 
+*What do you observe? Would a plot of the results facilitate interpretation?* 
 
 ---
 
 ## ○ Exercise 2: Compute total streamflow by water year
 
-Repeat the above using `SUMIF` for annual streamflow based on the water year.
+Repeat the above using `SUMIF` for annual streamflow based on the <u>water year</u>.
 
 ---
 
