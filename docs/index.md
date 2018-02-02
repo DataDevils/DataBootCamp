@@ -19,11 +19,18 @@ Feb 2, 2018 -- EH 1104
 * **Unit 1: Water Flow (Excel)**
 
   * [Background: How has Falls Lake reservoir impacted streamflow?](./Streamflow_Intro.html#header-n4)
+
   * [Analytical workflow: A Preview](./Streamflow_Intro.html#header-n14)
+
   * <u>Task</u>: [Exploring monthly stream flows](./Streamflow_Task1.html)
+
   * <u>Task</u>: [Evaluating changes in 100 & 500 year floods](./Streamflow_Task2.html)
+
   * <u>Task</u>: [Evaluating changes in minimum flows](./Streamflow_Task3.html)
+
   * <u>Task:</u> [Evaluating annual stream flow changes over time](./Streamflow_Task4.html)
+
+    Completed Excel file -> [LINK](./files/Streamflow Data Clayton_KEY.xlsx)
 
   ​
 
