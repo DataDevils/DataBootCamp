@@ -103,7 +103,7 @@ While we now have the data we need, we should take a moment and **tidy** it up t
 
   - Type in `EDA` as the new name
 
-    ​		**---All further work will be done in this EDA worksheet ---**
+    ​		<mark>**---All further work will be done in this EDA worksheet ---**</mark>
 
 - **Delete the metadata rows and the data type specification row (rows 1-31 and 33):**
   * Select the entire row by selecting the row number. Use `shift-click` to make continuous selections and `ctrl`-`click` to make disjunct selections.
