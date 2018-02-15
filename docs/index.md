@@ -60,19 +60,17 @@ Feb 2, 2018 -- EH 1104
 * **Unit 2: Water Budgets (R & Python)**
 
   * [Overview doc](./Unit2_Schedule.html)
-
   * **Python materials**
-
-    [00-Setting-up](./python2/00-Setting-up.html)
-    [01-WaterFlow-Terse](./python2/01-WaterFlow-Terse.html)
-    [02a-Python-in-5-minutes](./python2/02a-Python-in-5-minutes.html)
-    [02b-DataFrames](./python2/02b-DataFrames.html)
-    [03-ImportData](./python2/03-ImportData.html)
-    [04-Data-Exploration](./python2/04-Data-Exploration.html)
-    [05-Flood-Frequency-Analysis](./python2/05-Flood-Frequency-Analysis.html)
-    [06-Minimum-Flow-Analysis](./python2/06-Minimum-Flow-Analysis.html)
-    [07-Trends-Over-Time](./python2/07-Trends-Over-Time.html)
-    [08-Show-All-Sites](./python2/08-Show-All-Sites.html)
+    * [00-Setting-up](./python2/00-Setting-up.html)
+    * [01-WaterFlow-Terse](./python2/01-WaterFlow-Terse.html)
+    * [02a-Python-in-5-minutes](./python2/02a-Python-in-5-minutes.html)
+    * [02b-DataFrames](./python2/02b-DataFrames.html)
+    * [03-ImportData](./python2/03-ImportData.html)
+    * [04-Data-Exploration](./python2/04-Data-Exploration.html)
+    * [05-Flood-Frequency-Analysis](./python2/05-Flood-Frequency-Analysis.html)
+    * [06-Minimum-Flow-Analysis](./python2/06-Minimum-Flow-Analysis.html)
+    * [07-Trends-Over-Time](./python2/07-Trends-Over-Time.html)
+    * [08-Show-All-Sites](./python2/08-Show-All-Sites.html)
 
   ​
 
