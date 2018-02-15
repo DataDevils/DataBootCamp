@@ -57,9 +57,12 @@ Feb 2, 2018 -- EH 1104
 
 
 
-* Unit 2: Water Budgets (R & Python)**
+* **Unit 2: Water Budgets (R & Python)**
 
-  * TBA
+  * [Overview doc](./Unit2_Schedule.html)
+  * Python materials
+
+  ​
 
   ​
 
