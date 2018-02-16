@@ -23,8 +23,9 @@ Here, we introduce the **Python** and **R** scripting environments in the contex
 | 2:00 | **Welcome and Intro**                                        |
 | 2:10 | **PYTHON** Set up: Duke containers, Jupyter notebooks, Cloning data (NB-0) |
 | 2:25 | NB-1: Quick start                                            |
-| 2:40 | NB-2: Importing water flow data                              |
-| 2:55 | NB-3: Dataframes in Pandas                                   |
+| 2:30 | NB-2a: "Python in 5 minutes"                                 |
+| 2:45 | NB-2b: DataFrames in Pandas                                  |
+| 2:55 | NB-3: Importing water flow data                              |
 | 3:10 | NB-4: Exploring and plotting water flow data                 |
 | 3:25 | NB-5: Flood frequency analysis                               |
 | 3:40 | Python Recap                                                 |
