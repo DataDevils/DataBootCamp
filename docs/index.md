@@ -50,13 +50,11 @@ Feb 2, 2018 -- EH 1104
 * **R materials**
   * [R set-up and Exploratory Data Analysis](./r/LoadStreamflowDescription.html)
   * [Trend analysis and Leaflet](./r/MannKendall_Description.html)
-  * [Flood return interval](./Flood_RI_Description.html) [optional]
+  * [Flood return interval](./r/Flood_RI_Description.html) [optional]
   * Optional: [Low flow analysis](./r.LowFlowDescription.html) [optional]
   * R-scripts: [download](./r/RCran.zip)
 
 
 
-
 ### Unit 3: Data Interaction and Visualization
-
 * TBA
