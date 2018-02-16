@@ -43,16 +43,16 @@ Feb 2, 2018 -- EH 1104
   * [02b-DataFrames](./python2/02b-DataFrames.html)
   * [03-ImportData](./python2/03-ImportData.html)
   * [04-Data-Exploration](./python2/04-Data-Exploration.html)
-  * [05-Flood-Frequency-Analysis](./python2/05-Flood-Frequency-Analysis.html)
-  * [06-Minimum-Flow-Analysis](./python2/06-Minimum-Flow-Analysis.html)
-  * [07-Trends-Over-Time](./python2/07-Trends-Over-Time.html)
-  * [08-Show-All-Sites](./python2/08-Show-All-Sites.html)
+  * [05-Flood-Frequency-Analysis](./python2/05-Flood-Frequency-Analysis.html) [optional]
+  * [06-Minimum-Flow-Analysis](./python2/06-Minimum-Flow-Analysis.html) [optional]
+  * [07-Trends-Over-Time](./python2/07-Trends-Over-Time.html) [optional]
+  * [08-Show-All-Sites](./python2/08-Show-All-Sites.html) [optional]
 * **R materials**
   * [R set-up and Exploratory Data Analysis](./r/LoadStreamflowDescription.html)
   * [Trend analysis and Leaflet](./r/MannKendall_Description.html)
-  * Optional: [Flood return interval](./Flood_RI_Description.html) 
-  * Optional: [Low flow analysis](./r.LowFlowDescription.html)
-  * R-scripts: [link](./r/RCran.zip)
+  * [Flood return interval](./Flood_RI_Description.html) [optional]
+  * Optional: [Low flow analysis](./r.LowFlowDescription.html) [optional]
+  * R-scripts: [download](./r/RCran.zip)
 
 
 
