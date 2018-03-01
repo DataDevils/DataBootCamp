@@ -55,8 +55,6 @@ Feb 2, 2018 -- EH 1104
   * R-scripts: [download](./r/RCran.zip)
 
 
-<mark>[UNIT 2 SURVEY - Please take just a moment to complete this survey](https://duke.qualtrics.com/jfe/form/SV_abLy6Q3m1WQ1etL)</mark>
-
 
 ### Unit 3: Data Visualization
 * Prep (do before meeting in class!): [Setting Up Your Virtual Machine](./SettingUp_YourVirtualMachine.html)
