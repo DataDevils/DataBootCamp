@@ -43,15 +43,21 @@ The Software Center allows you to bulk-install several applications. Double-clic
 
 ### • Installing and configuring other apps
 
-#### ♦ GitHub Desktop
+#### ♦ Tableau
 
-* Open Chrome (on your VM!) and Google for "GitHub Desktop"; or go straight to https://desktop.github.com/
+* Open Chrome (on your VM!) and open this link: https://duke.box.com/v/TBPublic to download the Public version of the Tableau Desktop software. 
+* Once downloaded, install the software. 
+* Open the software to ensure successful installation 
+
+#### ♦ GitHub Desktop [optional]
+
+* Open Chrome and Google for "GitHub Desktop"; or go straight to https://desktop.github.com/
 * Download  and run the Windows installer file: `GitHubDesktop.exe`
 * Sign into GitHub (create an account, if necessary)
 * Enter your name and email
 * Finish! That's it, for now...
 
-#### ♦ Miniconda
+#### ♦ Miniconda [optional]
 
 * In Chrome, navigate to https://conda.io/miniconda.html and download the [64-bin Python 3.6 installer](https://repo.continuum.io/miniconda/Miniconda3-latest-Windows-x86_64.exe) .
 * Run the installer, selecting all the default options when asked.
