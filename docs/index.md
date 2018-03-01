@@ -58,5 +58,10 @@ Feb 2, 2018 -- EH 1104
 <mark>[UNIT 2 SURVEY - Please take just a moment to complete this survey](https://duke.qualtrics.com/jfe/form/SV_abLy6Q3m1WQ1etL)</mark>
 
 
-### Unit 3: Data Interaction and Visualization
-* TBA
+### Unit 3: Data Visualization
+* Prep (do before meeting in class!): [Setting Up Your Virtual Machine](./SettingUp_YourVirtualMachine.html)
+* [Introduction and overview](Unit3_Intro.html)
+* [Part 1: Getting started with Tableau](./Unit3_Part1_Tableau.html)
+* [Part 2: Basics of plotting in Python]()
+* [Part 3: Visualization in action: Water Quality in Jordan Lake](./Unit3_Part3_WaterQualityTask.html)
+
