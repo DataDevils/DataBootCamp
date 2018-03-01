@@ -26,7 +26,7 @@ This is a frequent problem with water data. You might be able to discover the da
 
 * Download and examine the unformatted version [Excel format](https://water.usgs.gov/watuse/data/2010/usco2010.xlsx). <font color=red>How does this format compare to the previous one? Better? Worse?</font>
 
-While this latter format is better suited for data analysis, we have further modified it to provide a good working example for learning Tableau. This is saves as the file called `State_Data_Formatted.xlsx`, which can be downloaded [here](https://github.com/ENV872/Water-Data-Bootcamp/blob/master/3_WaterQuality/data/State_Data_Formatted.xlsx?raw=true). 
+While this latter format is better suited for data analysis, we have further modified it to provide a good working example for learning Tableau. This is saves as the file called `State_Data_Formatted.xlsx`, which can be downloaded [here](https://github.com/DataDevils/DataBootCamp/blob/master/Unit2_Visualization/State_Data_Formatted.xlsx?raw=true). 
 
 * Download a local copy of the  `State_Data_Formatted.xlsx` workbook, and examine its contents. 
 
@@ -291,5 +291,6 @@ Storyboard is similar to the dashboard, except you can also include dashboards. 
 
 
 ![Story board](media/tableau/Storyboard.png)
+
 
 
