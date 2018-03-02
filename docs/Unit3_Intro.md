@@ -1,5 +1,5 @@
 ---
-Title: Visualizing Data in Tableau
+Title: Unit 3 - Data Visualization(Intro)
 Author: Lauren Patterson and John Fay
 Date: Spring 2018
 ---
