@@ -28,7 +28,7 @@ This is a frequent problem with water data. You might be able to discover the da
 
 While this latter format is better suited for data analysis, we have further modified it to provide a good working example for learning Tableau. This is saves as the file called `State_Data_Formatted.xlsx`, which can be downloaded [here](https://github.com/DataDevils/DataBootCamp/blob/master/Unit2_Visualization/State_Data_Formatted.xlsx?raw=true). 
 
-* Download a local copy of the  `State_Data_Formatted.xlsx` workbook, and examine its contents. 
+* Download a local copy of the  [`State_Data_Formatted.xlsx`](https://github.com/DataDevils/DataBootCamp/blob/master/Unit2_Visualization/rcran/data/State_Data_Formatted.xlsx?raw=true) workbook, and examine its contents. 
 
 
 ---
