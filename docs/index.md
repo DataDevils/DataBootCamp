@@ -61,7 +61,7 @@ Feb 2, 2018 -- EH 1104
 * [Introduction and overview](Unit3_Intro.html)
 * [Part 1: Getting started with Tableau](./Unit3_Part1_Tableau.html)
 * [Part 2: Basics of plotting in Python](./Unit3_Part2_Python.html)
-  * [Python Vis Notebook](./Unit3_Part2_Python.html)
+  * [Notebook in HTML format](./Python3/Visualization-in-Python.html)
 * [Part 3: Visualization in action: Water Quality in Jordan Lake](./Unit3_Part3_WaterQualityTask.html)
   * Python: 
     * [GitHub repo](https://github.com/DataDevils/DataVis): *clone into your [Jupyter environment](https://vm-manage.oit.duke.edu/containers)*
@@ -69,4 +69,5 @@ Feb 2, 2018 -- EH 1104
   * R: 
     * [Workspace Zip](./files/rcran.zip) 
     * [Rmd in HTML format](./r3/TotalNitrogen.html)
+
 
