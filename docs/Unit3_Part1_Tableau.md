@@ -177,6 +177,8 @@ Let's explore more of Tableau by attempting to recreate the USGS figure shown he
 
     > There's not a right or wrong answer. Pick the one you want to use.
 
+
+
   ![Map](media/tableau/TotalWaterUse1.png)
 
 ► Let's only look at <u>freshwater</u> totals. 
