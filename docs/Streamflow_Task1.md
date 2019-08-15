@@ -1,10 +1,10 @@
 ---
 Title: Analysis of Streamflow Data using Excel
-Author: Lauren Patterson and John Fay
-Date: Spring 2018
+Author: John Fay & Lauren Patterson
+Date: Fall 2019
 ---
 
-[Water Data Boot Camp: Spring 2018](./index.html)
+[Water Data Boot Camp: Fall 2019](./index.html)
 
 # Unit 1: Task 1<br>Comparing Monthly Stream Flows Below Falls Lake
 
@@ -47,9 +47,13 @@ As mentioned above, we've determined that we need streamflow data for some site 
 
    \- And finally hit `Go`. This will call up a page with all the data you just requested. 
 
-   ​     *\*  (If needed, this [LINK](https://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=02087500&referred_module=sw&period=&begin_date=1930-10-01&end_date=2017-09-30) will take you directly to the data...)*
+   ![](C:\Workspace\Gits\DataBootCamp\docs\media\NWIS-query.PNG)
+   
+   → If needed, this [LINK](https://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=02087500&referred_module=sw&period=&begin_date=1930-10-01&end_date=2017-09-30) will take you directly to the data...
 
 Pause and look at what's provided. The first several lines begin with a '#' and display the dataset's *metadata*, i.e. data about the data. The first line without the '#' appears to be column headers, but the line after that looks different than the actual data values below that. (As it happens, this line indicates the data *length* and *type*: `5s` indicates a `s`tring that is `5` characters long. The other data types include `d` for *date*, and `n` for *numeric*.) 
+
+
 
 ### ♦ <u>Getting the data into Excel</u>
 
@@ -57,29 +61,35 @@ Pause and look at what's provided. The first several lines begin with a '#' and 
 
 Now that we have found the data, we need to get it into *Excel* so that each value is in its own cell. We'll discuss two, somewhat imperfect, methods to do this, each requiring a bit of manual editing. We also present a third, more automated method. However, while this third method may seem easier, it is less transparent and a bit unstable with the current release of *Excel*.   
 
-##### Method 1
+#### Method 1
 
 - Select the entire contents of the web page containing the discharge data. (Tip: use `ctrl`-`a` )
 - Copy (`ctrl`-`c`) the contents from the browser and paste (`ctrl`-`v`) them into a new *Excel* worksheet. 
-- *Notice that the contents are lumped into a single column, which prevents us from properly working with the data. To fix this, you can use the `Text to Columns` command.*
+
+  *Notice that the contents are lumped into a single column, which prevents us from properly working with the data. To fix this, you can use the `Text to Columns` command .*
 - To convert text to data, first select the cells containing text you want to convert into columns. For us, its the entire first column, which you can select by click the header of Column `A`.
 - From the `Data` menu, click the `Text to Columns` command in the `Data Tools` panel. 
 - In the wizard, specify that your data are `delimited` by a `space`, and then click `Finish`. 
 
-*This works, but not perfectly. Notice the data (starting in row 34) are in columns now, but the column headers don’t match the data fields until 2004 when minimum and maximum discharge were collected. We, need to be careful for these types of errors using this method. Let's look at an alternative method and see whether it works better...*
+*This works, but not perfectly. Notice the data (starting in row 33) are in columns now, but the column headers don’t match the data fields until 2004 (row 27,062) when minimum and maximum discharge were collected. <u>Thus, we need to be careful for these types of errors using this method.</u> Let's look at an alternative method and see whether it works better...*
 
-##### Method 2 
 
-- Clear the contents of your Excel spreadsheet and copy the contents of the NWIS data web page again, if necessary.
+
+#### Method 2 
+
+- Oddly, for this method to work, we need to restart Excel. So close your current instance and re-open Excel.
+- Clear the contents of your Excel spreadsheet, and copy the contents of the NWIS data web page again, if necessary.
 - In your blank worksheet, right-click cell A1 and select `Paste Special...` from the context menu.
 - In the Paste Special wizard, select `text` and hit `OK`. Notice that the data are in the correct columns!
 - Rename the worksheet "`Raw`" and save your workbook. 
 
-##### Method 3 
+
+
+#### Method 3 
 
 *(Note, this method is somewhat buggy and may take a bit longer to run...)*
 
-- From the `Data` menu, select `From Web`. 
+- From the `Data` menu, select `Get External Data` and then `From Web`. 
 - In the `New Web Query` window, copy and paste the NWIS data web page's [URL](https://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=02087500&referred_module=sw&period=&begin_date=1930-10-01&end_date=2017-09-30) into the `Address:` box and click `Go`.
 - You'll see the data appear in this window; Click the orange arrow to select the data to import.
 - Click the `import` button. 
@@ -94,17 +104,18 @@ Once you have your data imported, rename the worksheet to `Raw`. We'll be adding
 
 While we now have the data we need, we should take a moment and **tidy** it up to facilitate analysis. (Hadley Wickham has an excellent paper on tidy data here: http://vita.had.co.nz/papers/tidy-data.html). We'll begin by creating a tidier version of the raw data, but keeping the raw worksheet intact in case we make a mistake and need to revert to it. And with this copy, we'll remove the metadata and other extraneous items so that we have a clean, efficient dataset, ready for quick analysis. 
 
-- **Create a copy your `Raw` worksheet and rename it `EDA` (for exploratory data analysis):** 
-  - Right click the `Raw` worksheet tab, and select `Move or Copy...`
-
-  - Be sure, `create a copy` is checked and click `OK`. 
-
-  - Right click on the `Raw (2)` worksheet tab and select `Rename`
-
-  - Type in `EDA` as the new name
-
-    ​		<mark>**---All further work will be done in this EDA worksheet ---**</mark>
-
+- **Create a copy of your `Raw` worksheet and rename it `EDA` (for exploratory data analysis):** 
+  
+- Right click the `Raw` worksheet tab, and select `Move or Copy...`
+  
+- Be sure, `create a copy` is checked and click `OK`. 
+  
+- Right click on the `Raw (2)` worksheet tab and select `Rename`
+  
+- Type in `EDA` as the new name
+  
+  ​		<mark>**---All further work will be done in this EDA worksheet ---**</mark>
+  
 - **Delete the metadata rows and the data type specification row (rows 1-31 and 33):**
   * Select the entire row by selecting the row number. Use `shift-click` to make continuous selections and `ctrl`-`click` to make disjunct selections.
   * Right-click and select `Delete`. 
@@ -137,6 +148,8 @@ While we now have our data in Excel, we should explore and inspect the data befo
 
   * From the **Insert** menu, over in the **Charts** panel, select the **scatterplot** dropdown, and chose an appropriate chart type given the data. (Straight lines makes sense since our data are based on measurements.)
 
+  ![Initial scatterplot](C:\Workspace\Gits\DataBootCamp\docs\media\Excel_InitialScatterplot.PNG)
+
   *Notice that the X-axis contains an odd sampling of dates and lots of dead space on either side. Different plot types behave differently in Excel, and scatterplots are finicky with dates, so we need to either manually adjust the x axis or chose a different plot type. We'll examine both ways...* 
 
 * Format the X-axis to eliminate empty data space:
@@ -152,12 +165,12 @@ While we now have our data in Excel, we should explore and inspect the data befo
 
 ##### Adjust the aesthetics of your plot
 
-* Change the title to something meaningful, such as “Neuse Streamflow near Clayton, NC”
+* Double-click the chart title and change it to something meaningful, such as “Neuse Streamflow near Clayton, NC”
 * Add a y-axis label: **Design** -> **Add Chart Element** -> **Axis Titles** -> **Primary Vertical**
   * Enter something useful like "Streamflow (cfs)"
 * Change the y-axis bounds:
 
-  * Set the maximum to 23,000; note the minimum drops to -2000. Change the minimum to 0
+  * Set the maximum to 23,000; note the minimum drops to -2000. Change the minimum back to 0.
 
   * Set the display units to *Thousands*. 
 
@@ -179,8 +192,8 @@ While we now have our data in Excel, we should explore and inspect the data befo
   * To carry this formula down to all records, double click on the bottom right corner of the `D2` cell.
 * **Check that the new values appear correct:**
   * First, lock the header row so it doesn't disappear when scrolling
-    * Click `ctrl`-`home` to set the active cell as the top left cell `A1`.
-    * Highlight Row 1
+    * Set the active cell as the top left cell `A1`(tip: try clicking`ctrl`-`home` )
+    * Highlight Row 1 by clicking on the row header for the first row, i.e, the `1`.
     * From the View menu, select `Freeze Top Row`
     * Scroll down and examine the Discharge (cms) data. Note the header row stays put!
 * **Re-plot the data in cubic meters per second.** 
@@ -197,7 +210,7 @@ While we now have our data in Excel, we should explore and inspect the data befo
 
 ## ○ EXERCISE 1: Altering units and plotting
 
-Your project manager looks at the chart but doesn’t like the metric system. Add a new column to convert discharge to millions of gallons per day. <u>Make a new plot and show side by side to the CFS plot</u>. (`1` CFS = `0.53817` MGD)
+Your project manager looks at the chart but doesn’t like the metric system. Add a new column to convert discharge to millions of gallons per day. <u>Make a new plot and show side by side to the "cfs" or "cms" plot</u>. (`1` CFS = `0.53817` MGD)
 
 ---
 
@@ -205,7 +218,7 @@ Your project manager looks at the chart but doesn’t like the metric system. Ad
 
 ### ♦ <u>Exploring the data: Grouping and summarizing data</u>
 
-<u>Know your data.</u> Whenever you get data, it’s good practice to look at and understand the raw data to make sure it looks reasonable and you understand something about its quality and content. One of the first things to assess in the metadata is how confident you are in the quality of the data being used in your analysis. Is the data fit for purpose?
+<u>**Know your data**.</u> Whenever you get data, it’s good practice to look at and understand the raw data to make sure it looks reasonable and you understand something about its quality and content. One of the first things to assess in the metadata is how confident you are in the quality of the data being used in your analysis. Is the data fit for purpose?
 
 ##### How confident are we in the data?
 
@@ -215,13 +228,13 @@ Our data included data-value qualification codes, and indication of the confiden
 
   *We could copy and paste the data back into our table, as we haven't moved things around. However, it's useful to know how the vertical lookup, or* `VLOOKUP` *function works to join data from on table to another using a common joining field.*
 
-* **Under the `Confidence` header you just created, enter the formula: `=VLOOKUP(B2,Raw!$C$34:$I$31810,7,FALSE)`**
+* **Under the `Confidence` header you just created, enter the formula: `=VLOOKUP(B2,Raw!$C$33:$I$31809,7,FALSE)`**
 
-*There's a lot going on in that VLOOKUP formula, so lets explain it.* 
+*<u>There's a lot going on in that VLOOKUP formula, so lets explain it.</u>* 
 
-*First, the VLOOKUP function looks up a value by matching a given value in one table to a given value in another table, specified by a range of cells. In our example, this matching value is in cell `B2`, i.e. the date `10/1/1930`. VLOOKUP searches the range of cells specified in the second argument, `Raw!$C$34:$I$31810` for that value, and returns the value in the `7`th column of that range.* 
+*First, the VLOOKUP function looks up a value by matching a given value in one table to a given value in another table, specified by a range of cells. In our example, this matching value is in cell `B2`, i.e. the date `10/1/1930`. VLOOKUP searches the range of cells specified in the second argument, `Raw!$C$33:$I$31809` for that value, and returns the value in the `7`th column of that range.* 
 
-*What still may be confusing is how the range of cells is defined by `Raw!$C$34:$I$31810`. Here, `Raw!` tells Excel that the range of values is in the worksheet named "Raw", not the current worksheet. The range of cells in the "Raw" worksheet is `C34` to `I31801`, but the `$` indicates that, as we copy this formula to other cells, this range should remain static. Otherwise, if we copied the formula to the cell below it the range would dynamical update  from `C34:I31810` to `C35:I31811`, but in our case, we want the lookup range to be locked in.* 
+*What still may be confusing is how the range of cells is defined by `Raw!$C$33:$I$31809`. Here, `Raw!` tells Excel that the range of values is in the worksheet named "Raw", not the current worksheet. The range of cells in the "Raw" worksheet is `C33` to `31809`, but the `$` indicates that, as we copy this formula to other cells, this range should remain static. Otherwise, if we copied the formula to the cell below it the range would dynamical update  from `C33:I31809` to `C34:I31810`, but in our case, we want the lookup range to be locked in.* 
 
 * **Double click the bottom corner to copy this function down to all records in our table.** Now we have re-added the confidence values back to our data table!
 
@@ -231,13 +244,13 @@ Now, let's add into our worksheet a table listing how many records are associate
   * Select the entire Confidence column.
   * With the **Home** menu active, select **Sort & Filter**>**Filter** (from the **Editing** panel)
 
-You'll now see that the header cell has a dropdown arrow. Click this arrow and it will list all the unique values, and you'll see that our data indeed has three values, but they are slightly different than what was listed in the metadata. They are: **A**, **A:e**, and **P**. 
+You'll now see that the header cell has a dropdown arrow. Click this arrow and it will list all the unique values, and you'll see that our data indeed has three values, but they are slightly different than what was listed in the metadata. They are: **A** and **A:e**. 
 
 Now to create the table listing how many records are associated with these three values. The `countif` tool is useful here.
 
 * **Create a table listing the number of records associated with each Confidence code using COUNTIF** 
   * Somewhere in your EDA worksheet, create two header cells: `Confidence code` and `Count`.
-  * Under the `Confidence Code` header cell, enter three label cells, one for each confidence code: `A`, `A:e`, and `P`,
+  * Under the `Confidence Code` header cell, enter three label cells, one for each confidence code: `A` and `A:e`.
   * To the left of each label cell, start typing the formula `=countif(` 
   * To specify the *range* portion of this formula, select the top data cell in the Confidence column (E2), and then press `shift`+ `ctrl`+`↓`. (It should result in `E2:E31778`)
   * To specify the *criteria* portion of the formula, select the label cell containing the confidence code you want to count. This should be immediately to the left of the cell into which you are typing the formula. The value for `A` should be `31601`.
@@ -308,4 +321,4 @@ Repeat the above using `SUMIF` for annual streamflow based on the <u>water year<
 
 ---
 
-## 
+END

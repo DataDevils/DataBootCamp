@@ -2,104 +2,114 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>Analysis of Streamflow Data using Excel</title><link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --code-block-bg-color: inherit; }
+<title>Analysis of Streamflow Data using Excel</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
-.in-text-selection, ::selection { background: rgb(181, 214, 252); text-shadow: none; }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; padding-bottom: 70px; white-space: pre-wrap; overflow-x: visible; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
 .for-image #write { padding-left: 8px; padding-right: 8px; }
 body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
 @media screen and (max-width: 500px) {
   body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
   .CodeMirror-sizer { margin-left: 0px !important; }
   .CodeMirror-gutters { display: none !important; }
 }
-.typora-export #write { margin: 0px auto; }
-#write > p:first-child, #write > ul:first-child, #write > ol:first-child, #write > pre:first-child, #write > blockquote:first-child, #write > div:first-child, #write > table:first-child { margin-top: 30px; }
-#write li > table:first-child { margin-top: -20px; }
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
 img { max-width: 100%; vertical-align: middle; }
-input, button, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
+button, input, select, textarea { color: inherit; font: inherit; }
 input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
-::before, ::after, * { box-sizing: border-box; }
-#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write div, #write pre { width: inherit; }
-#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6 { position: relative; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.8rem; }
 h3 { font-size: 1.6rem; }
 h4 { font-size: 1.4rem; }
 h5 { font-size: 1.2rem; }
 h6 { font-size: 1rem; }
-p { -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
-.typora-export p { white-space: normal; }
-.mathjax-block { margin-top: 0px; margin-bottom: 0px; -webkit-margin-before: 0rem; -webkit-margin-after: 0rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
 .hidden { display: none; }
-.md-blockmeta { color: rgb(204, 204, 204); font-weight: bold; font-style: italic; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
 a { cursor: pointer; }
-sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; }
-#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; margin: 4px 0px 0px; }
-figure { max-width: 100%; overflow-x: auto; margin: 0px; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
 tr { break-inside: avoid; break-after: auto; }
 thead { display: table-header-group; }
 table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
-table.md-table td { min-width: 80px; }
+table.md-table td { min-width: 32px; }
 .CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
 .CodeMirror { text-align: left; }
 .CodeMirror-placeholder { opacity: 0.3; }
 .CodeMirror pre { padding: 0px 4px; }
 .CodeMirror-lines { padding: 0px; }
 div.hr:focus { cursor: none; }
-pre { white-space: pre-wrap; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
 .CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: var(--code-block-bg-color); position: relative !important; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
 .md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
-.md-fences .CodeMirror.CodeMirror-wrap { top: -1.6em; margin-bottom: -1.6em; }
-.md-fences.mock-cm { white-space: pre-wrap; }
-.show-fences-line-number .md-fences { padding-left: 0px; }
-.show-fences-line-number .md-fences.mock-cm { padding-left: 40px; }
-.CodeMirror-line { break-inside: avoid; }
-.footnotes { opacity: 0.8; font-size: 0.9rem; padding-top: 1em; padding-bottom: 1em; }
-.footnotes + .footnotes { margin-top: -1em; }
-.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: transparent; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: normal; text-align: left; box-sizing: content-box; direction: ltr; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
 li div { padding-top: 0px; }
 blockquote { margin: 1rem 0px; }
-li p, li .mathjax-block { margin: 0.5rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
 li { margin: 0px; position: relative; }
 blockquote > :last-child { margin-bottom: 0px; }
-blockquote > :first-child { margin-top: 0px; }
-.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
 @media print {
-  html, body { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
   .typora-export * { -webkit-print-color-adjust: exact; }
-  h1, h2, h3, h4, h5, h6 { break-after: avoid-page; orphans: 2; }
-  p { orphans: 4; }
   html.blink-to-pdf { font-size: 13px; }
-  .typora-export #write { padding-left: 1cm; padding-right: 1cm; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
   .typora-export #write::after { height: 0px; }
-  @page { margin: 20mm 0mm; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
-pre.md-meta-block { font-size: 0.8rem; min-height: 2.86rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
-p > img:only-child { display: block; margin: auto; }
-p .md-image:only-child { display: inline-block; width: 100%; text-align: center; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
 #write .MathJax_Display { margin: 0.8em 0px 0px; }
-.mathjax-block { white-space: pre; overflow: hidden; width: 100%; }
-p + .mathjax-block { margin-top: -1.143rem; }
-.mathjax-block:not(:empty)::after { display: none; }
-[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: none; box-shadow: none; }
-.task-list { list-style-type: none; }
-.task-list-item { position: relative; padding-left: 1em; }
-.task-list-item input { position: absolute; top: 0px; left: 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
 .math { font-size: 1rem; }
 .md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
 .md-toc-content { position: relative; margin-left: 0px; }
-.md-toc::after, .md-toc-content::after { display: none; }
+.md-toc-content::after, .md-toc::after { display: none; }
 .md-toc-item { display: block; color: rgb(65, 131, 196); }
 .md-toc-item a { text-decoration: none; }
-.md-toc-inner:hover { }
+.md-toc-inner:hover { text-decoration: underline; }
 .md-toc-inner { display: inline-block; cursor: pointer; }
-.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: bold; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
 .md-toc-h2 .md-toc-inner { margin-left: 2em; }
 .md-toc-h3 .md-toc-inner { margin-left: 4em; }
 .md-toc-h4 .md-toc-inner { margin-left: 6em; }
@@ -115,51 +125,58 @@ a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; 
 .footnote-line a:not(.reversefootnote) { color: inherit; }
 .md-attr { display: none; }
 .md-fn-count::after { content: "."; }
-.md-tag { opacity: 0.5; }
-.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: monospace; }
-code { text-align: left; }
-h1 .md-tag, h2 .md-tag, h3 .md-tag, h4 .md-tag, h5 .md-tag, h6 .md-tag { font-weight: initial; opacity: 0.35; }
-a.md-print-anchor { border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: none !important; background: transparent !important; text-decoration: initial !important; text-shadow: initial !important; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
 .md-inline-math .MathJax_SVG .noError { display: none !important; }
-.mathjax-block .MathJax_SVG_Display { text-align: center; margin: 1em 0em; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; display: block !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
 .MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
-.MathJax_SVG .MJX-monospace { font-family: monospace; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
 .MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
-.MathJax_SVG { display: inline; font-style: normal; font-weight: normal; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
-.MathJax_SVG * { transition: none; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
 .md-diagram-panel > svg { max-width: 100%; }
-[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
 
 
-:root { --side-bar-bg-color: #fafafa; --control-text-color: #777; }
-@font-face { font-family: "Open Sans"; font-style: normal; font-weight: normal; src: local("Open Sans Regular"), url("./github/400.woff") format("woff"); }
-@font-face { font-family: "Open Sans"; font-style: italic; font-weight: normal; src: local("Open Sans Italic"), url("./github/400i.woff") format("woff"); }
-@font-face { font-family: "Open Sans"; font-style: normal; font-weight: bold; src: local("Open Sans Bold"), url("./github/700.woff") format("woff"); }
-@font-face { font-family: "Open Sans"; font-style: italic; font-weight: bold; src: local("Open Sans Bold Italic"), url("./github/700i.woff") format("woff"); }
+:root { --side-bar-bg-color: #fff; --control-text-color: #777; }
 html { font-size: 14px; }
-body { font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(51, 51, 51); line-height: 1.6; }
+body { color: rgb(52, 73, 94); -webkit-font-smoothing: antialiased; line-height: 1.6rem; letter-spacing: 0px; margin: 0px; overflow-x: hidden; font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif !important; }
 #write { max-width: 860px; margin: 0px auto; padding: 20px 30px 100px; }
-#write > ul:first-child, #write > ol:first-child { margin-top: 30px; }
+#write p { line-height: 1.6rem; word-spacing: 0.05rem; }
+#write ol li { text-indent: 0.5rem; }
+#write > ul:first-child, #write > ol:first-child { margin-top: 10px; }
 body > :first-child { margin-top: 0px !important; }
 body > :last-child { margin-bottom: 0px !important; }
-a { color: rgb(65, 131, 196); }
+a { color: rgb(66, 185, 131); font-weight: 600; padding: 0px 2px; text-decoration: none; }
 h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; line-height: 1.4; cursor: text; }
 h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor { text-decoration: none; }
-h1 tt, h1 code { font-size: inherit; }
-h2 tt, h2 code { font-size: inherit; }
-h3 tt, h3 code { font-size: inherit; }
-h4 tt, h4 code { font-size: inherit; }
-h5 tt, h5 code { font-size: inherit; }
-h6 tt, h6 code { font-size: inherit; }
-h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
-h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; }
-h3 { font-size: 1.5em; line-height: 1.43; }
-h4 { font-size: 1.25em; }
-h5 { font-size: 1em; }
-h6 { font-size: 1em; color: rgb(119, 119, 119); }
+h1 tt, h1 code { font-size: inherit !important; }
+h2 tt, h2 code { font-size: inherit !important; }
+h3 tt, h3 code { font-size: inherit !important; }
+h4 tt, h4 code { font-size: inherit !important; }
+h5 tt, h5 code { font-size: inherit !important; }
+h6 tt, h6 code { font-size: inherit !important; }
+h2 a, h3 a { color: rgb(52, 73, 94); }
+h1 { padding-bottom: 0.2rem; font-size: 2.2rem; line-height: 1.3; }
+h2 { font-size: 1.75rem; margin: 15px 0px; border-bottom: 0px solid rgb(221, 221, 221); }
+h3 { font-size: 1.4rem; line-height: 1.43; margin: 20px 0px 7px; }
+h4 { font-size: 1.2rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 1rem; color: rgb(119, 119, 119); }
 p, blockquote, ul, ol, dl, table { margin: 0.8em 0px; }
 li > ol, li > ul { margin: 0px; }
-hr { height: 4px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border-width: 0px 0px 1px; border-style: none none solid; border-top-color: initial; border-right-color: initial; border-left-color: initial; border-image: initial; overflow: hidden; box-sizing: content-box; border-bottom-color: rgb(221, 221, 221); }
+hr { height: 2px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; overflow: hidden; box-sizing: content-box; }
 body > h2:first-child { margin-top: 0px; padding-top: 0px; }
 body > h1:first-child { margin-top: 0px; padding-top: 0px; }
 body > h1:first-child + h2 { margin-top: 0px; padding-top: 0px; }
@@ -170,27 +187,31 @@ li p.first { display: inline-block; }
 ul, ol { padding-left: 30px; }
 ul:first-child, ol:first-child { margin-top: 0px; }
 ul:last-child, ol:last-child { margin-bottom: 0px; }
-blockquote { border-left: 4px solid rgb(221, 221, 221); padding: 0px 15px; color: rgb(119, 119, 119); }
-blockquote blockquote { padding-right: 0px; }
+blockquote { border-width: 1px; border-style: solid; border-color: rgb(221, 221, 221); padding: 10px 15px; color: rgb(119, 119, 119); background-color: rgba(66, 185, 131, 0.1); }
 table { padding: 0px; word-break: initial; }
-table tr { border-top: 1px solid rgb(204, 204, 204); margin: 0px; padding: 0px; }
-table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
-table tr th { font-weight: bold; border: 1px solid rgb(204, 204, 204); text-align: left; margin: 0px; padding: 6px 13px; }
-table tr td { border: 1px solid rgb(204, 204, 204); text-align: left; margin: 0px; padding: 6px 13px; }
+table tr { border-top: 1px solid rgb(223, 226, 229); margin: 0px; padding: 0px; }
+table tr:nth-child(2n), thead { background-color: rgb(250, 250, 250); }
+table tr th { font-weight: bold; border-width: 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: rgb(223, 226, 229); border-right-color: rgb(223, 226, 229); border-left-color: rgb(223, 226, 229); border-image: initial; border-bottom-style: initial; border-bottom-color: initial; text-align: left; margin: 0px; padding: 6px 13px; }
+table tr td { border: 1px solid rgb(223, 226, 229); text-align: left; margin: 0px; padding: 6px 13px; }
 table tr th:first-child, table tr td:first-child { margin-top: 0px; }
 table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
-.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); }
-.md-fences, code, tt { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 4px 0px; font-size: 0.9em; }
-.md-fences { margin-bottom: 15px; margin-top: 15px; padding: 8px 1em 6px; }
-.task-list { padding-left: 0px; }
-.task-list-item { padding-left: 32px; }
-.task-list-item input { top: 3px; left: 8px; }
-@media screen and (min-width: 914px) {
-}
+#write strong { padding: 0px 1px; }
+#write em { padding: 0px 5px 0px 2px; }
+#write table thead th { background-color: rgb(242, 242, 242); }
+#write .CodeMirror-gutters { border-right: none; }
+#write .md-fences { border: 1px solid rgb(244, 244, 244); -webkit-font-smoothing: initial; line-height: 1.43rem; border-radius: 2px; font-size: 0.85rem; overflow-wrap: normal; margin: 0.8rem 0px !important; padding: 0.3rem 0px !important; background-color: rgb(248, 248, 248) !important; font-family: "Roboto Mono", "Source Sans Pro", Monaco, courier, monospace !important; }
+#write .CodeMirror-wrap .CodeMirror-code pre { padding-left: 12px; }
+#write code, tt { margin: 0px 2px; padding: 2px 4px; border-radius: 2px; font-size: 0.92rem; color: rgb(233, 105, 0); background-color: rgb(248, 248, 248); font-family: "Roboto Mono", "Source Sans Pro", Monaco, courier, monospace !important; }
+#write .md-footnote { background-color: rgb(248, 248, 248); color: rgb(233, 105, 0); }
+#write mark { background-color: rgb(235, 255, 235); border-radius: 2px; padding: 2px 4px; margin: 0px 2px; color: rgb(34, 34, 34); font-weight: 500; }
+#write del { padding: 1px 2px; }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(34, 162, 201); }
+.cm-s-inner .cm-string { color: rgb(34, 162, 201); }
+.md-task-list-item > input { margin-left: -1.3em; }
 @media print {
   html { font-size: 13px; }
   table, pre { break-inside: avoid; }
-  pre { word-wrap: break-word; }
+  pre { overflow-wrap: break-word; }
 }
 .md-fences { background-color: rgb(248, 248, 248); }
 #write pre.md-meta-block { padding: 1rem; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border: 0px; border-radius: 3px; color: rgb(119, 119, 119); margin-top: 0px !important; }
@@ -199,9 +220,12 @@ table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
 #write > h4.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
 #write > h5.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
 #write > h6.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
-.md-image > .md-meta { border: 1px solid rgb(221, 221, 221); border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 4px 0px; font-size: 0.9em; color: inherit; }
+.md-image > .md-meta { border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 0px 0px 4px; font-size: 0.9em; color: inherit; }
 .md-tag { color: inherit; }
-.md-toc { margin-top: 5px; padding-bottom: 5px; }
+.md-toc { margin-top: 0px; padding-bottom: 0px; }
+.md-toc-h1 { display: none; }
+.md-toc-h4 { display: none; }
+.md-toc-h5 { display: none; }
 .sidebar-tabs { border-bottom: none; }
 #typora-quick-open { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); }
 #typora-quick-open-item { background-color: rgb(250, 250, 250); border-color: rgb(254, 254, 254) rgb(229, 229, 229) rgb(229, 229, 229) rgb(238, 238, 238); border-style: solid; border-width: 1px; }
@@ -211,16 +235,12 @@ header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Aria
 .file-node-content:hover .file-node-icon, .file-node-content:hover .file-node-open-state { visibility: visible; }
 .mac-seamless-mode #typora-sidebar { background-color: var(--side-bar-bg-color); }
 .md-lang { color: rgb(180, 101, 77); }
-.boxed { border: 0.5px solid gray; padding: 1px 12px; }
+.html-for-mac .context-menu { --item-hover-bg-color: #E6F0FE; }
 
-
-
-
-
-
+ .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
 </style>
 </head>
-<body class='typora-export' >
-<div  id='write'  class = 'is-node'><p><a href='./index.html'>Water Data Boot Camp: Spring 2018</a></p><h1><a name='header-n4' class='md-header-anchor '></a>Unit 1: Analysis of Streamflow Data using Excel</h1><div class='md-toc' mdtype='toc'><p class="md-toc-content"><span class="md-toc-item md-toc-h1" data-ref="n4"><a class="md-toc-inner" href="#header-n4">Unit 1: Analysis of Streamflow Data using Excel</a></span><span class="md-toc-item md-toc-h2" data-ref="n6"><a class="md-toc-inner" href="#header-n6">♦ Background: How has Falls Lake affected streamflow?</a></span><span class="md-toc-item md-toc-h2" data-ref="n14"><a class="md-toc-inner" href="#header-n14">♦ Analytical workflow: A Preview</a></span><span class="md-toc-item md-toc-h3" data-ref="n23"><a class="md-toc-inner" href="#header-n23">1. Clarifying the central question</a></span><span class="md-toc-item md-toc-h3" data-ref="n45"><a class="md-toc-inner" href="#header-n45">2. What data do I need to answer the question? Do the data exist?</a></span><span class="md-toc-item md-toc-h3" data-ref="n54"><a class="md-toc-inner" href="#header-n54">3. Obtaining, exploring, and cleaning the data</a></span><span class="md-toc-item md-toc-h3" data-ref="n59"><a class="md-toc-inner" href="#header-n59">4. Conducting the analysis and communicating the results</a></span><span class="md-toc-item md-toc-h3" data-ref="n80"><a class="md-toc-inner" href="#header-n80">5. Post-mortem: evaluation and documentation</a></span><span class="md-toc-item md-toc-h2" data-ref="n90"><a class="md-toc-inner" href="#header-n90">Exercises -</a></span></p></div><h2><a name='header-n6' class='md-header-anchor '></a>♦ Background: How has Falls Lake affected streamflow?</h2><p>Prior to 1978, flooding of the Neuse River caused extensive damage to public and private properties including roadways, railroads, industrial sites, and farmlands. The Falls Lake Project was developed by the U.S. Army Corps of Engineers to control damaging floods and to supply a source of water for surrounding communities. Construction of the dam began in 1978 and was completed in 1981. In addition to recreation opportunities, Falls Lake now provides flood control, water supply, water quality, and fish and wildlife conservation resources (<a href='https://www.ncparks.gov/falls-lake-state-recreation-area/history'>source</a>).</p><p>Now, some 3 dozen years after Falls Lake was constructed, we want to evaluate its impact on downstream streamflow, using this as an opportunity to examine some data analytic techniques, specifically ones using Microsoft Excel. These techniques will cover ways to get data into Excel and how to manage, wrangle, and analyze those data. </p><p>This document begins with a review of the <strong>analytical workflow</strong> of most data projects. We apply this workflow to understand how streamflow has changed since Falls Lake was constructed. In doing so, we focus on using <em>Excel</em> to tackle the assignment, but companion documents will examine how <em>R</em> and <em>Python</em> can accomplish the same set of tasks in a scripting environment.</p><hr /><h2><a name='header-n14' class='md-header-anchor '></a>♦ Analytical workflow: A Preview</h2><p>Data analysis projects follow a similar workflow, one that begins with a general question or objective that guides our process of turning data into actionable information. Let&#39;s begin by examining our workflow, depicted in the diagram below. </p><p>&nbsp;</p><p><img src='media/Data%20Analytics%20Process%20Streamflow.png' alt='Data Analytics Process Streamflow' /></p><p>&nbsp;</p><h3><a name='header-n23' class='md-header-anchor '></a>1. Clarifying the central question</h3><p>Data analysis has a workflow that often begins with clarifying the central question. For example, our initial question is <em>&quot;How has Falls Lake affected streamflow?&quot;</em> This question has some useful specifics: We know where we&#39;ll be working (Falls Lake) and what the core dataset will be (streamflow). However, the question is vague on how we might evaluate the impact on streamflow. As a data analyst your first job is often to <u>clarify a basic question into one that is <em>actionable</em></u>, that is taking a vague question and creating specific questions that shape data exploration and analysis to facilitates effective decision making. </p><p>This step usually requires some communication between the the client, project managers, experts in the field, and you, the data analyst. (And let&#39;s hope it goes better than this meeting: <a href='https://www.youtube.com/watch?v=BKorP55Aqvg' target='_blank' >https://www.youtube.com/watch?v=BKorP55Aqvg</a> .) For our Falls Lake example, however, we&#39;ll assume this meeting took place and narrowed on on the following questions:</p><ul><li>What do monthly streamflows look like? Have they changed since building the reservoir?<br/></li><li>How has the 100-year flood frequency changed since building the reservoir?</li><li>How have 7-month minimum flows changed since building the reservoir?</li><li>Are there trends in streamflow (increasing, same or decreasing) since building the reservoir?</li></ul><p>While these are still a touch vague, our expert hydrologists will provide more specific guidance on these analyses below. </p><p>&nbsp;</p><h3><a name='header-n45' class='md-header-anchor '></a>2. What data do I need to answer the question? Do the data exist?</h3><p>With our objectives clarified, our next step is to <u>identify the data needed for our analyses</u>. In our case, it&#39;s fairly obvious: we need long-term streamflow data at some point downstream (and not too far downstream) from Falls Lake. In other cases, it may not be as obvious and may require another conference with the project team to figure out what that ideal dataset may be. </p><p>When a target dataset is identified, the following question is <u>whether those data exist</u>? Knowing where to look or whom to ask whether a certain dataset exists comes with experience and your networks (though web-search skills can be quite useful too). However, if you&#39;ve exhausted your search and still can&#39;t find the proper dataset(s), your fallback is to look for <strong>proxies</strong>, or similar (existing) data that can be used in place of your [missing] data. In some cases, <strong>models</strong> can be used to derive suitable data to run your analysis. </p><p>In this case, the data we want are provided by the USGS&#39; <em>National Water Information System</em> (NWIS). </p><p>&nbsp;</p><h3><a name='header-n54' class='md-header-anchor '></a>3. Obtaining, exploring, and cleaning the data</h3><p>Data come in a variety of forms and formats. Some datasets lend themselves to easy import and immediate analysis; others may not be digital-ready (e.g. hard-copies or PDFs) or have an inconsistent format rendering them essentially useless. As the saying goes, &quot;your mileage may vary&quot; with the dataset you find. While there are techniques, technologies, and some tricks in getting messy, seemingly irretrievable data into a workable format, that is not our focus. Rather, we&#39;ll cover some reliable techniques for <u>getting data into a workable, or <strong>tidy</strong> format</u> in Excel. More powerful techniques exist for obtaining and cleaning data exist in <em>R</em> and <em>Python</em> scripting languages that we&#39;ll examine a bit later.</p><p>&nbsp;</p><h3><a name='header-n59' class='md-header-anchor '></a>4. Conducting the analysis and communicating the results</h3><p>With the proper data in your analytical environment (e.g. <em>Excel</em>, <em>R</em>, <em>Python</em>), the remaining steps in the data analysis workflow involve answering your question(s). How this goes ultimately depends on your particular objectives, but in this exercise we will examine a few basic strategies for working with data. These include:</p><ul><li>Selecting and subsetting specific observations (rows) and variables (columns) of data.</li><li>Reshaping or changing the layout of your data, e.g. pivoting or transforming rows and columns</li><li>Grouping and summarizing data</li><li>Combining datasets</li><li>Graphing, charting, and plotting data</li></ul><p>&nbsp;</p><h3><a name='header-n80' class='md-header-anchor '></a>5. Post-mortem: evaluation and documentation</h3><p>Often overlooked by the data analyst is the step of reviewing your analysis and documenting your work. When you&#39;ve completed your analysis, you&#39;ll often reconvene with the team and assess whether you answered your central question effectively. If not, you&#39;ll need to tweak things until you do and perhaps cycle through the workflow again. This is where <strong>documentation</strong> can be hugely helpful. Documentation includes notes to yourself and to others covering in enough detail as to facilitate repeating the entire process. Documentation should include any non-obvious assumption or decision made in doing your analysis. This can be a bit cumbersome with Excel, but is done quite easily through comments in R or Python scripts. </p><p>&nbsp;</p><hr /><h2><a name='header-n90' class='md-header-anchor '></a>Exercises -</h2><ul><li><h3><a name='header-n108' class='md-header-anchor '></a><u>Task 1</u>: <a href='./Streamflow_Task1.html'>Exploring monthly stream flows</a></h3></li><li><h3><a name='header-n93' class='md-header-anchor '></a><u>Task 2</u>: <a href='./Streamflow_Task2.html'>Evaluating changes in 100 &amp; 500 year floods</a></h3></li><li><h3><a name='header-n96' class='md-header-anchor '></a><u>Task 3</u>: <a href='./Streamflow_Task3.html'>Evaluating changes in minimum flows</a></h3></li><li><h3><a name='header-n99' class='md-header-anchor '></a><u>Task 4:</u> <a href='./Streamflow_Task4.html'>Evaluating annual stream flow changes over time</a></h3></li></ul><p>&nbsp;</p></div>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><p><a href='./index.html'><span>Water Data Boot Camp: Fall 2019</span></a></p><h1><a name="unit-1:-analysis-of-streamflow-data-using-excel" class="md-header-anchor"></a><span>Unit 1: Analysis of Streamflow Data using Excel</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content"><span class="md-toc-item md-toc-h1" data-ref="n3"><a class="md-toc-inner" href="#unit-1:-analysis-of-streamflow-data-using-excel">Unit 1: Analysis of Streamflow Data using Excel</a></span><span class="md-toc-item md-toc-h2" data-ref="n5"><a class="md-toc-inner" href="#♦-background:-how-has-falls-lake-affected-streamflow?">♦ Background: How has Falls Lake affected streamflow?</a></span><span class="md-toc-item md-toc-h2" data-ref="n10"><a class="md-toc-inner" href="#♦-analytical-workflow:-a-preview">♦ Analytical workflow: A Preview</a></span><span class="md-toc-item md-toc-h3" data-ref="n15"><a class="md-toc-inner" href="#1.-clarifying-the-central-question">1. Clarifying the central question</a></span><span class="md-toc-item md-toc-h3" data-ref="n29"><a class="md-toc-inner" href="#2.-what-data-do-i-need-to-answer-the-question?-do-the-data-exist?">2. What data do I need to answer the question? Do the data exist?</a></span><span class="md-toc-item md-toc-h3" data-ref="n34"><a class="md-toc-inner" href="#3.-obtaining,-exploring,-and-cleaning-the-data">3. Obtaining, exploring, and cleaning the data</a></span><span class="md-toc-item md-toc-h3" data-ref="n37"><a class="md-toc-inner" href="#4.-conducting-the-analysis-and-communicating-the-results">4. Conducting the analysis and communicating the results</a></span><span class="md-toc-item md-toc-h3" data-ref="n52"><a class="md-toc-inner" href="#5.-post-mortem:-evaluation-and-documentation">5. Post-mortem: evaluation and documentation</a></span><span class="md-toc-item md-toc-h2" data-ref="n56"><a class="md-toc-inner" href="#exercises--">Exercises -</a></span></p></div><h2><a name="♦-background:-how-has-falls-lake-affected-streamflow?" class="md-header-anchor"></a><span>♦ Background: How has Falls Lake affected streamflow?</span></h2><p><span>Prior to 1978, flooding of the Neuse River caused extensive damage to public and private properties including roadways, railroads, industrial sites, and farmlands. The Falls Lake Project was developed by the U.S. Army Corps of Engineers to control damaging floods and to supply a source of water for surrounding communities. Construction of the dam began in 1978 and was completed in 1981. In addition to recreation opportunities, Falls Lake now provides flood control, water supply, water quality, and fish and wildlife conservation resources (</span><a href='https://www.ncparks.gov/falls-lake-state-recreation-area/history'><span>source</span></a><span>).</span></p><p><span>Now, some 3 dozen years after Falls Lake was constructed, we want to evaluate its impact on downstream streamflow, using this as an opportunity to examine some data analytic techniques, specifically ones using Microsoft Excel. These techniques will cover ways to get data into Excel and how to manage, wrangle, and analyze those data. </span></p><p><span>This document begins with a review of the </span><strong><span>analytical workflow</span></strong><span> of most data projects. We apply this workflow to understand how streamflow has changed since Falls Lake was constructed. In doing so, we focus on using </span><em><span>Excel</span></em><span> to tackle the assignment, but companion documents will examine how </span><em><span>R</span></em><span> and </span><em><span>Python</span></em><span> can accomplish the same set of tasks in a scripting environment.</span></p><hr /><h2><a name="♦-analytical-workflow:-a-preview" class="md-header-anchor"></a><span>♦ Analytical workflow: A Preview</span></h2><p><span>Data analysis projects follow a similar workflow, one that begins with a general question or objective that guides our process of turning data into actionable information. Let&#39;s begin by examining our workflow, depicted in the diagram below. </span></p><p>&nbsp;</p><p><img src='media/Data Analytics Process Streamflow.png' alt='Data Analytics Process Streamflow' referrerPolicy='no-referrer' /></p><p>&nbsp;</p><h3><a name="1.-clarifying-the-central-question" class="md-header-anchor"></a><span>1. Clarifying the central question</span></h3><p><span>Data analysis has a workflow that often begins with clarifying the central question. For example, our initial question is </span><em><span>&quot;How has Falls Lake affected streamflow?&quot;</span></em><span> This question has some useful specifics: We know where we&#39;ll be working (Falls Lake) and what the core dataset will be (streamflow). However, the question is vague on how we might evaluate the impact on streamflow. As a data analyst your first job is often to </span><u><span>clarify a basic question into one that is </span><em><span>actionable</span></em></u><span>, that is taking a vague question and creating specific questions that shape data exploration and analysis to facilitates effective decision making. </span></p><p><span>This step usually requires some communication between the the client, project managers, experts in the field, and you, the data analyst. (And let&#39;s hope it goes better than this meeting: </span><a href='https://www.youtube.com/watch?v=BKorP55Aqvg' target='_blank' class='url'>https://www.youtube.com/watch?v=BKorP55Aqvg</a><span> .) For our Falls Lake example, however, we&#39;ll assume this meeting took place and narrowed on on the following questions:</span></p><ul><li><span>What do monthly streamflows look like? Have they changed since building the reservoir?  </span></li><li><span>How has the 100-year flood frequency changed since building the reservoir?</span></li><li><span>How have 7-month minimum flows changed since building the reservoir?</span></li><li><span>Are there trends in streamflow (increasing, same or decreasing) since building the reservoir?</span></li></ul><p><span>While these are still a touch vague, our expert hydrologists will provide more specific guidance on these analyses below. </span></p><p>&nbsp;</p><h3><a name="2.-what-data-do-i-need-to-answer-the-question?-do-the-data-exist?" class="md-header-anchor"></a><span>2. What data do I need to answer the question? Do the data exist?</span></h3><p><span>With our objectives clarified, our next step is to </span><u><span>identify the data needed for our analyses</span></u><span>. In our case, it&#39;s fairly obvious: we need long-term streamflow data at some point downstream (and not too far downstream) from Falls Lake. In other cases, it may not be as obvious and may require another conference with the project team to figure out what that ideal dataset may be. </span></p><p><span>When a target dataset is identified, the following question is </span><u><span>whether those data exist</span></u><span>? Knowing where to look or whom to ask whether a certain dataset exists comes with experience and your networks (though web-search skills can be quite useful too). However, if you&#39;ve exhausted your search and still can&#39;t find the proper dataset(s), your fallback is to look for </span><strong><span>proxies</span></strong><span>, or similar (existing) data that can be used in place of your [missing] data. In some cases, </span><strong><span>models</span></strong><span> can be used to derive suitable data to run your analysis. </span></p><p><span>In this case, the data we want are provided by the USGS&#39; </span><em><span>National Water Information System</span></em><span> (NWIS). </span></p><p>&nbsp;</p><h3><a name="3.-obtaining,-exploring,-and-cleaning-the-data" class="md-header-anchor"></a><span>3. Obtaining, exploring, and cleaning the data</span></h3><p><span>Data come in a variety of forms and formats. Some datasets lend themselves to easy import and immediate analysis; others may not be digital-ready (e.g. hard-copies or PDFs) or have an inconsistent format rendering them essentially useless. As the saying goes, &quot;your mileage may vary&quot; with the dataset you find. While there are techniques, technologies, and some tricks in getting messy, seemingly irretrievable data into a workable format, that is not our focus. Rather, we&#39;ll cover some reliable techniques for </span><u><span>getting data into a workable, or </span><strong><span>tidy</span></strong><span> format</span></u><span> in Excel. More powerful techniques exist for obtaining and cleaning data exist in </span><em><span>R</span></em><span> and </span><em><span>Python</span></em><span> scripting languages that we&#39;ll examine a bit later.</span></p><p>&nbsp;</p><h3><a name="4.-conducting-the-analysis-and-communicating-the-results" class="md-header-anchor"></a><span>4. Conducting the analysis and communicating the results</span></h3><p><span>With the proper data in your analytical environment (e.g. </span><em><span>Excel</span></em><span>, </span><em><span>R</span></em><span>, </span><em><span>Python</span></em><span>), the remaining steps in the data analysis workflow involve answering your question(s). How this goes ultimately depends on your particular objectives, but in this exercise we will examine a few basic strategies for working with data. These include:</span></p><ul><li><span>Selecting and subsetting specific observations (rows) and variables (columns) of data.</span></li><li><span>Reshaping or changing the layout of your data, e.g. pivoting or transforming rows and columns</span></li><li><span>Grouping and summarizing data</span></li><li><span>Combining datasets</span></li><li><span>Graphing, charting, and plotting data</span></li></ul><p>&nbsp;</p><h3><a name="5.-post-mortem:-evaluation-and-documentation" class="md-header-anchor"></a><span>5. Post-mortem: evaluation and documentation</span></h3><p><span>Often overlooked by the data analyst is the step of reviewing your analysis and documenting your work. When you&#39;ve completed your analysis, you&#39;ll often reconvene with the team and assess whether you answered your central question effectively. If not, you&#39;ll need to tweak things until you do and perhaps cycle through the workflow again. This is where </span><strong><span>documentation</span></strong><span> can be hugely helpful. Documentation includes notes to yourself and to others covering in enough detail as to facilitate repeating the entire process. Documentation should include any non-obvious assumption or decision made in doing your analysis. This can be a bit cumbersome with Excel, but is done quite easily through comments in R or Python scripts. </span></p><p>&nbsp;</p><hr /><h2><a name="exercises--" class="md-header-anchor"></a><span>Exercises -</span></h2><ul><li><h3><a name="<u>task-1</u>:-[exploring-monthly-stream-flows](./streamflow_task1.html)" class="md-header-anchor"></a><u><span>Task 1</span></u><span>: </span><a href='./Streamflow_Task1.html'><span>Exploring monthly stream flows</span></a></h3></li><li><h3><a name="<u>task-2</u>:-[evaluating-changes-in-100-&amp;-500-year-floods](./streamflow_task2.html)" class="md-header-anchor"></a><u><span>Task 2</span></u><span>: </span><a href='./Streamflow_Task2.html'><span>Evaluating changes in 100 &amp; 500 year floods</span></a></h3></li><li><h3><a name="<u>task-3</u>:-[evaluating-changes-in-minimum-flows](./streamflow_task3.html)" class="md-header-anchor"></a><u><span>Task 3</span></u><span>: </span><a href='./Streamflow_Task3.html'><span>Evaluating changes in minimum flows</span></a></h3></li><li><h3><a name="<u>task-4:</u>-[evaluating-annual-stream-flow-changes-over-time](./streamflow_task4.html)" class="md-header-anchor"></a><u><span>Task 4:</span></u><span> </span><a href='./Streamflow_Task4.html'><span>Evaluating annual stream flow changes over time</span></a></h3></li></ul></div>
 </body>
 </html>
