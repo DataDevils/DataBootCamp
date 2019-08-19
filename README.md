@@ -1,12 +1,10 @@
 ---
-Title: Water Data Boot Camp
-Author: John Fay and Lauren Patterson
-Date: Spring 2018
+Title: Data Boot Camp - Intro
+Author: John Fay 
+Date: Fall 2019
 ---
 
-
-
-# Water Data Boot Camp
+# Water Data Boot Camp - Fall 2019
 
 <https://datadevils.github.io/DataBootCamp/>
 
@@ -18,12 +16,11 @@ Date: Spring 2018
 * Technological advancements in satellites, drones, sensors and so on create more data that can be transformed into actionable information for water management.
 * Cultural, academic, and legislative shift towards open water data and transparency.
 
-Sources: [Imagine an Internet of Water](https://www.aspeninstitute.org/aspen-journal-of-ideas/imagine-internet-water/), 
-​                [3 Ways the course of water sustainability changed in 2017](https://www.greenbiz.com/article/3-ways-course-water-sustainability-changed-2017)
+Sources: [Imagine an Internet of Water](https://www.aspeninstitute.org/aspen-journal-of-ideas/imagine-internet-water/),  [3 Ways the course of water sustainability changed in 2017](https://www.greenbiz.com/article/3-ways-course-water-sustainability-changed-2017)
 
 ---
 
-## UNIT 1: How has Falls Lake reservoir impacted streamflow?<br>(*Focus*: EXCEL)
+## UNIT 1: How has Falls Lake reservoir impacted streamflow?<br>(Focus: ==EXCEL==)
 
 #### What you will learn:
 
@@ -39,7 +36,7 @@ Sources: [Imagine an Internet of Water](https://www.aspeninstitute.org/aspen-jou
 
 #### Primary focus:
 
-1. Understanding how to find data.
+1. Techniques for finding data and bringing it into your Excel workspace.
 2. Basic data management skills and documentation.
 3. How to manipulate data in Excel:
    * Pivot tables
@@ -49,11 +46,11 @@ Sources: [Imagine an Internet of Water](https://www.aspeninstitute.org/aspen-jou
 
 ---
 
-## UNIT 2: Developing Water Balance Sheets from Online Data?<br>  (*Focus*: R *or* Python)
+## UNIT 2: Developing Water Balance Sheets from Online Data?<br>  (Focus: ==R== *or* ==Python==)
 
 #### What you will learn:
 
-1. R and Python scripting environments.
+1. R/Python scripting environments.
 2. Finding, importing, and "tidying" water use and supply data from on-line repositories.
 3. Constructing water usage tables from USGS county level water use data.
 4. Downscaling 1/8° degree resolution hydrologic models into county level water supply data. 
@@ -92,7 +89,7 @@ Sources: [Imagine an Internet of Water](https://www.aspeninstitute.org/aspen-jou
 
 ---
 
-## UNIT 3: How often is Jordan Lake exceeding water quality limits?<br>(Focus: Data Interaction and Visualization)
+## UNIT 3: How often is Jordan Lake exceeding water quality limits?<br>(Focus: ==Data Interaction== and ==Visualization==)
 
 #### What you will learn: 
 

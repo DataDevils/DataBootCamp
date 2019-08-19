@@ -1,10 +1,10 @@
 ---
 Title: Analysis of Streamflow Data using Excel
 Author: Lauren Patterson and John Fay
-Date: Spring 2018
+Date: Fall 2019
 ---
 
-[Water Data Boot Camp: Spring 2018](./index.html)
+[Water Data Boot Camp: Fall 2019](./index.html)
 
 # Unit 1: Analysis of Streamflow Data using Excel
 

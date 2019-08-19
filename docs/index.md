@@ -1,25 +1,25 @@
 ---
-Title: Data Boot Camp - Outline
-Author: John Fay and Lauren Patterson
-Date: Spring 2018
+Title: Data Boot Camp - Overview
+Author: John Fay 
+Date: Fall 2019
 ---
 
 # Data Boot Camp - Overview
 
 ```
-Instructors: John Fay & Lauren Patterson
-Feb 2, 2018 -- EH 1104
+Instructors: John Fay, Edgar Virguez, Jun Shepard
+Aug 30 2, 2019 -- GH 1104
 ```
 
-### [Course overview](./README.html)
+## [Course overview](./README.html)
 
 
 
 ### Unit 1: Analyzing water flow data with Excel
 
-* [Background: How has Falls Lake reservoir impacted streamflow?](./Streamflow_Intro.html#header-n4)
+* [Background: How has Falls Lake reservoir impacted streamflow?](./10_Streamflow_Intro.html#header-n4)
 
-* [Analytical workflow: A Preview](./Streamflow_Intro.html#header-n14)
+*  [Analytical workflow: A Preview](./10_Streamflow_Intro.html#header-n14)
 
 * <u>Task</u>: [Exploring monthly stream flows](./Streamflow_Task1.html)
 
