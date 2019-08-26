@@ -17,9 +17,9 @@ Aug 30 2, 2019 -- GH 1104
 
 ### Unit 1: Analyzing water flow data with Excel
 
-* [Background: How has Falls Lake reservoir impacted streamflow?](./10_Streamflow_Intro.html#header-n4)
+* [Background: How has Falls Lake reservoir impacted streamflow?](./Streamflow_Intro.html#header-n4)
 
-*  [Analytical workflow: A Preview](./10_Streamflow_Intro.html#header-n14)
+*  [Analytical workflow: A Preview](./Streamflow_Intro.html#header-n14)
 
 * <u>Task</u>: [Exploring monthly stream flows](./Streamflow_Task1.html)
 
