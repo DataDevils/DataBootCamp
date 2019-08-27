@@ -49,13 +49,20 @@ Excel's pivot tables are one of it's more powerful features, allowing you to eas
 
 We now have the data we want. Next we'll compute rankings and then sort the data. However, to do this we need to copy the data from the dynamic Pivot Table.
 
-* Copy contents of your pivot table
-* Paste *the values* of the contents `right click`+`s`+`v`.
-* Delete the last row in the pasted values (the grand total).
-* Sort the data from largest to smallest: 
+* **Copy** contents of your pivot table
+
+* **Paste** *the values* of the contents `right click`+`s`+`v`.
+
+* **Delete** the last row in the pasted values (the grand total)
+
+* **Rename** columns if needed (e.g. replace "Row Labels" with "Water Year")
+
+* **Sort** the data from largest to smallest: 
+  
   * Select both columns of data
   * From the Home menu, select Sort & Filter->Custom Sort 
   * Sort data by discharge values from largest to smallest. 
+  
 * Compute rankings in a new column named `rank`
   * Type in a few numbers, e.g., 1, 2, 3.
 
