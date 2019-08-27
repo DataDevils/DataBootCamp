@@ -299,25 +299,28 @@ To examine seasonal (or monthly) variation in streamflow, we need to extract the
 * Parse out the Date to include Year and Month
   * Insert three new columns in your EDA worksheet by right-clicking on Column C and selecting `Insert` three times.
   * Name these columns `year`, `month`, and `water year`
-  * In the Year column, use the `=Year()` function to extract the year from the corresponding cell in the `datetime` column.
-  * Repeat for the month column. 
+  * In the Year column, use the `=Year()` function to extract the year from the corresponding cell in the `datetime` column. The result will look weird, but we'll fix that in a moment.
+  * Repeat for the month column using the formula `=Month()`. 
   * Change the format of these cells from *General* to *Number* by highlighting the columns and selecting `Number` from the dropdown list in the **Number** panel in the **Home** menu. 
   * Extend these formulas to the cells below. 
 * Water year runs from October to September. We adjust the year column to account for this information using `IF`
-  * Create a new column for water year. 
   * Use the `IF` function to assign the value to the cell in the `year` column if the month value is `< 10`, otherwise, set the value of the year column plus 1:  `=IF(D2<10,C2,C2+1)`.
   * Change the format of the cell from General to Number, if necessary. 
   * Extend the formula to the cells below, examining to ensure the calculations are correct. 
-* Create a table skeleton of average streamflow by month (1-12) over the different time periods (period of record, pre1980, and post1984).
+* Create a table skeleton of average streamflow by month (1-12) over the different time periods (period of record, pre1980, and post1984)
 * Use the `AVERAGEIF()` function to compute the average discharge of records where the month equals the specified month. Here, the *range* will be the range of cells in the month column, the criteria will be the month (e.g. '1'), and the average range will be the range of discharge values.
 
 *What do you observe? Would a plot of the results facilitate interpretation?* 
+
+![Monthly Plots](.\media\Fig1_X_MonthlyPlots.jpg)
 
 ---
 
 ## ○ Exercise 2: Compute total streamflow by water year
 
 Repeat the above using `SUMIF` for annual streamflow based on the <u>water year</u>.
+
+![AnnualPlot](.\media\Fig1_X_AnnualPlot)
 
 ---
 
