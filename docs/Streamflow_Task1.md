@@ -320,7 +320,7 @@ To examine seasonal (or monthly) variation in streamflow, we need to extract the
 
 Repeat the above using `SUMIF` for annual streamflow based on the <u>water year</u>.
 
-![AnnualPlot](.\media\Fig1_X_AnnualPlot)
+![AnnualPlot](.\media\Fig1_X_AnnualPlot.jpg)
 
 ---
 
