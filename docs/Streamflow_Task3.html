@@ -2,104 +2,114 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>Analysis of Streamflow Data using Excel</title><link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --code-block-bg-color: inherit; }
+<title>Analysis of Streamflow Data using Excel</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
-.in-text-selection, ::selection { background: rgb(181, 214, 252); text-shadow: none; }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; padding-bottom: 70px; white-space: pre-wrap; overflow-x: visible; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
 .for-image #write { padding-left: 8px; padding-right: 8px; }
 body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
 @media screen and (max-width: 500px) {
   body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
   .CodeMirror-sizer { margin-left: 0px !important; }
   .CodeMirror-gutters { display: none !important; }
 }
-.typora-export #write { margin: 0px auto; }
-#write > p:first-child, #write > ul:first-child, #write > ol:first-child, #write > pre:first-child, #write > blockquote:first-child, #write > div:first-child, #write > table:first-child { margin-top: 30px; }
-#write li > table:first-child { margin-top: -20px; }
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
 img { max-width: 100%; vertical-align: middle; }
-input, button, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
+button, input, select, textarea { color: inherit; font: inherit; }
 input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
-::before, ::after, * { box-sizing: border-box; }
-#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write div, #write pre { width: inherit; }
-#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6 { position: relative; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.8rem; }
 h3 { font-size: 1.6rem; }
 h4 { font-size: 1.4rem; }
 h5 { font-size: 1.2rem; }
 h6 { font-size: 1rem; }
-p { -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
-.typora-export p { white-space: normal; }
-.mathjax-block { margin-top: 0px; margin-bottom: 0px; -webkit-margin-before: 0rem; -webkit-margin-after: 0rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
 .hidden { display: none; }
-.md-blockmeta { color: rgb(204, 204, 204); font-weight: bold; font-style: italic; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
 a { cursor: pointer; }
-sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; }
-#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; margin: 4px 0px 0px; }
-figure { max-width: 100%; overflow-x: auto; margin: 0px; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
 tr { break-inside: avoid; break-after: auto; }
 thead { display: table-header-group; }
 table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
-table.md-table td { min-width: 80px; }
+table.md-table td { min-width: 32px; }
 .CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
 .CodeMirror { text-align: left; }
 .CodeMirror-placeholder { opacity: 0.3; }
 .CodeMirror pre { padding: 0px 4px; }
 .CodeMirror-lines { padding: 0px; }
 div.hr:focus { cursor: none; }
-pre { white-space: pre-wrap; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
 .CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: var(--code-block-bg-color); position: relative !important; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
 .md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
-.md-fences .CodeMirror.CodeMirror-wrap { top: -1.6em; margin-bottom: -1.6em; }
-.md-fences.mock-cm { white-space: pre-wrap; }
-.show-fences-line-number .md-fences { padding-left: 0px; }
-.show-fences-line-number .md-fences.mock-cm { padding-left: 40px; }
-.CodeMirror-line { break-inside: avoid; }
-.footnotes { opacity: 0.8; font-size: 0.9rem; padding-top: 1em; padding-bottom: 1em; }
-.footnotes + .footnotes { margin-top: -1em; }
-.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: transparent; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: normal; text-align: left; box-sizing: content-box; direction: ltr; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
 li div { padding-top: 0px; }
 blockquote { margin: 1rem 0px; }
-li p, li .mathjax-block { margin: 0.5rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
 li { margin: 0px; position: relative; }
 blockquote > :last-child { margin-bottom: 0px; }
-blockquote > :first-child { margin-top: 0px; }
-.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
 @media print {
-  html, body { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
   .typora-export * { -webkit-print-color-adjust: exact; }
-  h1, h2, h3, h4, h5, h6 { break-after: avoid-page; orphans: 2; }
-  p { orphans: 4; }
   html.blink-to-pdf { font-size: 13px; }
-  .typora-export #write { padding-left: 1cm; padding-right: 1cm; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
   .typora-export #write::after { height: 0px; }
-  @page { margin: 20mm 0mm; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
-pre.md-meta-block { font-size: 0.8rem; min-height: 2.86rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
-p > img:only-child { display: block; margin: auto; }
-p .md-image:only-child { display: inline-block; width: 100%; text-align: center; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
 #write .MathJax_Display { margin: 0.8em 0px 0px; }
-.mathjax-block { white-space: pre; overflow: hidden; width: 100%; }
-p + .mathjax-block { margin-top: -1.143rem; }
-.mathjax-block:not(:empty)::after { display: none; }
-[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: none; box-shadow: none; }
-.task-list { list-style-type: none; }
-.task-list-item { position: relative; padding-left: 1em; }
-.task-list-item input { position: absolute; top: 0px; left: 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
 .math { font-size: 1rem; }
 .md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
 .md-toc-content { position: relative; margin-left: 0px; }
-.md-toc::after, .md-toc-content::after { display: none; }
+.md-toc-content::after, .md-toc::after { display: none; }
 .md-toc-item { display: block; color: rgb(65, 131, 196); }
 .md-toc-item a { text-decoration: none; }
-.md-toc-inner:hover { }
+.md-toc-inner:hover { text-decoration: underline; }
 .md-toc-inner { display: inline-block; cursor: pointer; }
-.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: bold; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
 .md-toc-h2 .md-toc-inner { margin-left: 2em; }
 .md-toc-h3 .md-toc-inner { margin-left: 4em; }
 .md-toc-h4 .md-toc-inner { margin-left: 6em; }
@@ -115,51 +125,58 @@ a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; 
 .footnote-line a:not(.reversefootnote) { color: inherit; }
 .md-attr { display: none; }
 .md-fn-count::after { content: "."; }
-.md-tag { opacity: 0.5; }
-.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: monospace; }
-code { text-align: left; }
-h1 .md-tag, h2 .md-tag, h3 .md-tag, h4 .md-tag, h5 .md-tag, h6 .md-tag { font-weight: initial; opacity: 0.35; }
-a.md-print-anchor { border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: none !important; background: transparent !important; text-decoration: initial !important; text-shadow: initial !important; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
 .md-inline-math .MathJax_SVG .noError { display: none !important; }
-.mathjax-block .MathJax_SVG_Display { text-align: center; margin: 1em 0em; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; display: block !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
 .MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
-.MathJax_SVG .MJX-monospace { font-family: monospace; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
 .MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
-.MathJax_SVG { display: inline; font-style: normal; font-weight: normal; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
-.MathJax_SVG * { transition: none; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
 .md-diagram-panel > svg { max-width: 100%; }
-[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
 
 
-:root { --side-bar-bg-color: #fafafa; --control-text-color: #777; }
-@font-face { font-family: "Open Sans"; font-style: normal; font-weight: normal; src: local("Open Sans Regular"), url("./github/400.woff") format("woff"); }
-@font-face { font-family: "Open Sans"; font-style: italic; font-weight: normal; src: local("Open Sans Italic"), url("./github/400i.woff") format("woff"); }
-@font-face { font-family: "Open Sans"; font-style: normal; font-weight: bold; src: local("Open Sans Bold"), url("./github/700.woff") format("woff"); }
-@font-face { font-family: "Open Sans"; font-style: italic; font-weight: bold; src: local("Open Sans Bold Italic"), url("./github/700i.woff") format("woff"); }
+:root { --side-bar-bg-color: #fff; --control-text-color: #777; }
 html { font-size: 14px; }
-body { font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(51, 51, 51); line-height: 1.6; }
+body { color: rgb(52, 73, 94); -webkit-font-smoothing: antialiased; line-height: 1.6rem; letter-spacing: 0px; margin: 0px; overflow-x: hidden; font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif !important; }
 #write { max-width: 860px; margin: 0px auto; padding: 20px 30px 100px; }
-#write > ul:first-child, #write > ol:first-child { margin-top: 30px; }
+#write p { line-height: 1.6rem; word-spacing: 0.05rem; }
+#write ol li { text-indent: 0.5rem; }
+#write > ul:first-child, #write > ol:first-child { margin-top: 10px; }
 body > :first-child { margin-top: 0px !important; }
 body > :last-child { margin-bottom: 0px !important; }
-a { color: rgb(65, 131, 196); }
+a { color: rgb(66, 185, 131); font-weight: 600; padding: 0px 2px; text-decoration: none; }
 h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; line-height: 1.4; cursor: text; }
 h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor { text-decoration: none; }
-h1 tt, h1 code { font-size: inherit; }
-h2 tt, h2 code { font-size: inherit; }
-h3 tt, h3 code { font-size: inherit; }
-h4 tt, h4 code { font-size: inherit; }
-h5 tt, h5 code { font-size: inherit; }
-h6 tt, h6 code { font-size: inherit; }
-h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
-h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; }
-h3 { font-size: 1.5em; line-height: 1.43; }
-h4 { font-size: 1.25em; }
-h5 { font-size: 1em; }
-h6 { font-size: 1em; color: rgb(119, 119, 119); }
+h1 tt, h1 code { font-size: inherit !important; }
+h2 tt, h2 code { font-size: inherit !important; }
+h3 tt, h3 code { font-size: inherit !important; }
+h4 tt, h4 code { font-size: inherit !important; }
+h5 tt, h5 code { font-size: inherit !important; }
+h6 tt, h6 code { font-size: inherit !important; }
+h2 a, h3 a { color: rgb(52, 73, 94); }
+h1 { padding-bottom: 0.2rem; font-size: 2.2rem; line-height: 1.3; }
+h2 { font-size: 1.75rem; margin: 15px 0px; border-bottom: 0px solid rgb(221, 221, 221); }
+h3 { font-size: 1.4rem; line-height: 1.43; margin: 20px 0px 7px; }
+h4 { font-size: 1.2rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 1rem; color: rgb(119, 119, 119); }
 p, blockquote, ul, ol, dl, table { margin: 0.8em 0px; }
 li > ol, li > ul { margin: 0px; }
-hr { height: 4px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border-width: 0px 0px 1px; border-style: none none solid; border-top-color: initial; border-right-color: initial; border-left-color: initial; border-image: initial; overflow: hidden; box-sizing: content-box; border-bottom-color: rgb(221, 221, 221); }
+hr { height: 2px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; overflow: hidden; box-sizing: content-box; }
 body > h2:first-child { margin-top: 0px; padding-top: 0px; }
 body > h1:first-child { margin-top: 0px; padding-top: 0px; }
 body > h1:first-child + h2 { margin-top: 0px; padding-top: 0px; }
@@ -170,27 +187,31 @@ li p.first { display: inline-block; }
 ul, ol { padding-left: 30px; }
 ul:first-child, ol:first-child { margin-top: 0px; }
 ul:last-child, ol:last-child { margin-bottom: 0px; }
-blockquote { border-left: 4px solid rgb(221, 221, 221); padding: 0px 15px; color: rgb(119, 119, 119); }
-blockquote blockquote { padding-right: 0px; }
+blockquote { border-width: 1px; border-style: solid; border-color: rgb(221, 221, 221); padding: 10px 15px; color: rgb(119, 119, 119); background-color: rgba(66, 185, 131, 0.1); }
 table { padding: 0px; word-break: initial; }
-table tr { border-top: 1px solid rgb(204, 204, 204); margin: 0px; padding: 0px; }
-table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
-table tr th { font-weight: bold; border: 1px solid rgb(204, 204, 204); text-align: left; margin: 0px; padding: 6px 13px; }
-table tr td { border: 1px solid rgb(204, 204, 204); text-align: left; margin: 0px; padding: 6px 13px; }
+table tr { border-top: 1px solid rgb(223, 226, 229); margin: 0px; padding: 0px; }
+table tr:nth-child(2n), thead { background-color: rgb(250, 250, 250); }
+table tr th { font-weight: bold; border-width: 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: rgb(223, 226, 229); border-right-color: rgb(223, 226, 229); border-left-color: rgb(223, 226, 229); border-image: initial; border-bottom-style: initial; border-bottom-color: initial; text-align: left; margin: 0px; padding: 6px 13px; }
+table tr td { border: 1px solid rgb(223, 226, 229); text-align: left; margin: 0px; padding: 6px 13px; }
 table tr th:first-child, table tr td:first-child { margin-top: 0px; }
 table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
-.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); }
-.md-fences, code, tt { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 4px 0px; font-size: 0.9em; }
-.md-fences { margin-bottom: 15px; margin-top: 15px; padding: 8px 1em 6px; }
-.task-list { padding-left: 0px; }
-.task-list-item { padding-left: 32px; }
-.task-list-item input { top: 3px; left: 8px; }
-@media screen and (min-width: 914px) {
-}
+#write strong { padding: 0px 1px; }
+#write em { padding: 0px 5px 0px 2px; }
+#write table thead th { background-color: rgb(242, 242, 242); }
+#write .CodeMirror-gutters { border-right: none; }
+#write .md-fences { border: 1px solid rgb(244, 244, 244); -webkit-font-smoothing: initial; line-height: 1.43rem; border-radius: 2px; font-size: 0.85rem; overflow-wrap: normal; margin: 0.8rem 0px !important; padding: 0.3rem 0px !important; background-color: rgb(248, 248, 248) !important; font-family: "Roboto Mono", "Source Sans Pro", Monaco, courier, monospace !important; }
+#write .CodeMirror-wrap .CodeMirror-code pre { padding-left: 12px; }
+#write code, tt { margin: 0px 2px; padding: 2px 4px; border-radius: 2px; font-size: 0.92rem; color: rgb(233, 105, 0); background-color: rgb(248, 248, 248); font-family: "Roboto Mono", "Source Sans Pro", Monaco, courier, monospace !important; }
+#write .md-footnote { background-color: rgb(248, 248, 248); color: rgb(233, 105, 0); }
+#write mark { background-color: rgb(235, 255, 235); border-radius: 2px; padding: 2px 4px; margin: 0px 2px; color: rgb(34, 34, 34); font-weight: 500; }
+#write del { padding: 1px 2px; }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(34, 162, 201); }
+.cm-s-inner .cm-string { color: rgb(34, 162, 201); }
+.md-task-list-item > input { margin-left: -1.3em; }
 @media print {
   html { font-size: 13px; }
   table, pre { break-inside: avoid; }
-  pre { word-wrap: break-word; }
+  pre { overflow-wrap: break-word; }
 }
 .md-fences { background-color: rgb(248, 248, 248); }
 #write pre.md-meta-block { padding: 1rem; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border: 0px; border-radius: 3px; color: rgb(119, 119, 119); margin-top: 0px !important; }
@@ -199,9 +220,12 @@ table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
 #write > h4.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
 #write > h5.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
 #write > h6.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
-.md-image > .md-meta { border: 1px solid rgb(221, 221, 221); border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 4px 0px; font-size: 0.9em; color: inherit; }
+.md-image > .md-meta { border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 0px 0px 4px; font-size: 0.9em; color: inherit; }
 .md-tag { color: inherit; }
-.md-toc { margin-top: 5px; padding-bottom: 5px; }
+.md-toc { margin-top: 0px; padding-bottom: 0px; }
+.md-toc-h1 { display: none; }
+.md-toc-h4 { display: none; }
+.md-toc-h5 { display: none; }
 .sidebar-tabs { border-bottom: none; }
 #typora-quick-open { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); }
 #typora-quick-open-item { background-color: rgb(250, 250, 250); border-color: rgb(254, 254, 254) rgb(229, 229, 229) rgb(229, 229, 229) rgb(238, 238, 238); border-style: solid; border-width: 1px; }
@@ -211,16 +235,12 @@ header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Aria
 .file-node-content:hover .file-node-icon, .file-node-content:hover .file-node-open-state { visibility: visible; }
 .mac-seamless-mode #typora-sidebar { background-color: var(--side-bar-bg-color); }
 .md-lang { color: rgb(180, 101, 77); }
-.boxed { border: 0.5px solid gray; padding: 1px 12px; }
-
-
-
-
+.html-for-mac .context-menu { --item-hover-bg-color: #E6F0FE; }
 
 
 </style>
 </head>
-<body class='typora-export' >
-<div  id='write'  class = 'is-node'><p><a href='./index.html'>Water Data Boot Camp: Spring 2018</a></p><h1><a name='header-n137' class='md-header-anchor '></a>Unit 1: Task3<br>Evaluating impact on minimum flows</h1><h2><a name='header-n4' class='md-header-anchor '></a>Background: Minimum flows &amp; &quot;7Q10&quot;</h2><p>The passing of the Clean Water Act in 1972 and the Endangered Species Act in 1973 has resulted in many reservoirs having to meet downstream flow requirements for either water quality purposes or species protection. For example, at the Clayton gauge, minimum flow requirements have ranged from 184 to 404 cfs since 1983. <em>Here we want to see if Falls Lake has raised minimum flows.</em></p><p>There are many ways to approach low flow to understand how minimum streamflow has changed since Falls Lake was constructed. We will look at a common metric known as 7Q10. <u><strong>7Q10</strong> is the lowest average discharge over a one [week/month/year] period with a recurrence interval of 10 years.</u> This means there is only a 10% probability that there will be lower flows than the 7Q10 threshold in any given year. </p><p>To get more practice with pivot tables and if statements, we will calculate this metric using the 7 month period. To do this we need to construct a rolling average of monthly discharges spanning 7 month, which we can do using a series of pivot tables. </p><p>The first pivot table aggregates our daily discharge data into total monthly discharge values for each year. From this we table, we can compute a <em>7-month rolling average of minimum-flows</em> from the given month&#39;s total discharge and those from 6 months preceding it. </p><p>Next, we construct a second Pivot Table from the above data. This one aggregates the monthly data by year, extracting the minimum of the 7-month average for each year. This will enable us to compute a regression similar the one we constructed for the flood return interval, but this regression is to reveal the recurrence interval of low flows so that we can determine the streamflow of a 10% low flow event. </p><p>We then sort and rank these annual monthly-minimum values, similar to how we computed flood return intervals to compute <em>7 month minimum-flow (7Q) return interval</em> and then the <em>low flow probability of recurrence (POR)</em> of these flows, again using the same methods used for calculating flood return intervals and probabilities of recurrence. From this we can compute a regression between our yearly 7Q flows and POR, and use that regression equation to determine 7Q10, or the expected minimum flow across a span of 10 years. </p><h2><a name='header-n17' class='md-header-anchor '></a>The analysis</h2><h4><a name='header-n18' class='md-header-anchor '></a>1. Compute average daily discharge by year and month via a Pivot Table</h4><ul><li><p>Create a Pivot Table from the data in the EDA worksheet, sending the output to a new worksheet.</p></li><li><p>Rename the new worksheet &quot;7Q10&quot;.</p></li><li><p>Set <code>year</code> and <code>month</code> as the Pivot Table <em>rows</em>. We use year instead of Water Year to ensure the data are being read in the correct order. If we use water year, the wrong September and Octobers are matched together.</p></li><li><p>In the field settings for both <code>year</code> and <code>month</code>, change the <code>Subtotals &amp; Filters</code> to <code>None</code></p></li><li><p>Set <code>Mean Flow (cms)</code> as your Pivot Table <em>value</em>. Keep as the sum of the monthly flows (since taking lowest 7 month average, small variability in the number of days in each month is ok.</p></li><li><p>Right click the top left <code>Row Labels</code> cell, and select PivotTable Options. </p><ul><li>On the <code>Totals &amp; Filters</code> tab, un-check the two Grand Totals options. </li><li>On the <code>Display</code> tab, check &quot;Classify PivotTable layout...&quot; This &quot;flattens&quot; your table to that year is shown in one column and month in another.</li></ul></li></ul><h4><a name='header-n45' class='md-header-anchor '></a>2. Create a static copy of the Pivot Table values</h4><ul><li>Copy the the entire Pivot Table data and paste - as <em>values</em> - into cell <code>F2</code>. (It can go anywhere, but this will make the subsequent steps easier to follow)</li></ul><h4><a name='header-n50' class='md-header-anchor '></a>3.  Fill all the blanks in the year column with the appropriate year.</h4><ul><li>Select all the cells in the newly pasted <strong>Year</strong> column</li><li>Click <strong>Home</strong> &gt; <strong>Find &amp; Select</strong> &gt; <strong>Go To Special…</strong>, and a <code>Go To Special</code> dialog box will appear.</li><li>Check the  <code>Blanks</code> option, and click <code>OK</code>. All of the blank cells have been selected. </li><li>Then input the formula <code>=F2</code> into active cell <strong>F3</strong> without changing the selection. </li><li>Press <code>Ctrl</code> + <code>Enter</code>, Excel will copy the respective formula to all blank cells.</li><li>At this point, the filled contents are formulas, and we need to convert the formals to values. Now select the whole range, copy, and paste as values.</li></ul><h4><a name='header-n70' class='md-header-anchor '></a>4. Calculate the 7-month minimum flow averages (i.e., &quot;7Q&quot;)</h4><ul><li>Add a new column next to the records you just pasted. Give it the header <code>7Q</code>.</li><li>Go to the 7th cell down and set it to compute the average of the streamflow of that row and the preceding 6 rows.</li><li>Double-click the bottom corner to copy this formula down to the cells below. </li></ul><h4><a name='header-n81' class='md-header-anchor '></a>5. Create a new table listing the minimum flow for each year, using the above table as its source.</h4><ul><li>Hint: Use your pivot table skills. But you may want to create the table in the same worksheet.</li></ul><h4><a name='header-n86' class='md-header-anchor '></a>6. Compute the rank, return interval, and probability of recurrence of these minimum flows</h4><ul><li>Hint: Use the methods from the flood lesson, but remember to sort in the opposite direction!</li></ul><h4><a name='header-n91' class='md-header-anchor '></a>7. Plot the 7Q flow (Y) against the Probability of Recurrence (X)</h4><ul><li>Try different regression types and stick with the one with the highest R2 (but avoid <em>quadratic</em> or <em>moving averages</em>).</li></ul><h4><a name='header-n96' class='md-header-anchor '></a>8. Use the equation to estimate the 7Q10, i.e., the threshold where the 10% of the observed flows are smaller:</h4><ul><li>Set <code>x</code> in the regression equation to 0.10 and find <code>y</code>. This is your 7Q10. </li><li>Add the 7Q10 point to the graph using <code>Select Data...</code> with your plot active. </li></ul><h4><a name='header-n104' class='md-header-anchor '></a>9. Apply your results: How many months in the monthly Pivot Table fell below the estimated 7Q10?</h4><p>Here we want to produce a plot that shows when and how frequently low flows have occurred. We do this by first created a new column of just the monthly discharges falling below our 7Q10 threshold, and then creating a plot where these are highlighted against all monthly discharge values. </p><ul><li>Insert a new column to the left of your copied and pasted monthly Pivot Table results. Label it <code>Below 7Q10</code>. </li><li>Use the <code>IF</code> formula to set values in this column to the monthly discharge value if the monthly discharge was below your computed 7Q10, otherwise set to an empty string (<code>&quot;&quot;</code>). </li><li>Label the empty column to the right of this table (Column E) &quot;Date&quot; and set it cells to the 15th of the year and month of the record, using the formula <code>=Date(year,month,day)</code></li><li>Plot the monthly discharge. Then add a new series to your plot of just the ones falling under the 7Q10 (column J).</li><li>Add labels and a legend.</li></ul><h4><a name='header-n123' class='md-header-anchor '></a>10. Count the number of Q710 events per year:</h4><ul><li>Either use the <code>COUNTIF</code> function, or</li><li>Expand your Pivot table to include the <code>Below 7Q10</code> column and count the number of occurrences. (<code>PivotTableTools</code> &gt; <code>Change Data Source...</code>).</li></ul><hr /><h2><a name='header-n132' class='md-header-anchor '></a>Continued practice</h2><ul><li>On your own - calculate the 7Q10 prior to Falls Lake and after Falls Lake</li></ul></div>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><p><a href='./index.html'><span>Water Data Boot Camp: Spring 2018</span></a></p><h1><a name="unit-1-task3brevaluating-impact-on-minimum-flows" class="md-header-anchor"></a><span>Unit 1: Task3</span><br><span>Evaluating impact on minimum flows</span></h1><h2><a name="background-minimum-flows--7q10" class="md-header-anchor"></a><span>Background: Minimum flows &amp; &quot;7Q10&quot;</span></h2><p><span>The passing of the Clean Water Act in 1972 and the Endangered Species Act in 1973 has resulted in many reservoirs having to meet downstream flow requirements for either water quality purposes or species protection. For example, at the Clayton gauge, minimum flow requirements have ranged from 184 to 404 cfs since 1983. </span><strong><em><span>Here we want to see if  the establishment of Falls Lake has raised minimum flows.</span></em></strong></p><p><span>There are many ways to approach low flow to understand how minimum streamflow has changed since Falls Lake was constructed. We will look at a common metric known as 7Q10. </span><u><strong><span>7Q10</span></strong><span> is the lowest average discharge over a one [week/month/year] period with a recurrence interval of 10 years.</span></u><span> This means there is only a 10% probability that there will be lower flows than the 7Q10 threshold in any given year. </span></p><p><span>To get more practice with pivot tables and if statements, we will calculate this metric using the 7 </span><u><span>month</span></u><span> period. </span><strong><span>To do this we need to construct a rolling average of monthly discharges spanning 7 month, which we can do using a series of pivot tables</span></strong><span>. </span></p><p><span>The first pivot table aggregates our daily discharge data into total monthly discharge values for each year. From this we table, we can compute a </span><em><span>7-month rolling average of minimum-flows</span></em><span> from the given month&#39;s total discharge and those from 6 months preceding it. </span></p><p><span>Next, we construct a second Pivot Table from the above data. This one aggregates the monthly data by year, extracting the minimum of the 7-month average for each year. This will enable us to compute a regression similar the one we constructed for the flood return interval, but this regression is to reveal the recurrence interval of low flows so that we can determine the streamflow of a 10% low flow event. </span></p><p><span>We then sort and rank these annual monthly-minimum values, similar to how we computed flood return intervals to compute </span><em><span>7 month minimum-flow (7Q) return interval</span></em><span> and then the </span><em><span>low flow probability of recurrence (POR)</span></em><span> of these flows, again using the same methods used for calculating flood return intervals and probabilities of recurrence. From this we can compute a regression between our yearly 7Q flows and POR, and use that regression equation to determine 7Q10, or the expected minimum flow across a span of 10 years. </span></p><h2><a name="the-analysis" class="md-header-anchor"></a><span>The analysis</span></h2><h4><a name="1-compute-average-daily-discharge-by-year-and-month-via-a-pivot-table" class="md-header-anchor"></a><span>1. Compute average daily discharge by year and month via a Pivot Table</span></h4><ul><li><p><span>Create a Pivot Table from the data in the EDA worksheet, sending the output to a new worksheet.</span></p></li><li><p><span>Rename the new worksheet &quot;7Q10&quot;.</span></p></li><li><p><span>Set </span><code>year</code><span> and </span><code>month</code><span> as the Pivot Table </span><em><span>rows</span></em><span>. (We use year instead of Water Year to ensure the data are being read in the correct order. If we use water year, the wrong September and Octobers are matched together.)</span></p></li><li><p><span>Set </span><code>Mean Flow (cms)</code><span> as your Pivot Table </span><em><span>value</span></em><span>. Ensure it is calculating the </span><strong><span>sum</span></strong><span> of the monthly flows (since taking lowest 7 month average, small variability in the number of days in each month is ok.</span></p></li><li><p><span>In the field settings for both </span><code>year</code><span> and </span><code>month</code><span>, change the </span><code>Subtotals &amp; Filters</code><span> to </span><code>None</code><span>.  </span><em><span>Did you notice what changes as a result of this modification?</span></em></p></li><li><p><span>Right click the top left </span><code>Row Labels</code><span> cell, and select PivotTable Options. </span></p><ul><li><span>On the </span><code>Totals &amp; Filters</code><span> tab, un-check the two Grand Totals options. </span></li><li><span>On the </span><code>Display</code><span> tab, check &quot;Classify PivotTable layout...&quot; This &quot;flattens&quot; your table to that year is shown in one column and month in another.</span></li></ul><p>&nbsp;</p><p><span>At this point, your pivot table of total monthly flow should appear like this: </span></p><p><img src='.\media\Fig13X_Pivot1Result.jpg' alt='Pivot1Result' referrerPolicy='no-referrer' /></p></li></ul><p>&nbsp;</p><h4><a name="2-create-a-static-copy-of-the-pivot-table-values" class="md-header-anchor"></a><span>2. Create a static copy of the Pivot Table values</span></h4><ul><li><span>Copy the the entire Pivot Table data and paste - as </span><em><span>values</span></em><span> - into cell </span><code>F1</code><span>. (It can go anywhere, but this will make the subsequent steps easier to follow.) Delete the cells labelled &quot;(blank)&quot; at the bottom of the pasted values. </span></li></ul><h4><a name="3--fill-all-the-blanks-in-the-year-column-with-the-appropriate-year" class="md-header-anchor"></a><span>3.  Fill all the blanks in the year column with the appropriate year. </span></h4><ul><li><span>Select all the cells in the newly pasted </span><strong><span>Year</span></strong><span> column</span></li><li><span>Click </span><strong><span>Home</span></strong><span> &gt; </span><strong><span>Find &amp; Select</span></strong><span> &gt; </span><strong><span>Go To Special…</span></strong><span>, and a </span><code>Go To Special</code><span> dialog box will appear.</span></li><li><span>Check the  </span><code>Blanks</code><span> option, and click </span><code>OK</code><span>. All of the blank cells have been selected. </span></li><li><span>Then input the formula </span><code>=F3</code><span> into active cell </span><strong><span>F4</span></strong><span> without changing the selection. </span></li><li><span>Press </span><code>Ctrl</code><span> + </span><code>Enter</code><span>, Excel will copy the respective formula to all blank cells.</span></li><li><span>At this point, the filled contents are formulas, and we need to convert the formals to values. Now select the whole range, copy, and paste as values.</span></li></ul><h4><a name="4-calculate-the-7-month-minimum-flow-averages-ie-7q" class="md-header-anchor"></a><span>4. Calculate the 7-month minimum flow averages (i.e., &quot;7Q&quot;)</span></h4><ul><li><span>Add a new column next to the records you just pasted. Give it the header </span><code>7Q</code><span>.</span></li><li><span>Go to the 7th cell down and set it to compute the average of the streamflow of that row and the preceding 6 rows.</span></li><li><span>Double-click the bottom corner to copy this formula down to the cells below. </span></li></ul><h4><a name="5-create-a-new-pivot-table-listing-the-minimum-7q-flow-for-each-year-using-the-above-table-as-its-source" class="md-header-anchor"></a><span>5. Create a new pivot table listing the minimum 7Q flow for each year, using the above table as its source. </span></h4><ul><li><span>Hint: Use your pivot table skills. But you may want to create the table in the same worksheet.</span></li></ul><h4><a name="6-compute-the-rank-return-interval-and-probability-of-recurrence-of-these-minimum-flows" class="md-header-anchor"></a><span>6. Compute the rank, return interval, and probability of recurrence of these minimum flows</span></h4><ul><li><span>Hint: Use the methods from the flood lesson, but remember to sort in the opposite direction!</span></li></ul><p><img src='./media/Fig13X_Pivot2Result.jpg' alt='Fig13X_Pivot2Result.jpg' referrerPolicy='no-referrer' /></p><h4><a name="7-plot-the-7q-flow-y-against-the-probability-of-recurrence-x" class="md-header-anchor"></a><span>7. Plot the 7Q flow (Y) against the Probability of Recurrence (X)</span></h4><ul><li><span>Try different regression types and stick with the one with the highest R2 (but avoid </span><em><span>quadratic</span></em><span> or </span><em><span>moving averages</span></em><span>).</span></li></ul><h4><a name="8-use-the-equation-to-estimate-the-7q10-ie-the-threshold-where-the-10-of-the-observed-flows-are-smaller" class="md-header-anchor"></a><span>8. Use the equation to estimate the 7Q10, i.e., the threshold where the 10% of the observed flows are smaller:</span></h4><ul><li><p><span>Set </span><code>x</code><span> in the regression equation to 0.10 and find </span><code>y</code><span>. This is your 7Q10. </span></p></li><li><p><span>Add the 7Q10 point to the graph using </span><code>Select Data...</code><span> with your plot active. </span></p><p><img src='C:\Workspace\Gits\TEACHING\DataBootCamp\docs\media\Fig13X_7QPlot.jpg' alt='1567083697533' referrerPolicy='no-referrer' /></p></li></ul><h4><a name="9-apply-your-results-how-many-months-in-the-monthly-pivot-table-fell-below-the-estimated-7q10" class="md-header-anchor"></a><span>9. Apply your results: How many months in the monthly Pivot Table fell below the estimated 7Q10?</span></h4><p><span>Here we want to produce a plot that shows when and how frequently low flows have occurred. We do this by first created a new column of just the monthly discharges falling below our 7Q10 threshold, and then creating a plot where these are highlighted against all monthly discharge values. </span></p><ul><li><span>Insert a new column to the left of your copied and pasted monthly Pivot Table results. Label it </span><code>Below 7Q10</code><span>. </span></li><li><span>Use the </span><code>IF</code><span> formula to set values in this column to the monthly discharge value if the monthly discharge was below your computed 7Q10, otherwise set to an empty string (</span><code>&quot;&quot;</code><span>). </span></li><li><span>Label the empty column to the right of this table (Column E) &quot;Date&quot; and set it cells to the 15th of the year and month of the record, using the formula </span><code>=Date(year,month,day)</code></li><li><span>Plot the monthly discharge. Then add a new series to your plot of just the ones falling under the 7Q10 (column J).</span></li><li><span>Add labels and a legend.</span></li></ul><h4><a name="10-count-the-number-of-q710-events-per-year" class="md-header-anchor"></a><span>10. Count the number of Q710 events per year:</span></h4><ul><li><span>Either use the </span><code>COUNTIF</code><span> function, or</span></li><li><span>Expand your Pivot table to include the </span><code>Below 7Q10</code><span> column and count the number of occurrences. (</span><code>PivotTableTools</code><span> &gt; </span><code>Change Data Source...</code><span>).</span></li></ul><hr /><h2><a name="continued-practice" class="md-header-anchor"></a><span>Continued practice</span></h2><ul><li><span>On your own - calculate the 7Q10 prior to Falls Lake and after Falls Lake</span></li></ul></div>
 </body>
 </html>

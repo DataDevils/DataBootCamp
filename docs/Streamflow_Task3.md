@@ -10,11 +10,11 @@ Date: Spring 2018
 
 ## Background: Minimum flows & "7Q10"
 
-The passing of the Clean Water Act in 1972 and the Endangered Species Act in 1973 has resulted in many reservoirs having to meet downstream flow requirements for either water quality purposes or species protection. For example, at the Clayton gauge, minimum flow requirements have ranged from 184 to 404 cfs since 1983. *Here we want to see if Falls Lake has raised minimum flows.*
+The passing of the Clean Water Act in 1972 and the Endangered Species Act in 1973 has resulted in many reservoirs having to meet downstream flow requirements for either water quality purposes or species protection. For example, at the Clayton gauge, minimum flow requirements have ranged from 184 to 404 cfs since 1983. ***Here we want to see if  the establishment of Falls Lake has raised minimum flows.***
 
 There are many ways to approach low flow to understand how minimum streamflow has changed since Falls Lake was constructed. We will look at a common metric known as 7Q10. <u>**7Q10** is the lowest average discharge over a one [week/month/year] period with a recurrence interval of 10 years.</u> This means there is only a 10% probability that there will be lower flows than the 7Q10 threshold in any given year. 
 
-To get more practice with pivot tables and if statements, we will calculate this metric using the 7 month period. To do this we need to construct a rolling average of monthly discharges spanning 7 month, which we can do using a series of pivot tables. 
+To get more practice with pivot tables and if statements, we will calculate this metric using the 7 <u>month</u> period. **To do this we need to construct a rolling average of monthly discharges spanning 7 month, which we can do using a series of pivot tables**. 
 
 The first pivot table aggregates our daily discharge data into total monthly discharge values for each year. From this we table, we can compute a *7-month rolling average of minimum-flows* from the given month's total discharge and those from 6 months preceding it. 
 
@@ -27,24 +27,37 @@ We then sort and rank these annual monthly-minimum values, similar to how we com
 #### 1. Compute average daily discharge by year and month via a Pivot Table
 
 * Create a Pivot Table from the data in the EDA worksheet, sending the output to a new worksheet.
+
 * Rename the new worksheet "7Q10".
-* Set `year` and `month` as the Pivot Table *rows*. We use year instead of Water Year to ensure the data are being read in the correct order. If we use water year, the wrong September and Octobers are matched together.
-* In the field settings for both `year` and `month`, change the `Subtotals & Filters` to `None`
-* Set `Mean Flow (cms)` as your Pivot Table *value*. Keep as the sum of the monthly flows (since taking lowest 7 month average, small variability in the number of days in each month is ok.
+
+* Set `year` and `month` as the Pivot Table *rows*. (We use year instead of Water Year to ensure the data are being read in the correct order. If we use water year, the wrong September and Octobers are matched together.)
+
+* Set `Mean Flow (cms)` as your Pivot Table *value*. Ensure it is calculating the **sum** of the monthly flows (since taking lowest 7 month average, small variability in the number of days in each month is ok.
+
+* In the field settings for both `year` and `month`, change the `Subtotals & Filters` to `None`.  *Did you notice what changes as a result of this modification?*
+
 * Right click the top left `Row Labels` cell, and select PivotTable Options. 
   * On the `Totals & Filters` tab, un-check the two Grand Totals options. 
   * On the `Display` tab, check "Classify PivotTable layout..." This "flattens" your table to that year is shown in one column and month in another.
+  
+  
+  
+  At this point, your pivot table of total monthly flow should appear like this: 
+  
+  ![Pivot1Result](.\media\Fig13X_Pivot1Result.jpg)
+
+
 
 #### 2. Create a static copy of the Pivot Table values
 
-* Copy the the entire Pivot Table data and paste - as *values* - into cell `F2`. (It can go anywhere, but this will make the subsequent steps easier to follow)
+* Copy the the entire Pivot Table data and paste - as *values* - into cell `F1`. (It can go anywhere, but this will make the subsequent steps easier to follow.) Delete the cells labelled "(blank)" at the bottom of the pasted values. 
 
 #### 3.  Fill all the blanks in the year column with the appropriate year. 
 
 * Select all the cells in the newly pasted **Year** column
 * Click **Home** > **Find & Select** > **Go To Special…**, and a `Go To Special` dialog box will appear.
 * Check the  `Blanks` option, and click `OK`. All of the blank cells have been selected. 
-* Then input the formula `=F2` into active cell **F3** without changing the selection. 
+* Then input the formula `=F3` into active cell **F4** without changing the selection. 
 * Press `Ctrl` + `Enter`, Excel will copy the respective formula to all blank cells.
 * At this point, the filled contents are formulas, and we need to convert the formals to values. Now select the whole range, copy, and paste as values.
 
@@ -54,13 +67,15 @@ We then sort and rank these annual monthly-minimum values, similar to how we com
 * Go to the 7th cell down and set it to compute the average of the streamflow of that row and the preceding 6 rows.
 * Double-click the bottom corner to copy this formula down to the cells below. 
 
-#### 5. Create a new table listing the minimum flow for each year, using the above table as its source. 
+#### 5. Create a new pivot table listing the minimum 7Q flow for each year, using the above table as its source. 
 
 * Hint: Use your pivot table skills. But you may want to create the table in the same worksheet.
 
 #### 6. Compute the rank, return interval, and probability of recurrence of these minimum flows
 
 * Hint: Use the methods from the flood lesson, but remember to sort in the opposite direction!
+
+![Fig13X_Pivot2Result.jpg](./media/Fig13X_Pivot2Result.jpg)
 
 #### 7. Plot the 7Q flow (Y) against the Probability of Recurrence (X)
 
