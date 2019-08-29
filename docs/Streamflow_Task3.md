@@ -4,7 +4,7 @@ Author: Lauren Patterson and John Fay
 Date: Spring 2018
 ---
 
-[Water Data Boot Camp: Spring 2018](./index.html)
+[Water Data Boot Camp: Fall 2019](./index.html)
 
 # Unit 1: Task3<br>Evaluating impact on minimum flows
 

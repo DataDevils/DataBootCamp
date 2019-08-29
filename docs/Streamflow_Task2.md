@@ -4,7 +4,7 @@ Author: Lauren Patterson and John Fay
 Date: Spring 2018
 ---
 
-[Water Data Boot Camp: Spring 2019](./index.html)
+[Water Data Boot Camp: Fall 2019](./index.html)
 
 # Unit 1: Task 2<br>Evaluating 100-year flood frequency
 
