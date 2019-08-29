@@ -143,3 +143,8 @@ Repeat the above analysis only <u>using data prior to 1980</u> to calculate the 
 
 ![1567020888356](C:\Workspace\Gits\TEACHING\DataBootCamp\docs\media\Fig1_X_AllTrends.jpg)
 
+---
+
+## Recap
+
+We've now discovered how data can be transformed, or "Pivoted" into various summary formats and how, via Excel's plotting functionality, we can compute quick regressions of our data. 
