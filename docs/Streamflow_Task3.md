@@ -84,7 +84,10 @@ We then sort and rank these annual monthly-minimum values, similar to how we com
 #### 8. Use the equation to estimate the 7Q10, i.e., the threshold where the 10% of the observed flows are smaller:
 
 * Set `x` in the regression equation to 0.10 and find `y`. This is your 7Q10. 
+
 * Add the 7Q10 point to the graph using `Select Data...` with your plot active. 
+
+  ![1567083697533](C:\Workspace\Gits\TEACHING\DataBootCamp\docs\media\Fig13X_7QPlot.jpg)
 
 #### 9. Apply your results: How many months in the monthly Pivot Table fell below the estimated 7Q10?
 
