@@ -148,9 +148,9 @@ While we now have our data in Excel, we should explore and inspect the data befo
 
   * From the **Insert** menu, over in the **Charts** panel, select the **scatterplot** dropdown, and chose an appropriate chart type given the data. (Straight lines makes sense since our data are based on measurements.)
 
-  ![Initial scatterplot](C:\Workspace\Gits\DataBootCamp\docs\media\Excel_InitialScatterplot.PNG)
+  ![Initial scatterplot](.\media\Excel_InitialScatterplot.PNG)
 
-  *Notice that the X-axis contains an odd sampling of dates and lots of dead space on either side. Different plot types behave differently in Excel, and scatterplots are finicky with dates, so we need to either manually adjust the x axis or chose a different plot type. We'll examine both ways...* 
+  > *Notice that the X-axis contains an odd sampling of dates and lots of dead space on either side. Different plot types behave differently in Excel, and scatterplots are finicky with dates, so we need to either manually adjust the x axis or chose a different plot type. We'll examine both ways...* 
 
 * Format the X-axis to eliminate empty data space:
 
