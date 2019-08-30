@@ -13,7 +13,7 @@ Aug 30 2, 2019 -- GH 1104
 
 ## [Course overview](./README.html)
 
-
+[Why this course now?](./README.html)
 
 ### Unit 1: Analyzing water flow data with Excel
 
