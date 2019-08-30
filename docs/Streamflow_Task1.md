@@ -47,7 +47,7 @@ As mentioned above, we've determined that we need streamflow data for some site 
 
    \- And finally hit `Go`. This will call up a page with all the data you just requested. 
 
-   ![](C:\Workspace\Gits\DataBootCamp\docs\media\NWIS-query.PNG)
+   ![](.\media\NWIS-query.PNG)
    
    → If needed, this [LINK](https://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=02087500&referred_module=sw&period=&begin_date=1930-10-01&end_date=2017-09-30) will take you directly to the data...
 
@@ -97,7 +97,7 @@ Now that we have found the data, we need to get it into *Excel* so that each val
 
 Once you have your data imported, rename the worksheet to `Raw`. We'll be adding more worksheets to your Excel workbook and this will help identify which contains the original, raw data. 
 
-![Fig1_1_RawData](media/Fig1_1_RawData.jpg)
+![Fig1_1_RawData](./media/Fig1_1_RawData.jpg)
 
 
 ### ♦ <u>Cleaning the data</u>
