@@ -104,7 +104,7 @@ Recall that the return interval is computed from the sorted and ranked time seri
   
 * Set the aesthetics of your plot...
 
-  ![ExcedencePlot2.jpg](C:\Workspace\Gits\TEACHING\DataBootCamp\docs\media\Fig1_X_ExceedencePlot_v2.jpg)
+  ![ExcedencePlot2.jpg](.\media\Fig1_X_ExceedencePlot_v2.jpg)
 
 ### • Apply the regression to compute 100, 500, and 1000-year flood discharges
 
@@ -141,7 +141,7 @@ Repeat the above analysis only <u>using data prior to 1980</u> to calculate the 
 
 *What happens to your answer if you remove those three points?*
 
-![1567020888356](C:\Workspace\Gits\TEACHING\DataBootCamp\docs\media\Fig1_X_AllTrends.jpg)
+![1567020888356](.\media\Fig1_X_AllTrends.jpg)
 
 ---
 
