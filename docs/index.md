@@ -29,7 +29,9 @@ Aug 30 2, 2019 -- GH 1104
 
 * <u>Task:</u> [Evaluating annual stream flow changes over time](./Streamflow_Task4.html)
 
-  Completed Excel file -> [LINK](./files/Streamflow Data Clayton_KEY.xlsx)
+  ► Completed Excel file → [LINK](./files/Streamflow Data Clayton_KEY.xlsx)
+  
+  ► Video capture of Unit 1 → [LINK](https://nsoe.capture.duke.edu/Panopto/Pages/Viewer.aspx?id=c3b3586f-b6ad-44a2-a437-aab800e9533d)
 
 
 
