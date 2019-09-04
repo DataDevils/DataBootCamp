@@ -1,6 +1,6 @@
 ---
-title: "01 Load StreamFlow Data"
-author: "John Fay"
+title: "1. Streamflow Data Analysis"
+author: "John Fay & Lauren Patterson - NSOE Data Bootcamp"
 date: "Fall 2019"
 output: html_document
 editor_options: 
@@ -11,7 +11,7 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#Background: How has Falls Lake affected streamflow?
+# Background: How has Falls Lake affected streamflow?
 Prior to 1978, flooding of the Neuse River caused extensive damage to public and private properties including roadways, railroads, industrial sites, and farmlands. The Falls Lake Project was developed by the U.S. Army Corps of Engineers to control damaging floods and to supply a source of water for surrounding communities. Construction of the dam began in 1978 and was completed in 1981. In addition to recreation opportunities, Falls Lake now provides flood control, water supply, water quality, and fish and wildlife conservation resources (https://111.ncparks.gov/falls-lake-state-recreation-area/history).
 
 Now, some 3 dozen years after Falls Lake was constructed, we want to evaluate its impact on downstream streamflow, using this as an opportunity to examine some data analytic techniques, specifically ones using Microsoft Excel. These techniques will cover ways to get data into Excel and how to manage, wrangle, and analyze those data. 
@@ -19,21 +19,21 @@ Now, some 3 dozen years after Falls Lake was constructed, we want to evaluate it
 This document begins with a review of the **analytical workflow** of most data projects. We apply this workflow to understand how streamflow has changed since Falls Lake was constructed. In doing so, we focus on using Excel to tackle the assignment, but companion documents will examine how R and Python can accomplish the same set of tasks in a scripting environment.
 
 
-#Analytical workflow: A Preview
+# Analytical workflow: A Preview
 Data analysis projects follow a similar workflow, one that begins with a general question or objective that guides our process of turning data into actionable information. Let's begin by examining our workflow, depicted in the diagram below. 
 
 ![Analytic Workflow](../../docs/media/Data Analytics Process Streamflow.png)
 
 
-#Applying the Analytical Workflow: Falls Lake
+# Applying the Analytical Workflow: Falls Lake
 
-##1. Obtaining the data
+## 1. Obtaining the data
 
 The USGS actively supports Rcran development by building a community of practice. This community has developed several R packages that can be used to load and analyze streamflow data:  https://owi.usgs.gov/R/packages.html
 
 The package we will be using to load data into R is the dataRetrieval library. Information on how to use this library can be found here: https://owi.usgs.gov/R/dataRetrieval.html#2
 
-##2. Installing packages and loading libraries
+## 2. Installing packages and loading libraries
 
 Rcran is open source, meaning anyone can create packages for other people to use. To access these packages you must first install them onto your machine. Installing packages only needs to be done on one occasion; however, you may decide to install packages every time you open your script if you think the package is being regularly updated.
 
@@ -90,8 +90,7 @@ library(leaflet)
 ```
 
 ## 3. Download data directly from NWIS
-
-We will use the USGS packages to download data directly from the USGS. To do this we need to identify what we want to download. We need to define:
+We will use the USGS `dataRetrieval` package to download data directly from the USGS. To do this we need to identify what we want to download. We need to define:
 
 * `siteNumbers` - this is the USGS gauge containing the data we want to download
     + We will define the variable siteNo and assign it to Clayton gauge: `02087500`
@@ -108,7 +107,7 @@ We will use the USGS packages to download data directly from the USGS. To do thi
     + `start.date = "1930-10-01"`
     + `end.date = "2017-09-30"`
     
-####► Identify parameters
+### ► Set the site parameters as variables
 ```{r define}
 #Identify gauge to download
 siteNo <- '02087500' #Clayton, don't forget to add the zero if it is missing
@@ -130,20 +129,9 @@ serv <- "dv"
 
 <br />
 
-* We can now put all this information to call the data from the USGS NWIS website. There are a couple of ways we can do this, but we will focus on the following: `readNWISdv`.  
-    * We will put the data into the variable `neuse`.
+We can now put all this information to call the data from the USGS NWIS website. There are a couple of ways we can do this, but we will focus on the the `dataRetrieval`'s `readNWIS` command, storing the data into a variable called `neuse`.
 
-* The dataRetreivalpackage has an additional commands
-    * `neuse <- renameNWISColumns(neuse)` provides meaningful column names to the data
-        * You can see what the column names are by: `colnames(neuse)`
-    * You can access different attributes associated with this stream gauge. To know what that list is:
-        * `names(attributes(neuse))`
-    * From that list you can look at:
-        * `parameterInfo <- attr(neuse, "variableInfo")` provides information on variables
-        * `siteInfo <- attr(neuse, "siteInfo")`
-
-
-```{r downloaddata, warning=FALSE, message=FALSE}
+```{r download data, warning=FALSE, message=FALSE}
 #Load in data using the site ID
 neuse <- readNWISdata(siteNumbers = siteNo, 
                       parameterCd = pcode, 
@@ -151,23 +139,31 @@ neuse <- readNWISdata(siteNumbers = siteNo,
                       startDate=start.date, 
                       endDate=end.date, 
                       service = serv)
-  summary(neuse); dim(neuse)
-  
-#OR You can use basic web retrievals (just remove the service call)
-  #readNWISuv = unit data;            readNWISdv = daily data;            readNWISgwl = groundwater level
-  #readNWISmeas = surface water;      readNWISpeak = peakflow;            readNWISqw = water quality
-  #readNWISrating = rating curves;    readNWISpCode = parameter code      readNWISsite = Site data
-  neuse <- readNWISdv(siteNumbers = siteNo, parameterCd = pcode, statCd = scode, startDate=start.date, endDate=end.date)
-  
-#rename columns to something more useful
-  neuse <- renameNWISColumns(neuse); colnames(neuse)
+#Show a summary of the data
+View(neuse)
+```
 
-#see attributes
-#attributes(neuse)
-#to access attributes in future: attr(neuse, "name of interest)
+
+Pretty easy! But we're not finished yet. The `dataRetreival` package has additional commands that tidy the data a bit more. Below we examine the `renameNWISColumns()` and `attributes()` functions that come as part of the `dataRetrieval` package. 
+
+```{r tidy data, warning=FALSE, message=FALSE}
+#rename columns to something more useful
+neuse <- renameNWISColumns(neuse)
+#Show the column names now: 
+colnames(neuse)
+
+#See all the attributes associated with the NWIS data file we extracted
+attributes(neuse)
+
+#Or just see the names of these attributes (a simpler reveal)
 names(attributes(neuse))
-  parameterInfo = attr(neuse, "variableInfo")
-  siteInfo <- attr(neuse, "siteInfo")
+
+#To access attributes in future: attr(neuse, "name of interest)
+parameterInfo = attr(neuse, "variableInfo")
+siteInfo <- attr(neuse, "siteInfo")
+
+#Now we can extract items such as the site's name
+siteInfo$station_nm
 ```
 
 <br />
@@ -187,7 +183,7 @@ neuse$Flow_cms <- neuse$Flow*0.028316847
 
 <br />
 
-####Plot streamflow data to look for gaps/outliers
+#### Plot streamflow data to look for gaps/outliers
 
 * Basic Plots in R:
     * Create the margins of your plot using `par`
@@ -228,7 +224,7 @@ ts
 
 <br />
 
-## Exploratory Data Analysis: Summary Statistics
+## 5. Exploratory Data Analysis: Summary Statistics
 **Know your data**. Whenever you get data, it's good practice to look at and understand the raw data to make sure it looks reasonable and you understand something about its quality and content. One of the first things to assess in the metadata is how confident you are in the quality of the data being used in your analysis. Is the data fit for purpose?
 
 *How confident are we in the data?*
@@ -372,7 +368,6 @@ colnames(final.stats) <- c("Statistics","p1930-2017","p1930-1980","p1984-2017")
   final.stats  
 ```  
 
-<br />  
 
 ## Looking at Seasonal Variation?  
 Here we will look at the seasonal variation in streamflow using two methods: pipes and the `for` loop. `for` loops are great when you need to repeat a process multiple times.
@@ -402,7 +397,7 @@ month.flow3 <- neuse %>%
 #create dataframe and bind 3 tables together
 month.flow <- as.data.frame(cbind(month.flow1, month.flow2[,2], month.flow3[,2])) 
 ```  
-<br />
+
 
 **for loops**. Here we want to loop through each month and calculate the summary statistics. The format for the for loop is: `for (j in 1:n){ do something ... }`, where `j` is a count variable. It will be 1 the first time the loop runs, 2 the second time, etc. `n` is the number of times you want to run the loop. The task to perform is in between the `{}`.
 
