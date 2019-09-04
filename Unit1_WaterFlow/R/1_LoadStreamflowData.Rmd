@@ -11,6 +11,16 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Objectives:
+* Learn how to use R for streamflow data
+* Learn how to load data from NWIS
+* Learn how to explore and visualize data
+* Learn how to analyze streamflow data
+_Many paths to data analysis - learning how to find those paths and what works best for you is key_
+
+# R Resources:
+
+
 # Background: How has Falls Lake affected streamflow?
 Prior to 1978, flooding of the Neuse River caused extensive damage to public and private properties including roadways, railroads, industrial sites, and farmlands. The Falls Lake Project was developed by the U.S. Army Corps of Engineers to control damaging floods and to supply a source of water for surrounding communities. Construction of the dam began in 1978 and was completed in 1981. In addition to recreation opportunities, Falls Lake now provides flood control, water supply, water quality, and fish and wildlife conservation resources (https://111.ncparks.gov/falls-lake-state-recreation-area/history).
 
@@ -162,7 +172,7 @@ names(attributes(neuse))
 parameterInfo = attr(neuse, "variableInfo")
 siteInfo <- attr(neuse, "siteInfo")
 
-#Now we can extract items such as the site's name
+#Now we can extract items such as the site's name, stored in the `station_nm` field
 siteInfo$station_nm
 ```
 
@@ -205,7 +215,7 @@ neuse$Flow_cms <- neuse$Flow*0.028316847
 ```{r plotdata}  
 #Basic plot
 par(mar = c(3,5,2,5)) #set plot margins
-plot(neuse$Date, neuse$Flow_cms, type='n', yaxt="n", xlim=c(min(neuse$Date),max(neuse$Date)),
+plot(neuse$Date, neuse$Flow_cms, type='n', yaxt="n", xlim=c(min(neuse$Date),max(neuse$dateTime)),
        ylab="Streamflow (cms)", xlab = '', main=siteInfo$station_nm)                   
        #yaxs="i", xaxs="i")#gets rid of spaces inside plot
   axis(2, las=2, cex.axis=0.9)
@@ -214,7 +224,7 @@ plot(neuse$Date, neuse$Flow_cms, type='n', yaxt="n", xlim=c(min(neuse$Date),max(
   
 #OR
 #you can plot data using ggplot. ggplot is commonly used.
-ts <- ggplot(data=neuse, aes(Date,Flow_cms)) +
+ts <- ggplot(data=neuse, aes(dateTime,Flow_cms)) +
       geom_line(colour="blue")
 #make it prettier
 ts <- ts + xlab("") + ylab("Streamflow (cms)") +
