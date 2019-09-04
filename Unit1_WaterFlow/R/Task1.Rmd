@@ -13,24 +13,24 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Overview
  1. Prepping your workspace for analysis
- 2. Getting the data into the R workspace
- 3. Tidying the data
- 4. Exploratory data analysis
- 5. Comparing streamflow before and after Falls Lake dam constuction
+ 2. Reading the data into an R dataframe
+ 3. Dataframes in R
+ 4. Exploratory data analysis: Plotting
+ 5. Exploratory data analysis: Summary statistics
+ 6. Comparing streamflow before and after Falls Lake dam constuction
  
 # 1. Prepping your workspace for analysis
 
 ```{r Installing and loading libraries}
 #Install the tidyverse package onto your machine
-install.packages('tidyverse')
+#install.packages('tidyverse')
 
 #Load the tidyverse package into this session
 library(tidyverse)
-library(rvest)
 
 ```
 
-# 2. Getting the data into R with `rvest`
+# 2. Reading the data into an R dataframe
  * See https://readr.tidyverse.org/reference/read_delim.html for more information
 ```{r Get the data}
 #Get the URL 
@@ -40,9 +40,16 @@ theData <- read_tsv(file = url,
                    skip=30,
                    col_names = c('agency_cd','site_no','datetime','MeanFlow_cfs','Confidence'),
                    )
+```
 
+# 3. Dataframes in R
+## 3a. Examples of dataframe properties and operations.
+```{r Explore dataframes}
 #Display the data (first 5 rows)
 head(theData)
+
+#Display the entire dataframe in a separate viewer
+View(theData)
 
 #Display the column names
 colnames(theData)
@@ -64,17 +71,115 @@ summary(theData$MeanFlow_cfs)
 
 ```
 
-# 3. Tidy the data: 
- * Set the datetime column as a date-time column type
-```{r set date}
-theData$datetime2 <- as.Date(theData$datetime,format = "%y-%m-%d")
-theData$year <-
 
+
+## 3c. Deriving new columns
+ * Add a column for water flow in CMS them MGD
+```{r Calculate CMS from CFS}
+#Create cms column to plot cubic meters per second (1 cfs = 0.028316847 cms)
+theData$MeanFlow_cms <- theData$MeanFlow_cfs*0.028316847
+  
+#Create MGD column to plot million gallons per day (1 cfs = 0.6464 mgd)
+theData$MeanFlow_MGD <- theData$MeanFlow_cfs*0.6464
+
+head(theData)
 ```
 
- * Add a column for water flow in CMS
-```{r calccms}
-#Create cms column to plot cubic meters per second
-theData$Flow_cms <- neuse$Flow*0.028316847
-  summary(neuse$Flow_cms)
+ * Extract month and year columns with `lubridate` (https://lubridate.tidyverse.org/)
+```{r}
+#Import the lubridate package
+library(lubridate)
+
+#Extract the month from the datetime column
+theData$month <- month(theData$datetime)
+
+#Extract the year from the datetime column
+theData$year <- year(theData$datetime)
+
+#What data types to month and year take?
+str(theData)
+```
+ 
+
+## 3c.Using masks to update select rows: water year
+Recall that water years start in October and end in September. So any rows occurring in Oct, Nov, or Dec should have a water year of year + 1. We do this using a mask
+```{r Selecting rows of data}
+theData$water.year <- theData$year 
+theData$water.year[theData$month > 9] <- theData$year + 1
+View(theData)
+```
+
+# 4. Exploratory data analysis - Plotting: 
+
+## 4a. Basic plotting in R
+
+* Basic Plots in R:
+ * Create the margins of your plot using par
+ * par(mar) = c(3,5,2,5)) where the margin is set for (bottom, left, top, right)
+ * Plot the data… there are a lot of additions you can add to the plot with a ,
+ * Basic plot: plot(xaxis, yaxis), so in this case: plot(neuse$Date, neuse$Flow_cms)
+ * type tells the plot what type of plot you want. n tells the plot not to show points
+        yaxt and xaxt tell the plot what to do with the y and x axis
+        ylim and xlim tell the plot the min and max of the respective axes
+        ylab and xlab set the labels for the respective axes. main sets the title for the plot.
+    Currently, the plot is empty. The following commands fill the plot.
+        axis lets you set up with more control the axis of interest. 1 is the x-axis. 2 is the y-axis.
+        points() and lines() allow you to overlay data onto the plot as points or lines. Because there are so many points we want to plot the data as lines. There are many ways to stylize points and lines.
+        col sets the color, lwd sets the width, lty sets the type of line
+        abline allows you to draw straight lines in the plot. v for vertical lines, h for horizontal lines. Here we draw a vertical line around the time falls lake was constructed
+
+```{r Basic plotting}
+#Create margins for the plot
+par(mar) = c(3,5,2,5) 
+
+#Construct the plot template 
+plot(theData$datetime,     #x-axis data
+     theData$MeanFlow_cms, #y-axis data
+     type='n',             #n = don't show points
+     yaxt="n", 
+     xlim=c(min(theData$datetime),
+            max(theData$datetime)),
+     ylab="Streamflow (cms)", 
+     xlab = '', 
+     main="Neuse River near Clayton, NC")
+
+#Fill the template with data
+axis(2, las=2, cex.axis=0.9) #Set the y-axis (#2)
+
+#Add the mean flow line
+lines(theData$datetime, 
+      theData$MeanFlow_cms, 
+      col="blue", 
+      lty=1, 
+      lwd=1)
+
+#Add a vertical line where the dam was completed. 
+abline(v=as.Date("1984-01-01"), 
+       lty=3, 
+       col="black", 
+       lwd=2)
+```
+
+## 4b. Plotting using ggplot
+```{r Plot using ggplot2}
+#Import the library
+library(ggplot)
+
+#Construct the plot
+ts <- ggplot(data=theData, aes(datetime,MeanFlow_cms)) +
+      geom_line(colour="blue")
+
+#make it prettier
+ts <- ts + xlab("") + ylab("Streamflow (cms)") +
+      ggtitle("Neuse River near Clayton, NC")
+
+#show the plot
+ts
+```
+
+# 5. Exloratory Data Analysis: Summary Statistics
+#How confident are we in the data?
+```{r Data confidence code}
+#
+total.n <- dim(theData)[1]; total.n
 ```
