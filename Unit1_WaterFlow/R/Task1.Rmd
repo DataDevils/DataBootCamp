@@ -1,0 +1,80 @@
+---
+title: "Task 1. Exploring Stream Flow"
+author: "John Fay"
+date: " Fall 2019"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Overview
+ 1. Prepping your workspace for analysis
+ 2. Getting the data into the R workspace
+ 3. Tidying the data
+ 4. Exploratory data analysis
+ 5. Comparing streamflow before and after Falls Lake dam constuction
+ 
+# 1. Prepping your workspace for analysis
+
+```{r Installing and loading libraries}
+#Install the tidyverse package onto your machine
+install.packages('tidyverse')
+
+#Load the tidyverse package into this session
+library(tidyverse)
+library(rvest)
+
+```
+
+# 2. Getting the data into R with `rvest`
+ * See https://readr.tidyverse.org/reference/read_delim.html for more information
+```{r Get the data}
+#Get the URL 
+url = 'http://waterservices.usgs.gov/nwis/dv/?format=rdb&sites=02087500&startDT=1930-10-01&endDT=2017-09-30&statCd=00003&parameterCd=00060&siteStatus=all'
+#Read the data (tab separated) into a dataframe, skipping metadata lines, and assigning column names
+theData <- read_tsv(file = url,
+                   skip=30,
+                   col_names = c('agency_cd','site_no','datetime','MeanFlow_cfs','Confidence'),
+                   )
+
+#Display the data (first 5 rows)
+head(theData)
+
+#Display the column names
+colnames(theData)
+
+#Display the structure of the dataframe
+str(theData)
+
+#Display the dimensions of the dataframe
+dim(theData)
+
+#Display the first 10 records of a single column of data
+theData$MeanFlow_cfs[1:10]
+
+#Display a summary of the data
+summary(theData)
+
+#Display summary of one data column
+summary(theData$MeanFlow_cfs)
+
+```
+
+# 3. Tidy the data: 
+ * Set the datetime column as a date-time column type
+```{r set date}
+theData$datetime2 <- as.Date(theData$datetime,format = "%y-%m-%d")
+theData$year <-
+
+```
+
+ * Add a column for water flow in CMS
+```{r calccms}
+#Create cms column to plot cubic meters per second
+theData$Flow_cms <- neuse$Flow*0.028316847
+  summary(neuse$Flow_cms)
+```
