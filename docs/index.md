@@ -51,9 +51,9 @@ Aug 30 2, 2019 -- GH 1104
   * [08-Show-All-Sites](https://nbviewer.jupyter.org/github/DataDevils/WaterFlow-Python/blob/master/08-Show-All-Sites.ipynb) [optional]
 * **R materials**
   * [R set-up and Exploratory Data Analysis](./r/1_LoadStreamflowDescription.html)
-  * [Trend analysis and Leaflet](./r/2_MannKendall_Description.html)
-  * [Flood return interval](./r/3_Flood_RI_Description.html) [optional]
-  * [Low flow analysis](./r/4_LowFlowDescription.html) [optional]
+  * [Flood return interval](./r/2_Flood_RI_Description.html)
+  * [Low flow analysis](./r/3_LowFlowDescription.html) [optional]
+  * [Trend analysis and Leaflet](./r/4_MannKendall_Description.html)
   * R-scripts: [download](./r/RCran.zip)
 
 
