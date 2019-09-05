@@ -52,7 +52,7 @@ Aug 30 2, 2019 -- GH 1104
 * **R materials**
   * [R set-up and Exploratory Data Analysis](./r/1_LoadStreamflowDescription.html)
   * [Flood return interval](./r/2_Flood_RI_Description.html)
-  * [Low flow analysis](./r/3_LowFlowDescription.html) [optional]
+  * [Low flow analysis](./r/3_LowFlowDescription.html)
   * [Trend analysis and Leaflet](./r/4_MannKendall_Description.html)
   * R-scripts: [download](./r/RCran.zip)
 
