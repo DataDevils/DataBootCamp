@@ -40,15 +40,15 @@ Aug 30 2, 2019 -- GH 1104
 * [Overview & schedule](./Unit2_Schedule.html)
 * **Python materials**
   * [00-Setting-up](./python2/00-Setting-up.html)
-  * [01-WaterFlow-Terse](./python2/01-WaterFlow-Terse.html)
-  * [02a-Python-in-5-minutes](./python2/02a-Python-in-5-minutes.html)
-  * [02b-DataFrames](./python2/02b-DataFrames.html)
-  * [03-ImportData](./python2/03-ImportData.html)
-  * [04-Data-Exploration](./python2/04-Data-Exploration.html)
-  * [05-Flood-Frequency-Analysis](./python2/05-Flood-Frequency-Analysis.html) [optional]
-  * [06-Minimum-Flow-Analysis](./python2/06-Minimum-Flow-Analysis.html) [optional]
-  * [07-Trends-Over-Time](./python2/07-Trends-Over-Time.html) [optional]
-  * [08-Show-All-Sites](./python2/08-Show-All-Sites.html) [optional]
+  * [01-WaterFlow-Terse](https://nbviewer.jupyter.org/github/DataDevils/WaterFlow-Python/blob/master/00-Setting-up.ipynb)
+  * [02a-Python-in-5-minutes](https://nbviewer.jupyter.org/github/DataDevils/WaterFlow-Python/blob/master/02a-Python-in-5-minutes.ipynb)
+  * [02b-DataFrames](https://nbviewer.jupyter.org/github/DataDevils/WaterFlow-Python/blob/master/02b-DataFrames.ipynb)
+  * [03-ImportData](https://nbviewer.jupyter.org/github/DataDevils/WaterFlow-Python/blob/master/03-ImportData.ipynb)
+  * [04-Data-Exploration](https://nbviewer.jupyter.org/github/DataDevils/WaterFlow-Python/blob/master/04-Data-Exploration.ipynb)
+  * [05-Flood-Frequency-Analysis](https://nbviewer.jupyter.org/github/DataDevils/WaterFlow-Python/blob/master/05-Flood-Frequency-Analysis.ipynb) [optional]
+  * [06-Minimum-Flow-Analysis](https://nbviewer.jupyter.org/github/DataDevils/WaterFlow-Python/blob/master/06-Minimum-Flow-Analysis.ipynb) [optional]
+  * [07-Trends-Over-Time](https://nbviewer.jupyter.org/github/DataDevils/WaterFlow-Python/blob/master/07-Trends-Over-Time.ipynb) [optional]
+  * [08-Show-All-Sites](https://nbviewer.jupyter.org/github/DataDevils/WaterFlow-Python/blob/master/08-Show-All-Sites.ipynb) [optional]
 * **R materials**
   * [R set-up and Exploratory Data Analysis](./r/LoadStreamflowDescription.html)
   * [Trend analysis and Leaflet](./r/MannKendall_Description.html)
