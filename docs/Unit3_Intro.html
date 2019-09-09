@@ -2,105 +2,114 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>Unit 3 - Data Visualization(Intro)</title><link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --code-block-bg-color: inherit; }
+<title>Unit 3 - Data Visualization(Intro)</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
-.in-text-selection, ::selection { background: rgb(181, 214, 252); text-shadow: none; }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; padding-bottom: 70px; white-space: pre-wrap; overflow-x: visible; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
 .for-image #write { padding-left: 8px; padding-right: 8px; }
 body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
 @media screen and (max-width: 500px) {
   body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
   .CodeMirror-sizer { margin-left: 0px !important; }
   .CodeMirror-gutters { display: none !important; }
 }
-.typora-export #write { margin: 0px auto; }
-#write > p:first-child, #write > ul:first-child, #write > ol:first-child, #write > pre:first-child, #write > blockquote:first-child, #write > div:first-child, #write > table:first-child { margin-top: 30px; }
-#write li > table:first-child { margin-top: -20px; }
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
 img { max-width: 100%; vertical-align: middle; }
-input, button, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
+button, input, select, textarea { color: inherit; font: inherit; }
 input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
-::before, ::after, * { box-sizing: border-box; }
-#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write div, #write pre { width: inherit; }
-#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6 { position: relative; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.8rem; }
 h3 { font-size: 1.6rem; }
 h4 { font-size: 1.4rem; }
 h5 { font-size: 1.2rem; }
 h6 { font-size: 1rem; }
-p { -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
-.typora-export p { white-space: normal; }
-.mathjax-block { margin-top: 0px; margin-bottom: 0px; -webkit-margin-before: 0rem; -webkit-margin-after: 0rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
 .hidden { display: none; }
-.md-blockmeta { color: rgb(204, 204, 204); font-weight: bold; font-style: italic; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
 a { cursor: pointer; }
-sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; }
-#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; margin: 4px 0px 0px; }
-#write > figure:first-child { margin-top: 16px; }
-figure { overflow-x: auto; margin: -8px 0px 0px -8px; max-width: calc(100% + 16px); padding: 8px; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
 tr { break-inside: avoid; break-after: auto; }
 thead { display: table-header-group; }
 table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
-table.md-table td { min-width: 80px; }
+table.md-table td { min-width: 32px; }
 .CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
 .CodeMirror { text-align: left; }
 .CodeMirror-placeholder { opacity: 0.3; }
 .CodeMirror pre { padding: 0px 4px; }
 .CodeMirror-lines { padding: 0px; }
 div.hr:focus { cursor: none; }
-pre { white-space: pre-wrap; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
 .CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: var(--code-block-bg-color); position: relative !important; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
 .md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
-.md-fences .CodeMirror.CodeMirror-wrap { top: -1.6em; margin-bottom: -1.6em; }
-.md-fences.mock-cm { white-space: pre-wrap; }
-.show-fences-line-number .md-fences { padding-left: 0px; }
-.show-fences-line-number .md-fences.mock-cm { padding-left: 40px; }
-.CodeMirror-line { break-inside: avoid; }
-.footnotes { opacity: 0.8; font-size: 0.9rem; padding-top: 1em; padding-bottom: 1em; }
-.footnotes + .footnotes { margin-top: -1em; }
-.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: transparent; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: normal; text-align: left; box-sizing: content-box; direction: ltr; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
 li div { padding-top: 0px; }
 blockquote { margin: 1rem 0px; }
-li p, li .mathjax-block { margin: 0.5rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
 li { margin: 0px; position: relative; }
 blockquote > :last-child { margin-bottom: 0px; }
-blockquote > :first-child { margin-top: 0px; }
-.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
 @media print {
-  html, body { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
   .typora-export * { -webkit-print-color-adjust: exact; }
-  h1, h2, h3, h4, h5, h6 { break-after: avoid-page; orphans: 2; }
-  p { orphans: 4; }
   html.blink-to-pdf { font-size: 13px; }
-  .typora-export #write { padding-left: 1cm; padding-right: 1cm; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
   .typora-export #write::after { height: 0px; }
-  @page { margin: 20mm 0mm; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
-pre.md-meta-block { font-size: 0.8rem; min-height: 2.86rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
-p > img:only-child { display: block; margin: auto; }
-p .md-image:only-child { display: inline-block; width: 100%; text-align: center; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
 #write .MathJax_Display { margin: 0.8em 0px 0px; }
-.mathjax-block { white-space: pre; overflow: hidden; width: 100%; }
-p + .mathjax-block { margin-top: -1.143rem; }
-.mathjax-block:not(:empty)::after { display: none; }
-[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: none; box-shadow: none; }
-.task-list { list-style-type: none; }
-.task-list-item { position: relative; padding-left: 1em; }
-.task-list-item input { position: absolute; top: 0px; left: 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
 .math { font-size: 1rem; }
 .md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
 .md-toc-content { position: relative; margin-left: 0px; }
-.md-toc::after, .md-toc-content::after { display: none; }
+.md-toc-content::after, .md-toc::after { display: none; }
 .md-toc-item { display: block; color: rgb(65, 131, 196); }
 .md-toc-item a { text-decoration: none; }
-.md-toc-inner:hover { }
+.md-toc-inner:hover { text-decoration: underline; }
 .md-toc-inner { display: inline-block; cursor: pointer; }
-.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: bold; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
 .md-toc-h2 .md-toc-inner { margin-left: 2em; }
 .md-toc-h3 .md-toc-inner { margin-left: 4em; }
 .md-toc-h4 .md-toc-inner { margin-left: 6em; }
@@ -116,53 +125,58 @@ a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; 
 .footnote-line a:not(.reversefootnote) { color: inherit; }
 .md-attr { display: none; }
 .md-fn-count::after { content: "."; }
-.md-tag { opacity: 0.5; }
-pre, code, tt { font-family: var(--monospace); }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
 .md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
-code { text-align: left; }
-h1 .md-tag, h2 .md-tag, h3 .md-tag, h4 .md-tag, h5 .md-tag, h6 .md-tag { font-weight: initial; opacity: 0.35; }
-a.md-print-anchor { border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: none !important; background: transparent !important; text-decoration: initial !important; text-shadow: initial !important; }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
 .md-inline-math .MathJax_SVG .noError { display: none !important; }
-.mathjax-block .MathJax_SVG_Display { text-align: center; margin: 1em 0em; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; display: block !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
 .MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
-.MathJax_SVG .MJX-monospace { font-family: monospace; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
 .MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
-.MathJax_SVG { display: inline; font-style: normal; font-weight: normal; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
-.MathJax_SVG * { transition: none; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
 .md-diagram-panel > svg { max-width: 100%; }
-[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
 table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
 
 
-:root { --side-bar-bg-color: #fafafa; --control-text-color: #777; }
-@font-face { font-family: "Open Sans"; font-style: normal; font-weight: normal; src: local("Open Sans Regular"), url("./github/400.woff") format("woff"); }
-@font-face { font-family: "Open Sans"; font-style: italic; font-weight: normal; src: local("Open Sans Italic"), url("./github/400i.woff") format("woff"); }
-@font-face { font-family: "Open Sans"; font-style: normal; font-weight: bold; src: local("Open Sans Bold"), url("./github/700.woff") format("woff"); }
-@font-face { font-family: "Open Sans"; font-style: italic; font-weight: bold; src: local("Open Sans Bold Italic"), url("./github/700i.woff") format("woff"); }
+:root { --side-bar-bg-color: #fff; --control-text-color: #777; }
 html { font-size: 14px; }
-body { font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(51, 51, 51); line-height: 1.6; }
+body { color: rgb(52, 73, 94); -webkit-font-smoothing: antialiased; line-height: 1.6rem; letter-spacing: 0px; margin: 0px; overflow-x: hidden; font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif !important; }
 #write { max-width: 860px; margin: 0px auto; padding: 20px 30px 100px; }
-#write > ul:first-child, #write > ol:first-child { margin-top: 30px; }
+#write p { line-height: 1.6rem; word-spacing: 0.05rem; }
+#write ol li { text-indent: 0.5rem; }
+#write > ul:first-child, #write > ol:first-child { margin-top: 10px; }
 body > :first-child { margin-top: 0px !important; }
 body > :last-child { margin-bottom: 0px !important; }
-a { color: rgb(65, 131, 196); }
+a { color: rgb(66, 185, 131); font-weight: 600; padding: 0px 2px; text-decoration: none; }
 h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; line-height: 1.4; cursor: text; }
 h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor { text-decoration: none; }
-h1 tt, h1 code { font-size: inherit; }
-h2 tt, h2 code { font-size: inherit; }
-h3 tt, h3 code { font-size: inherit; }
-h4 tt, h4 code { font-size: inherit; }
-h5 tt, h5 code { font-size: inherit; }
-h6 tt, h6 code { font-size: inherit; }
-h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
-h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; }
-h3 { font-size: 1.5em; line-height: 1.43; }
-h4 { font-size: 1.25em; }
-h5 { font-size: 1em; }
-h6 { font-size: 1em; color: rgb(119, 119, 119); }
+h1 tt, h1 code { font-size: inherit !important; }
+h2 tt, h2 code { font-size: inherit !important; }
+h3 tt, h3 code { font-size: inherit !important; }
+h4 tt, h4 code { font-size: inherit !important; }
+h5 tt, h5 code { font-size: inherit !important; }
+h6 tt, h6 code { font-size: inherit !important; }
+h2 a, h3 a { color: rgb(52, 73, 94); }
+h1 { padding-bottom: 0.2rem; font-size: 2.2rem; line-height: 1.3; }
+h2 { font-size: 1.75rem; margin: 15px 0px; border-bottom: 0px solid rgb(221, 221, 221); }
+h3 { font-size: 1.4rem; line-height: 1.43; margin: 20px 0px 7px; }
+h4 { font-size: 1.2rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 1rem; color: rgb(119, 119, 119); }
 p, blockquote, ul, ol, dl, table { margin: 0.8em 0px; }
 li > ol, li > ul { margin: 0px; }
-hr { height: 4px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border-width: 0px 0px 1px; border-style: none none solid; border-top-color: initial; border-right-color: initial; border-left-color: initial; border-image: initial; overflow: hidden; box-sizing: content-box; border-bottom-color: rgb(221, 221, 221); }
+hr { height: 2px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; overflow: hidden; box-sizing: content-box; }
 body > h2:first-child { margin-top: 0px; padding-top: 0px; }
 body > h1:first-child { margin-top: 0px; padding-top: 0px; }
 body > h1:first-child + h2 { margin-top: 0px; padding-top: 0px; }
@@ -173,27 +187,31 @@ li p.first { display: inline-block; }
 ul, ol { padding-left: 30px; }
 ul:first-child, ol:first-child { margin-top: 0px; }
 ul:last-child, ol:last-child { margin-bottom: 0px; }
-blockquote { border-left: 4px solid rgb(221, 221, 221); padding: 0px 15px; color: rgb(119, 119, 119); }
-blockquote blockquote { padding-right: 0px; }
+blockquote { border-width: 1px; border-style: solid; border-color: rgb(221, 221, 221); padding: 10px 15px; color: rgb(119, 119, 119); background-color: rgba(66, 185, 131, 0.1); }
 table { padding: 0px; word-break: initial; }
-table tr { border-top: 1px solid rgb(204, 204, 204); margin: 0px; padding: 0px; }
-table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
-table tr th { font-weight: bold; border: 1px solid rgb(204, 204, 204); text-align: left; margin: 0px; padding: 6px 13px; }
-table tr td { border: 1px solid rgb(204, 204, 204); text-align: left; margin: 0px; padding: 6px 13px; }
+table tr { border-top: 1px solid rgb(223, 226, 229); margin: 0px; padding: 0px; }
+table tr:nth-child(2n), thead { background-color: rgb(250, 250, 250); }
+table tr th { font-weight: bold; border-width: 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: rgb(223, 226, 229); border-right-color: rgb(223, 226, 229); border-left-color: rgb(223, 226, 229); border-image: initial; border-bottom-style: initial; border-bottom-color: initial; text-align: left; margin: 0px; padding: 6px 13px; }
+table tr td { border: 1px solid rgb(223, 226, 229); text-align: left; margin: 0px; padding: 6px 13px; }
 table tr th:first-child, table tr td:first-child { margin-top: 0px; }
 table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
-.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); }
-.md-fences, code, tt { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 4px 0px; font-size: 0.9em; }
-.md-fences { margin-bottom: 15px; margin-top: 15px; padding: 8px 1em 6px; }
-.task-list { padding-left: 0px; }
-.task-list-item { padding-left: 32px; }
-.task-list-item input { top: 3px; left: 8px; }
-@media screen and (min-width: 914px) {
-}
+#write strong { padding: 0px 1px; }
+#write em { padding: 0px 5px 0px 2px; }
+#write table thead th { background-color: rgb(242, 242, 242); }
+#write .CodeMirror-gutters { border-right: none; }
+#write .md-fences { border: 1px solid rgb(244, 244, 244); -webkit-font-smoothing: initial; line-height: 1.43rem; border-radius: 2px; font-size: 0.85rem; overflow-wrap: normal; margin: 0.8rem 0px !important; padding: 0.3rem 0px !important; background-color: rgb(248, 248, 248) !important; font-family: "Roboto Mono", "Source Sans Pro", Monaco, courier, monospace !important; }
+#write .CodeMirror-wrap .CodeMirror-code pre { padding-left: 12px; }
+#write code, tt { margin: 0px 2px; padding: 2px 4px; border-radius: 2px; font-size: 0.92rem; color: rgb(233, 105, 0); background-color: rgb(248, 248, 248); font-family: "Roboto Mono", "Source Sans Pro", Monaco, courier, monospace !important; }
+#write .md-footnote { background-color: rgb(248, 248, 248); color: rgb(233, 105, 0); }
+#write mark { background-color: rgb(235, 255, 235); border-radius: 2px; padding: 2px 4px; margin: 0px 2px; color: rgb(34, 34, 34); font-weight: 500; }
+#write del { padding: 1px 2px; }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(34, 162, 201); }
+.cm-s-inner .cm-string { color: rgb(34, 162, 201); }
+.md-task-list-item > input { margin-left: -1.3em; }
 @media print {
   html { font-size: 13px; }
   table, pre { break-inside: avoid; }
-  pre { word-wrap: break-word; }
+  pre { overflow-wrap: break-word; }
 }
 .md-fences { background-color: rgb(248, 248, 248); }
 #write pre.md-meta-block { padding: 1rem; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border: 0px; border-radius: 3px; color: rgb(119, 119, 119); margin-top: 0px !important; }
@@ -202,9 +220,12 @@ table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
 #write > h4.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
 #write > h5.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
 #write > h6.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
-.md-image > .md-meta { border: 1px solid rgb(221, 221, 221); border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 4px 0px; font-size: 0.9em; color: inherit; }
+.md-image > .md-meta { border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 0px 0px 4px; font-size: 0.9em; color: inherit; }
 .md-tag { color: inherit; }
-.md-toc { margin-top: 5px; padding-bottom: 5px; }
+.md-toc { margin-top: 0px; padding-bottom: 0px; }
+.md-toc-h1 { display: none; }
+.md-toc-h4 { display: none; }
+.md-toc-h5 { display: none; }
 .sidebar-tabs { border-bottom: none; }
 #typora-quick-open { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); }
 #typora-quick-open-item { background-color: rgb(250, 250, 250); border-color: rgb(254, 254, 254) rgb(229, 229, 229) rgb(229, 229, 229) rgb(238, 238, 238); border-style: solid; border-width: 1px; }
@@ -214,16 +235,12 @@ header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Aria
 .file-node-content:hover .file-node-icon, .file-node-content:hover .file-node-open-state { visibility: visible; }
 .mac-seamless-mode #typora-sidebar { background-color: var(--side-bar-bg-color); }
 .md-lang { color: rgb(180, 101, 77); }
-.boxed { border: 0.5px solid gray; padding: 1px 12px; }
-
-
-
-
+.html-for-mac .context-menu { --item-hover-bg-color: #E6F0FE; }
 
 
 </style>
 </head>
-<body class='typora-export' >
-<div  id='write'  class = 'is-node'><h1><a name='header-n2' class='md-header-anchor '></a>Unit 3: Data Visualization</h1><h3><a name='header-n3' class='md-header-anchor '></a>Conceptual Introduction to Visualization</h3><p>Data visualizations are the modern equivalent of visual communication with the goal of better communicating numerical information to an audience. Interactive visualizations allow the audience to explore and engage with the data that is of particular interest to them. Effective visualizations make complex data more accessible, understandable, and usable.</p><p>Visualizations take many shapes and forms, and like any form of communication, a great deal of artful creativity accompanies whatever scientific method in devising the best visualizations. That said, however, a few key principles go a long way in thinking about visualizing data. </p><p>First, visualization is all about patterns, about categorizing or aggregating data in meaningful ways, and then revealing these patterns in ways that require the least amount of brain power. And so, when looking at our raw data, we need to identify which fields might serve as categories or <u>dimensions</u>, and which fields might serve as <u>numeric values</u> and how those numeric values might be <u>aggregated</u> in meaningful ways. </p><p>Second, visualization is about communicating a <u>message</u> to an <u>audience</u>. Visualization software allow us an enormous variety of visualization options to choose from. However, in some cases one simple number may be the most effective means to communicate a results. What decides this is knowing what exactly it is you want to communicate with your product, i.e. your message, and to whom you are communicating, i.e., your audience. </p><p>Finally, <u>experience</u> is key to getting better at constructing visualizations. Again, like writing or other forms of communication, you get better the more you do. Take a moment to reflect on what you like or don&#39;t like about other  visualizations you see. Also, seek other&#39;s opinion about ones you create. Develop your own common sense about what makes a good visualization!</p><p>&nbsp;</p><h3><a name='header-n16' class='md-header-anchor '></a>Visualization tools</h3><p>There are a plethora of tools to help researchers display their data to a broader audience. Some of these tools are:</p><ul><li><p><strong>Shiny R</strong>: <a href='https://shiny.rstudio.com/' target='_blank' >https://shiny.rstudio.com/</a></p><ul><li>Shiny is an R package that enables users to build interactive web apps within R by accessing html and javascript libraries.</li></ul></li><li><p><strong>Python</strong>: many libraries (such as Bokeh and pandas) can be used to create interactive data visualizations. Python also has tools such as:</p><ul><li><strong>Dash</strong> - <a href='https://medium.com/@plotlygraphs/introducing-dash-5ecf7191b503'>https://medium.com/@plotlygraphs/introducing-dash-5ecf7191b503</a></li></ul></li><li><p><strong>Tethys Platform</strong>: <a href='http://www.tethysplatform.org/' target='_blank' >http://www.tethysplatform.org/</a></p><ul><li>Uses Python to create interactive data visualizations specifically around water resources</li></ul></li><li><p><strong>Tableau</strong>: <a href='https://www.tableau.com/' target='_blank' >https://www.tableau.com/</a></p><ul><li>Uses spreadsheets (such as Excel) to create data visualizations and storyboards. </li></ul></li></ul><p>In the interest of time, we are going to explore <strong>Tableau</strong>. Unlike <strong>R</strong> or <strong>Python</strong> based visualization tools, Tableau is proprietary software. As a student, you can string along as many free 1-year licenses as you want (as long as you remain a student), but if you want to continue using Tableau beyond academia, you&#39;ll need to pay for it. However, Tableau&#39;s learning curve is much shorter, allowing us to dive deeper into aspects of data visualization.<br/></p><p>&nbsp;</p><h3><a name='header-n52' class='md-header-anchor '></a>Downloading and installing Tableau</h3><p>Tableau is <u>not</u> installed on NSOE machines. Instead, you&#39;ll need to install your own copy. You can either apply for a 1-year license of the full desktop edition or download the free public version here: <a href='https://public.tableau.com/s/download/public/pc64' target='_blank' >https://public.tableau.com/s/download/public/pc64</a> . The key difference between the two is that the public version does not allow you to save your Tableau workbooks... </p><p>&nbsp;</p><hr /><h2><a name='header-n58' class='md-header-anchor '></a>Unit overview</h2><h4><a name='header-n59' class='md-header-anchor '></a>Part 1: Introduction to Tableau</h4><p>We begin with a crash course on Tableau, using it to import, explore, and visualize <strong>water use data</strong> compiled from the USGS. Learning objectives include:</p><ul><li><p>Importing data into Tableau</p></li><li><p>Manipulating and organizing data</p><ul><li>Discussing data formats and proper data structuring for visualization</li></ul></li><li><p>Plotting in Tableau: Bar plots, horizontal bar plots, pie charts, &amp; choropleth maps</p></li><li><p>Creating dashboards and storyboards</p></li><li><p>Uploading your results to Tableau&#39;s server for sharing</p></li></ul><h4><a name='header-n82' class='md-header-anchor '></a>Part 2: Basics of plotting [in Python]</h4><ul><li>Using <code>pandas</code> and<code>matplotlib</code> for quick plots.</li><li>When and where to use different plots: line, bar, pie charts</li><li>Plot aesthetics: feature colors, figure sizes, colormaps, marker and line types</li><li>Using <code>seaborn</code> for more complex plots: countplots and heatmaps</li><li>Using &#39;folium&#39; for map visualizations</li></ul><h4><a name='header-n99' class='md-header-anchor '></a>Part 3: Visualization in context : Water quality in Jordan Lake</h4><ol start='' ><li>Identifying and procuring water quality data in the Jordan Lake region</li><li>Loading, exploring, and tidying site data</li><li>Loading, exploring and tidying measurement data</li><li>Combining site and measurement data </li><li>Combining nutrient concentration with flow data to compute daily loads</li><li>Comparing daily loads with TMDL limits</li></ol><h4><a name='header-n119' class='md-header-anchor '></a>Part 4 (time permitting): Exploring R/Shiny and Plotly/Dash</h4><ul><li>R-Shiny apps from the user&#39;s perspective</li><li>R-Shiny apps from the developers perspective</li><li>The <code>Plotly</code> and <code>Dash</code> packages for Python</li></ul></div>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><h1><a name="unit-3-data-visualization" class="md-header-anchor"></a><span>Unit 3: Data Visualization </span></h1><h3><a name="conceptual-introduction-to-visualization" class="md-header-anchor"></a><span>Conceptual Introduction to Visualization</span></h3><p><span>Data visualizations are the modern equivalent of visual communication with the goal of better communicating numerical information to an audience. Interactive visualizations allow the audience to explore and engage with the data that is of particular interest to them. Effective visualizations make complex data more accessible, understandable, and usable.</span></p><p><span>Visualizations take many shapes and forms, and like any form of communication, a great deal of artful creativity accompanies whatever scientific method in devising the best visualizations. That said, however, a few key principles go a long way in thinking about visualizing data. </span></p><p><span>First, visualization is all about patterns, about categorizing or aggregating data in meaningful ways, and then revealing these patterns in ways that require the least amount of brain power. And so, when looking at our raw data, we need to identify which fields might serve as categories or </span><u><span>dimensions</span></u><span>, and which fields might serve as </span><u><span>numeric values</span></u><span> and how those numeric values might be </span><u><span>aggregated</span></u><span> in meaningful ways. </span></p><p><span>Second, visualization is about communicating a </span><u><span>message</span></u><span> to an </span><u><span>audience</span></u><span>. Visualization software allow us an enormous variety of visualization options to choose from. However, in some cases one simple number may be the most effective means to communicate a results. What decides this is knowing what exactly it is you want to communicate with your product, i.e. your message, and to whom you are communicating, i.e., your audience. </span></p><p><span>Finally, </span><u><span>experience</span></u><span> is key to getting better at constructing visualizations. Again, like writing or other forms of communication, you get better the more you do. Take a moment to reflect on what you like or don&#39;t like about other  visualizations you see. Also, seek other&#39;s opinion about ones you create. Develop your own common sense about what makes a good visualization!</span></p><p>&nbsp;</p><h3><a name="visualization-tools" class="md-header-anchor"></a><span>Visualization tools</span></h3><p><span>There are a plethora of tools to help researchers display their data to a broader audience. Some of these tools are:</span></p><ul><li><p><strong><span>Shiny R</span></strong><span>: </span><a href='https://shiny.rstudio.com/' target='_blank' class='url'>https://shiny.rstudio.com/</a></p><ul><li><span>Shiny is an R package that enables users to build interactive web apps within R by accessing html and javascript libraries.</span></li></ul></li><li><p><strong><span>Python</span></strong><span>: many libraries (such as Bokeh and pandas) can be used to create interactive data visualizations. Python also has tools such as:</span></p><ul><li><strong><span>Dash</span></strong><span> - </span><a href='https://medium.com/@plotlygraphs/introducing-dash-5ecf7191b503'><span>https://medium.com/@plotlygraphs/introducing-dash-5ecf7191b503</span></a></li></ul></li><li><p><strong><span>Tethys Platform</span></strong><span>: </span><a href='http://www.tethysplatform.org/' target='_blank' class='url'>http://www.tethysplatform.org/</a></p><ul><li><span>Uses Python to create interactive data visualizations specifically around water resources</span></li></ul></li><li><p><strong><span>Tableau</span></strong><span>: </span><a href='https://www.tableau.com/' target='_blank' class='url'>https://www.tableau.com/</a></p><ul><li><span>Uses spreadsheets (such as Excel) to create data visualizations and storyboards. </span></li></ul></li></ul><p><span>In the interest of time, we are going to explore </span><strong><span>Tableau</span></strong><span>. Unlike </span><strong><span>R</span></strong><span> or </span><strong><span>Python</span></strong><span> based visualization tools, Tableau is proprietary software. As a student, you can string along as many free 1-year licenses as you want (as long as you remain a student), but if you want to continue using Tableau beyond academia, you&#39;ll need to pay for it. However, Tableau&#39;s learning curve is much shorter, allowing us to dive deeper into aspects of data visualization.  </span></p><p>&nbsp;</p><h3><a name="downloading-and-installing-tableau" class="md-header-anchor"></a><span>Downloading and installing Tableau</span></h3><p><span>Tableau is </span><u><span>not</span></u><span> installed on NSOE machines. Instead, you&#39;ll need to install your own copy. You can either apply for a 1-year license of the full desktop edition or download the free public version here: </span><a href='https://public.tableau.com/s/download/public/pc64' target='_blank' class='url'>https://public.tableau.com/s/download/public/pc64</a><span> . The key difference between the two is that the public version does not allow you to save your Tableau workbooks... </span></p><p>&nbsp;</p><hr /><h2><a name="unit-overview" class="md-header-anchor"></a><span>Unit overview</span></h2><h4><a name="part-1-introduction-to-tableau" class="md-header-anchor"></a><span>Part 1: Introduction to Tableau</span></h4><p><span>We begin with a crash course on Tableau, using it to import, explore, and visualize </span><strong><span>water use data</span></strong><span> compiled from the USGS. Learning objectives include:</span></p><ul><li><p><span>Importing data into Tableau</span></p></li><li><p><span>Manipulating and organizing data</span></p><ul><li><span>Discussing data formats and proper data structuring for visualization</span></li></ul></li><li><p><span>Plotting in Tableau: Bar plots, horizontal bar plots, pie charts, &amp; choropleth maps</span></p></li><li><p><span>Creating dashboards and storyboards</span></p></li><li><p><span>Uploading your results to Tableau&#39;s server for sharing</span></p></li></ul><h4><a name="part-2-basics-of-plotting-in-python" class="md-header-anchor"></a><span>Part 2: Basics of plotting [in Python]</span></h4><ul><li><span>Using </span><code>pandas</code><span> and</span><code>matplotlib</code><span> for quick plots.</span></li><li><span>When and where to use different plots: line, bar, pie charts</span></li><li><span>Plot aesthetics: feature colors, figure sizes, colormaps, marker and line types</span></li><li><span>Using </span><code>seaborn</code><span> for more complex plots: countplots and heatmaps</span></li><li><span>Using &#39;folium&#39; for map visualizations</span></li></ul><h4><a name="part-3-visualization-in-context--water-quality-in-jordan-lake" class="md-header-anchor"></a><span>Part 3: Visualization in context : Water quality in Jordan Lake</span></h4><ol start='' ><li><span>Identifying and procuring water quality data in the Jordan Lake region</span></li><li><span>Loading, exploring, and tidying site data</span></li><li><span>Loading, exploring and tidying measurement data</span></li><li><span>Combining site and measurement data </span></li><li><span>Combining nutrient concentration with flow data to compute daily loads</span></li><li><span>Comparing daily loads with TMDL limits</span></li></ol><h4><a name="part-4-time-permitting-exploring-rshiny-and-plotlydash" class="md-header-anchor"></a><span>Part 4 (time permitting): Exploring R/Shiny and Plotly/Dash</span></h4><ul><li><span>R-Shiny apps from the user&#39;s perspective</span></li><li><span>R-Shiny apps from the developers perspective</span></li><li><span>The </span><code>Plotly</code><span> and </span><code>Dash</code><span> packages for Python</span></li></ul><p>&nbsp;</p></div>
 </body>
 </html>
