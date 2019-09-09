@@ -15,7 +15,7 @@ Aug 30 2, 2019 -- GH 1104
 
 [Why this course now?](./README.html)
 
-### Unit 1: Analyzing water flow data with Excel
+### Unit 1: Analyzing water flow data with Excel (Aug 30)
 
 * [Background: How has Falls Lake reservoir impacted streamflow?](./Streamflow_Intro.html#header-n4)
 
@@ -33,9 +33,9 @@ Aug 30 2, 2019 -- GH 1104
   
   ► Video capture of Unit 1 → [LINK](https://nsoe.capture.duke.edu/Panopto/Pages/Viewer.aspx?id=c3b3586f-b6ad-44a2-a437-aab800e9533d)
 
+---
 
-
-### Unit 2: Analyzing water flow data with Python & R
+### Unit 2: Analyzing water flow data with Python & R (Sept 6)
 
 * [Overview & schedule](./Unit2_Schedule.html)
 * **Python materials**
@@ -56,7 +56,9 @@ Aug 30 2, 2019 -- GH 1104
   * [Trend analysis and Leaflet](./r/4_MannKendall_Description.html)
   * R-scripts: [download](./r/RCran.zip)
 
+► Video capture of Unit 2 → [LINK](https://nsoe.capture.duke.edu/Panopto/Pages/Viewer.aspx?id=fca661b9-c20b-43df-82bd-aac0013a3294)
 
+---
 
 ### Unit 3: Data Visualization
 * Prep (do before meeting in class!): [Setting Up Your Virtual Machine](./SettingUp_YourVirtualMachine.html)
