@@ -6,7 +6,9 @@ Date: Spring 2018
 
 # Unit 3: Part 1 - Visualizing Data in *Tableau*
 
-### ♦ Introduction
+[TOC]
+
+## ♦ Introduction
 
 Here, we test drive Tableau with some water use data pulled from the USGS servers. We'll examine how to get data into a Tableau session, how to best organize our data, and how to construct various plots and charts with our data. We'll also examine Tableau's "dashboard" and "storyboard" features. 
 
@@ -32,7 +34,7 @@ While this latter format is better suited for data analysis, we have further mod
 
 ---
 
-## ♦ Tableau
+## ♦ Tableau Exercises
 
 We'll start exploring Tableau's analysis environment by making a simple plot with our water use data. Specifically, we'll construct a simple stacked bar plot of water withdrawals by category, limiting our data to fresh water withdrawals only. In doing so, we'll cover some basics such as: reading data in, joining tables, setting up plots, and manipulating plots. 
 
@@ -40,14 +42,15 @@ Then we'll see if we can mimic some of the USGS' exploratory products.
 
 
 
-### Loading data into Tableau
+### 1. Loading data into Tableau
 
 Tableau accepts several data formats, including Excel spreadsheets. You can also connect to remotely served data such as [Google Sheets](https://www.google.com/sheets/about/). However, to keep it simple, we'll just load in our local Excel spreadsheet. 
 
+- Open Tableau
 - Select `Microsoft Excel` under the `Connect` menu. Navigate to where the data are held.
 
 
-- On the left-hand side we see that we are connected to the `State_Data_Formatted.xlsx` spreadsheet. Underneath the connection you see both `worksheets`. Drag the `WaterUse` sheet into the top right panel.
+- On the left-hand side we see that we are connected to the `State_Data_Formatted.xlsx` spreadsheet. Underneath the connection you see both `worksheets`. Drag the `WaterUse` sheet into the panel labelled "*Drag sheets here*".
 
 - Make sure the data loaded into Tableau correctly:
 
@@ -60,7 +63,7 @@ Tableau accepts several data formats, including Excel spreadsheets. You can also
 
 
 
-### Joining tables
+### 2. Joining tables
 
 We want to connect data in our `WaterUse` worksheet with the data in the `Population` worksheet. We do this by joining the two tables.
 
@@ -73,7 +76,7 @@ We want to connect data in our `WaterUse` worksheet with the data in the `Popula
 
 
 
-### Navigating Tableau
+### ♦ Navigating Tableau
 
 The bottom row of the Tableau workspace contains tabs for the different objects you've created as well as links to create new objects.  
 
@@ -84,7 +87,7 @@ The bottom row of the Tableau workspace contains tabs for the different objects 
 
 
 
-### Working with worksheets
+### ♦ Working with worksheets
 
 ![TableauWorkspace](media/tableau/TableauWorkspace.PNG)Worksheets
 
@@ -95,69 +98,85 @@ The bottom row of the Tableau workspace contains tabs for the different objects 
 - Italicized variables are calculated by Tableau on the fly.
 - You can change how data are categorized, i.e. dimension or measures by dragging or by right clicking the variable and selecting the operation you want to perform.
 
-##### Constructing a visualization:
+### 3. Constructing a visualization
 
-- Drag `Withdrawal MGD` into the main area of the sheet. <font color="blue">What do you see?</font> Tableau will always summarize information. You can then ask it to break out that information into <u>categories</u>.
+#### 3a: Organizing our data
+
+Let's begin our visualization exercise by plotting fresh water withdrawals by water use category. The first step in doing this is structuring our data into a table that computes the sum water withdrawal for each category (e.g. Aquaculture, Irrigation, etc.) and for each type (Fresh vs Saline). Let's explore how this is done in Tableau. 
+
+- Drag `Withdrawal MGD` into the main area of the sheet. <font color="blue">What do you see?</font> 
+
+  *→ Tableau will always reduce data to a summary. You can then ask it to break out that information into <u>categories</u>.*
 
 
-- Drag `Source` into the `Columns` "shelf". You can think of columns as your **x-axis** and rows as your **y-axis** in terms of how the data will be displayed.
+- Drag `Source` into the `Columns` "shelf". 
 
+  *→ You can think of columns as your **x-axis** and rows as your **y-axis** in terms of how the data will be displayed.*
+  
   ![MGDbySource](media/tableau/MGDbySource.PNG)
 
-*How else can we summarize the data?*
 
-- Add `Type` as a column header.
+
+- Add `Type` as a second column header.
 
   ![MGDbySourceType](media/tableau/MGDbySourceType.PNG)
 
-*Notice that as you drag information over, new data summaries begin to come up. These are different options that Tableau recommends for displaying the information.*
+
 
 - Drag `Category` into the `Rows` tab.
 
   ![MGDbySourceTypebyCategory](media/tableau/MGDbySourceTypebyCategory.PNG)
 
-- Create a `stacked bar` chart by clicking the appropriate icon on the right hand side. 
+  
 
+#### 3b: Plotting our data
+
+As we configure the way the data are shown in our sheet, you will noticed in the "Show Me" area on the left, Tableau recommends different plotting options, with its top recommendation given a red border. 
+
+- Create a `stacked bar` chart by clicking the outlined plot option in the "Show Me" area.
   - *How did Tableau organize the information?*
   - *How did Tableau order the data in the bar chart?*
 
 ![StackedBarPlot1](media/tableau/StackedBarPlot1.PNG)
 
-*It's a little hard to see - what if we flipped the orientation...*
+→*It's a little hard to see - what if we flipped the orientation...*
 
 *  Use `Ctrl`-`W` or  the `Swap Rows and Columns` tool to transpose the data. The stacked bar plot will update...
 
 ![StackedBarPlot1](media/tableau/StackedBarPlot2.PNG)
 
-*Notice that `Total` is making the `Withdrawal` axis very long. Remove the `Total` column.*
-- Right-Click on `Total` and click `exclude`
+→ *Notice that `Total` is making the `Withdrawal` axis very long. Remove the `Total` column.*
+- Right-Click on `Total` in the chart and click `exclude`
+
+- <u>==Now try some more modifications:==</u>
+
+  ► Let's focus only on freshwater. Can you exclude the entire Saline category?
+
+  ► Can you sort the column <u>data</u> from descending to ascending?
+
+*→ At present our plot's name is "Sheet1". Renaming the sheet will rename the plot...*
 
 
-- Let's focus only on freshwater. Can you exclude `Saline`?
-
-
-- Can you sort the column <u>data</u> from descending to ascending?
-
-
-- Name your worksheet something meaningful; it will update the name of your table.
+- Rename your worksheet (by clicking on it's current name "Sheet1" in the lower left corner) to something more meaningful like "Water Withdrawals". 
 
 ![Bar Chart](media/tableau/BarChart1.png)
 
 
 
-##### Create a new worksheet and this time let's plot *per capita* water withdrawals.
+### 4. Derived fields: Plot *per capita* water withdrawals.
 
 - `Duplicate` the worksheet you just created and rename it "Per Capita Withdrawals"
-- Under `Measures`, click on `Withdrawal MGD`. Click `Create`, `calculated field`
+  - Right click on the sheet in the lower bar and select `Duplicate`, then rename it
+- Under `Measures`, click on `Withdrawal MGD`. Select the dropdown arrow on the right side and from the dropdown menu, select `Create`>`Calculated Field`:
   - Name this calculated field `Per Capita (MGD/person)`
-  - Calculate the per-capita water use (mgd/person) as `[Withdrawal MGD]/[Population]` (You can type or drag fields into the box...)
+  - Calculate the per-capita water use (mgd/person) as `[Withdrawal MGD]/[Population]` (*You can type or drag fields into the box...*) Then click `OK`. 
 - Drag `Per Capita (MGD/person)` field into the columns chart and remove  `SUM(Withdrawal MGD)`. 
 
 ![Bar Chart](media/tableau/BarChart2.png)
 
 
 
-### Recreate the charts shown on the USGS website
+### EXERCISE: Recreate the charts shown on the USGS website
 
 #### 1. Bar chart: https://water.usgs.gov/watuse/wuto.html 
 
@@ -170,11 +189,11 @@ Let's explore more of Tableau by attempting to recreate the USGS figure shown he
 - In Tableau, create a new worksheet and title it `Total Water Use, 2010`
   - Drag `State` into the worksheet. Voila! A map!
 
-  - Let's create a color map based on `Withdrawal MGD` by dragging the field over the `color` icon.
+  - Let's create a color map based on `Withdrawal MGD` by dragging the field on top of the `color` icon in the Marks window. 
     - You can click on colors to edit.
     - The USGS used `Stepped` color, meaning the colors are broken into discrete categories. Tableau naturally uses a `continous` color range. <font color="red">What are the pros / cons of using each. </font>Look at the USGS map for comparison. 
 
-    > There's not a right or wrong answer. Pick the one you want to use.
+    > ► There's not a right or wrong answer. Pick the one you want to use.
 
 
 
@@ -185,6 +204,8 @@ Let's explore more of Tableau by attempting to recreate the USGS figure shown he
 - Use the `filters` box to exclude `Saline`.
 
 ►How does the fresh water map change if you look at per capita withdrawals?
+
+* Drag your derived "`Per Capita (mgd/person)`" field onto the `Color` section in the ~window.
 
 ![Map](media/tableau/TotalWaterUse2.png)
 
@@ -213,7 +234,7 @@ Some modifications:
 
   ![Pie](media/tableau/PieChart2.png)
 
-What other charts might convey this information better than a pie chart?
+> What other charts might convey this information better than a pie chart?
 
 
 
