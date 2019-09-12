@@ -12,7 +12,7 @@ All Duke students are allowed to create one virtual machine. For all intents and
 
 * Open https://vcm.duke.edu in a browser and log in. 
 * Select `Reserve a VM`.
-* From the "Application and Operating System" dropdown, select `Windows 10` and click `Reserve`.
+* From the "Application and Operating System" dropdown, select `Windows Office 2016` and click `Reserve`.
   * Make a note of your machine's Hostname, usually something like `vcm-12345.vm.duke.edu`. 
 * When your VM is ready:
   * Click the `Remote Desktop` button and open the .`rdp` file in the Remote Desktop Connection app. Log in using your Duke NetID and password. 
