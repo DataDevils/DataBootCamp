@@ -8,8 +8,6 @@ Date: Spring 2018
 
 [TOC]
 
-## ♦ Introduction
-
 Here, we test drive Tableau with some water use data pulled from the USGS servers. We'll examine how to get data into a Tableau session, how to best organize our data, and how to construct various plots and charts with our data. We'll also examine Tableau's "dashboard" and "storyboard" features. 
 
 ---
@@ -245,36 +243,66 @@ Finally, we'll tackle this one: https://water.usgs.gov/watuse/east-west-2010.htm
 ![USGS Bar chart](https://water.usgs.gov/watuse/images/category-pages/2010/east-west-categories-2010.png)
 
 - Create a new worksheet, rename it `State Water Use`
-- Drag `Category` into the columns along with `Withdrawal MGD`
-  - Filter for `Fresh`
 
-  - Sort by `Total Withdrawals` 
+- Drag the `Withdrawal MGD` field into the **Rows** shelf. 
 
-  - Show only the top 10 states
+  → *Note that instead of the table (with one value) we'd get if we dragged the field into the table area of the sheet, we get a bar plot if we drag the value field into the Rows shelf...*
 
-    - Add `State` as a Row feature
+- Next, we want to create plot "facets" for each water use category, that is, create a series of subplots of water withdrawal, one for each category. 
 
-    - Right-click the state and create a filter. In this filter, select `Top` and set to sort by the Top 10 states ranked by sum of Withdrawal...
+  - This is done by <u>dragging the `Category` field into the **Rows** shelf.</u> (It will default to the left of `Withdrawal`, which is fine).
 
-      ![StateFilter](media/tableau/StateFilter.PNG)
+- Now we want not just one bar for each category, but bars reflecting the withdrawal in each state. 
 
-*Can you think of how you might sort the display of `categories` from most used to least used?*
+  - Do this by dragging the `State1` column into the **Columns** shelf. 
+
+- Exclude the *Total* category from the Water Use facets. 
+
+- Filter records for `Fresh` type only...
+
+> If you look at the USGS figure, the states are sorted from west to east. We could replicate this by sorting our states based on longitude. We have longitude as a calculated field, but alas, it cannot be used to sort our data. Nor can it be set as a *dimension*, or even extracted into a non-calculated field. So close... but this is why we might use scripting - to get beyond the limitations of GUI-based plotting applications...
+>
+> Still, we'll take a quick look at sorting columns and rows to see how it *could* be done...
+
+- To sort the water use categories by `Total Withdrawals` , click the `Category` item in the **Rows** shelf, and select **Sort...** to open the sorting dialog window. 
+  - Select "Sort by *Field*" and explore the options. 
+
+
+
+#### Exercise: Plot only the top 10 states
+
+- Duplicate the `State Water Use` sheet to a new sheet called `Top 10`
+
+- Right-click the `State1` (in your **Rows** shelf) and select "Filter..." from the dropdown menu. Select `Top` and set to sort by the Top 10 states ranked by sum of Withdrawal...
+
+  ![StateFilter](media/tableau/StateFilter.PNG)
+
+* To improve our chart, let's color the bars by water use categories:
+  * Drag the `Category` field (from the left hand Data panel) onto the **Color** box in the **Marks** area.
+* Next, let's transpose our plot:
+  * Click the Transpose button (Right below the "Map" menu label...)
+* Finally let's sort the usage categories from largest used to smallest.
+  * From the dropdown menu in the `Category` item in the **Columns** shelf, select sort. 
+  * Sort by *Field* in *descending* order.
+* Lastly, sort the states in descending order of the most used category (Irrigation).
 
 ![State Bar](media/tableau/StateBar.png)
 
-* To mimic the USGS chart (first duplicate the above sheet):
 
-  * Remove the Top 10 State filter
 
-  * Transpose the rows and columns
+► To go back to the USGS chart (first duplicate the above sheet):
 
-  * Sort on -- *well, if we had a longitude column we could do it...*
+* Remove the Top 10 State filter
 
-    
+* Transpose the rows and columns
+
+* Sort on -- *well, if we had a longitude column we could do it...*
+
+  
 
 ### Dashboards
 
-- Now that we've created the data visualizations, we can organize the visualizations onto a dashboard.
+Now that we've created the data visualizations, we can organize the visualizations onto a dashboard.
 
 - Add a `Dashboard` sheet
 
@@ -282,7 +310,7 @@ Finally, we'll tackle this one: https://water.usgs.gov/watuse/east-west-2010.htm
 
 - Add your `Total Water Use, 2000` map to the dashboard by dragging it over. 
 
-- Add in the `Pie Chart` and the `State Water Use` charts.
+- Add in the `Pie Chart` and the `"Top 10" State Water Use` charts.
 
   - Notice you can undock and delete some of the legends.
   - You can also change legends from full lists to drop down menus.
