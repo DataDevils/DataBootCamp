@@ -32,7 +32,7 @@ While this latter format is better suited for data analysis, we have further mod
 
 ---
 
-## ♦ Tableau Exercises
+## ♦ Exercise 1: Water Withdrawal by Category, Type, and Source
 
 We'll start exploring Tableau's analysis environment by making a simple plot with our water use data. Specifically, we'll construct a simple stacked bar plot of water withdrawals by category, limiting our data to fresh water withdrawals only. In doing so, we'll cover some basics such as: reading data in, joining tables, setting up plots, and manipulating plots. 
 
@@ -40,7 +40,7 @@ Then we'll see if we can mimic some of the USGS' exploratory products.
 
 
 
-### 1. Loading data into Tableau
+### 1a. Loading data into Tableau
 
 Tableau accepts several data formats, including Excel spreadsheets. You can also connect to remotely served data such as [Google Sheets](https://www.google.com/sheets/about/). However, to keep it simple, we'll just load in our local Excel spreadsheet. 
 
@@ -61,7 +61,7 @@ Tableau accepts several data formats, including Excel spreadsheets. You can also
 
 
 
-### 2. Joining tables
+### 1b. Joining tables
 
 We want to connect data in our `WaterUse` worksheet with the data in the `Population` worksheet. We do this by joining the two tables.
 
@@ -72,7 +72,7 @@ We want to connect data in our `WaterUse` worksheet with the data in the `Popula
 
 ![Data Source](media/tableau/Tableau_DataSource.png)
 
-
+---
 
 ### ♦ Navigating Tableau
 
@@ -96,9 +96,11 @@ The bottom row of the Tableau workspace contains tabs for the different objects 
 - Italicized variables are calculated by Tableau on the fly.
 - You can change how data are categorized, i.e. dimension or measures by dragging or by right clicking the variable and selecting the operation you want to perform.
 
-### 3. Constructing a visualization
+---
 
-#### 3a: Organizing our data
+### 1c. Constructing a visualization
+
+#### ■ Organizing our data
 
 Let's begin our visualization exercise by plotting fresh water withdrawals by water use category. The first step in doing this is structuring our data into a table that computes the sum water withdrawal for each category (e.g. Aquaculture, Irrigation, etc.) and for each type (Fresh vs Saline). Let's explore how this is done in Tableau. 
 
@@ -127,7 +129,7 @@ Let's begin our visualization exercise by plotting fresh water withdrawals by wa
 
   
 
-#### 3b: Plotting our data
+#### ■  Plotting our data
 
 As we configure the way the data are shown in our sheet, you will noticed in the "Show Me" area on the left, Tableau recommends different plotting options, with its top recommendation given a red border. 
 
@@ -161,7 +163,7 @@ As we configure the way the data are shown in our sheet, you will noticed in the
 
 
 
-### 4. Derived fields: Plot *per capita* water withdrawals.
+### 1d. Derived fields: Plot *per capita* water withdrawals.
 
 - `Duplicate` the worksheet you just created and rename it "Per Capita Withdrawals"
   - Right click on the sheet in the lower bar and select `Duplicate`, then rename it
@@ -174,15 +176,13 @@ As we configure the way the data are shown in our sheet, you will noticed in the
 
 
 
-### EXERCISE: Recreate the charts shown on the USGS website
+## Exercise 2: Mapped data with Tableau
 
-#### 1. Bar chart: https://water.usgs.gov/watuse/wuto.html 
-
-Let's explore more of Tableau by attempting to recreate the USGS figure shown here:
+Let's explore more of Tableau by attempting to recreate the USGS figure shown [here](https://www.usgs.gov/mission-areas/water-resources/science/total-water-use?qt-science_center_objects=0#qt-science_center_objects):
 
 ![USGS Fig 1](https://water.usgs.gov/watuse/images/category-pages/2010/totalwateruse-map-2010.png)
 
-
+### 2a. Organizing the data
 
 - In Tableau, create a new worksheet and title it `Total Water Use, 2010`
   - Drag `State` into the worksheet. Voila! A map!
@@ -197,6 +197,8 @@ Let's explore more of Tableau by attempting to recreate the USGS figure shown he
 
   ![Map](media/tableau/TotalWaterUse1.png)
 
+### 2b. Filtering and changing the plotted data
+
 ► Let's only look at <u>freshwater</u> totals. 
 
 - Use the `filters` box to exclude `Saline`.
@@ -209,7 +211,7 @@ Let's explore more of Tableau by attempting to recreate the USGS figure shown he
 
 
 
-#### 2. Pie Chart: https://water.usgs.gov/watuse/wuto.html . 
+## Exercise 3. Pie Charts. 
 
 Next, we'll tackle the pie chart shown here:
 
@@ -234,11 +236,9 @@ Some modifications:
 
 > What other charts might convey this information better than a pie chart?
 
+---
 
-
-#### 3. Bar chart  by state and category.
-
-Finally, we'll tackle this one: https://water.usgs.gov/watuse/east-west-2010.html
+## Exercise 4. Bar charts by state and category
 
 ![USGS Bar chart](https://water.usgs.gov/watuse/images/category-pages/2010/east-west-categories-2010.png)
 
@@ -269,7 +269,7 @@ Finally, we'll tackle this one: https://water.usgs.gov/watuse/east-west-2010.htm
 
 
 
-#### Exercise: Plot only the top 10 states
+## Exercise 5: Plot only the top 10 states
 
 - Duplicate the `State Water Use` sheet to a new sheet called `Top 10`
 
@@ -298,9 +298,10 @@ Finally, we'll tackle this one: https://water.usgs.gov/watuse/east-west-2010.htm
 
 * Sort on -- *well, if we had a longitude column we could do it...*
 
-  
 
-### Dashboards
+---
+
+## Dashboards
 
 Now that we've created the data visualizations, we can organize the visualizations onto a dashboard.
 
@@ -330,9 +331,9 @@ Now that we've created the data visualizations, we can organize the visualizatio
 
 ![Dashboard](media/tableau/WaterUse_Dashboard.png)
 
+---
 
-
-### Storyboards
+## Storyboards
 
 A storyboard allows you to merge together multiple dashboards or charts to progressively lead a reader through a process of understanding their data.
 
