@@ -48,7 +48,7 @@ In the interest of time, we are going to explore **Tableau**. Unlike **R** or **
 
 Tableau is <u>not</u> installed on NSOE machines. Instead, you'll need to install your own copy. You can either apply for a 1-year license of the full desktop edition or download the free public version here: https://public.tableau.com/s/download/public/pc64 . The key difference between the two is that the public version does not allow you to save your Tableau workbooks... 
 
-
+In our case, we' will be installing Tableau on virtual machines. Instructions for that are provided [here](./SettingUp_YourVirtualMachine.html).
 
 ---
 
@@ -65,15 +65,24 @@ We begin with a crash course on Tableau, using it to import, explore, and visual
 * Creating dashboards and storyboards
 * Uploading your results to Tableau's server for sharing
 
-#### Part 2: Basics of plotting [in Python]
 
-* Using `pandas` and`matplotlib` for quick plots.
+
+#### Part 2a: Basics of plotting [in Python]
+
+* Repeating our Tableau plots using `ggplot` within Python
+* Using `pandas` and`matplotlib` for quick plots
 * When and where to use different plots: line, bar, pie charts
 * Plot aesthetics: feature colors, figure sizes, colormaps, marker and line types
 * Using `seaborn` for more complex plots: countplots and heatmaps
-* Using 'folium' for map visualizations
+* Using `folium` for map visualizations
 
-#### Part 3: Visualization in context : Water quality in Jordan Lake
+#### Part 2b: Basics of plotting [in R]
+
+* Repeating our Tableau plots using `ggplot` within R
+
+
+
+#### Part 3: Visualization in context : Water quality in Jordan Lake (time permitting)
 
 1. Identifying and procuring water quality data in the Jordan Lake region
 2. Loading, exploring, and tidying site data
@@ -82,8 +91,3 @@ We begin with a crash course on Tableau, using it to import, explore, and visual
 5. Combining nutrient concentration with flow data to compute daily loads
 6. Comparing daily loads with TMDL limits
 
-#### Part 4 (time permitting): Exploring R/Shiny and Plotly/Dash
-
-* R-Shiny apps from the user's perspective
-* R-Shiny apps from the developers perspective
-* The `Plotly` and `Dash` packages for Python
