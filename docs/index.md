@@ -58,7 +58,7 @@ Aug 30 2, 2019 -- GH 1104
 
 ► Video capture of Unit 2 → [LINK](https://nsoe.capture.duke.edu/Panopto/Pages/Viewer.aspx?id=fca661b9-c20b-43df-82bd-aac0013a3294)
 
-► Video capture of Unit 2, in R → LINK
+► Video capture of Unit 2, in R → [LINK](https://nsoe.capture.duke.edu/Panopto/Pages/Viewer.aspx?id=7ecde6e7-157c-4f0d-940f-aac601353b5e)
 
 ---
 
