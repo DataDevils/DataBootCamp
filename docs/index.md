@@ -58,20 +58,27 @@ Aug 30 2, 2019 -- GH 1104
 
 ► Video capture of Unit 2 → [LINK](https://nsoe.capture.duke.edu/Panopto/Pages/Viewer.aspx?id=fca661b9-c20b-43df-82bd-aac0013a3294)
 
+► Video capture of Unit 2, in R → LINK
+
 ---
 
 ### Unit 3: Data Visualization
 * Prep (do before meeting in class!): [Setting Up Your Virtual Machine](./SettingUp_YourVirtualMachine.html)
 * [Introduction and overview](Unit3_Intro.html)
-* [Part 1: Getting started with Tableau](./Unit3_Part1_Tableau.html)
-* [Part 2: Basics of plotting in Python](./Unit3_Part2_Python.html)
-  * [Notebook in HTML format](./python3/Visualization-in-Python.html)
-* [Part 3: Visualization in action: Water Quality in Jordan Lake](./Unit3_Part3_WaterQualityTask.html)
+* **[Part 1: Getting started with Tableau](./Unit3_Part1_Tableau.html)**
+* **[Part 2: Basics of plotting in Python](./Unit3_Part2_Python.html)**
+  * Notebook: [Visualization-in-Python](./python3/Visualization-in-Python.html)
+  * Notebook: [Mapping-with-plotnine](./Mapping-with-plotnine.html)
+  * R-markdown: [USGSWaterPlots](USGSWaterPlots.html)
+* **[Part 3: Visualization in action: Water Quality in Jordan Lake](./Unit3_Part3_WaterQualityTask.html)**
   * Python: 
     * [GitHub repo](https://github.com/DataDevils/DataVis): *clone into your [Jupyter environment](https://vm-manage.oit.duke.edu/containers)*
     * [Notebook in HTML format](./python3/Total-Nitrogen.html)
   * R: 
     * [Workspace Zip](./files/rcran.zip) 
     * [Rmd in HTML format](./r3/TotalNitrogen.html)
+* **Part 4: R/Shiny example**
+  * In action: https://biogas-test.web.duke.edu
+  * R-code: https://raw.githubusercontent.com/johnpfay/Biogas_viewer/master/app.R
 
 
