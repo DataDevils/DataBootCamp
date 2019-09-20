@@ -161,18 +161,28 @@ As we configure the way the data are shown in our sheet, you will noticed in the
 
 ![Bar Chart](media/tableau/BarChart1.png)
 
+---
 
+### ♦ Challenge ♦:
+
+* Create a new sheet (or copy the existing sheet) and in this sheet, create a transposed stacked bar plot as above, but this time showing water withdrawals colored by Type (Fresh vs Saline) for each State. Sort the states by total withdrawal amounts, from highest to lowest. It should look as below:
+
+  ![Exercise 1 result](./media/DataVis_Exercise1.png)
+
+---
 
 ### 1d. Derived fields: Plot *per capita* water withdrawals.
 
 - `Duplicate` the worksheet you just created and rename it "Per Capita Withdrawals"
   - Right click on the sheet in the lower bar and select `Duplicate`, then rename it
 - Under `Measures`, click on `Withdrawal MGD`. Select the dropdown arrow on the right side and from the dropdown menu, select `Create`>`Calculated Field`:
-  - Name this calculated field `Per Capita (MGD/person)`
-  - Calculate the per-capita water use (mgd/person) as `[Withdrawal MGD]/[Population]` (*You can type or drag fields into the box...*) Then click `OK`. 
-- Drag `Per Capita (MGD/person)` field into the columns chart and remove  `SUM(Withdrawal MGD)`. 
+  - Name this calculated field `Per Capita Water Use (MGD/person)`
+  - Calculate the per-capita water use (MGD/person) as `[Withdrawal MGD]/[Population]` (*You can type or drag fields into the box...*) Then click `OK`. 
+- Drag `Per Capita Water Use (MGD/person)` field into the *Columns* shelf and remove  `SUM(Withdrawal MGD)`. 
 
 ![Bar Chart](media/tableau/BarChart2.png)
+
+---
 
 
 
@@ -185,12 +195,14 @@ Let's explore more of Tableau by attempting to recreate the USGS figure shown [h
 ### 2a. Organizing the data
 
 - In Tableau, create a new worksheet and title it `Total Water Use, 2010`
-  - Drag `State` into the worksheet. Voila! A map!
+  - **Drag** `State` into the worksheet. Voila! A map showing the centroids of each state.
 
-  - Let's create a color map based on `Withdrawal MGD` by dragging the field on top of the `color` icon in the Marks window. 
-    - You can click on colors to edit.
+  - **Exclude** *Alaska*, *Hawaii*, *Puerto Rico*, and the *Virgin Islands* from our sheet to focus on the contiguous 48 states. 
+  
+  - Let's create a color map based on `Withdrawal MGD` by dragging the field on top of the `color` icon in the **Marks** shelf. 
+  - You can click on colors to edit.
     - The USGS used `Stepped` color, meaning the colors are broken into discrete categories. Tableau naturally uses a `continous` color range. <font color="red">What are the pros / cons of using each. </font>Look at the USGS map for comparison. 
-
+  
     > ► There's not a right or wrong answer. Pick the one you want to use.
 
 
@@ -201,13 +213,23 @@ Let's explore more of Tableau by attempting to recreate the USGS figure shown [h
 
 ► Let's only look at <u>freshwater</u> totals. 
 
-- Use the `filters` box to exclude `Saline`.
+- Use the `filters` box to exclude `Saline` (from the `Type` column).
 
 ►How does the fresh water map change if you look at per capita withdrawals?
 
 * Drag your derived "`Per Capita (mgd/person)`" field onto the `Color` section in the ~window.
 
 ![Map](media/tableau/TotalWaterUse2.png)
+
+---
+
+### ♦ Challenge ♦
+
+Create a plot, in a new/different sheet, showing which states use the most groundwater per capita. Add the actual per capita withdrawal value by dragging the appropriate field on the "Label" box in the **Marks** shelf: 
+
+![Exercise 2 Figure](./media/DataVis_Exercise2.png)
+
+---
 
 
 
@@ -216,6 +238,8 @@ Let's explore more of Tableau by attempting to recreate the USGS figure shown [h
 Next, we'll tackle the pie chart shown here:
 
 ![Pie](https://water.usgs.gov/watuse/images/category-pages/2010/total-category-pie-2010.png)
+
+#### Steps
 
 - Create a new worksheet and rename it "Pie Chart"
 - Add the `Withdrawal MGD` data to the workspace.
@@ -240,9 +264,13 @@ Some modifications:
 
 ## Exercise 4. Bar charts by state and category
 
+Our next Tableau exercise aims to replicate this plot of geographic distribution of water use by category published by the USGS ([source](https://water.usgs.gov/watuse/east-west-2010.html)):
+
 ![USGS Bar chart](https://water.usgs.gov/watuse/images/category-pages/2010/east-west-categories-2010.png)
 
-- Create a new worksheet, rename it `State Water Use`
+#### Steps:
+
+- Create a new worksheet, rename it `State Water Use`.
 
 - Drag the `Withdrawal MGD` field into the **Rows** shelf. 
 
@@ -281,23 +309,12 @@ Some modifications:
   * Drag the `Category` field (from the left hand Data panel) onto the **Color** box in the **Marks** area.
 * Next, let's transpose our plot:
   * Click the Transpose button (Right below the "Map" menu label...)
-* Finally let's sort the usage categories from largest used to smallest.
+* Finally let's sort the usage Categories from largest used to smallest.
   * From the dropdown menu in the `Category` item in the **Columns** shelf, select sort. 
-  * Sort by *Field* in *descending* order.
-* Lastly, sort the states in descending order of the most used category (Irrigation).
+  * Sort by *Field* in *descending* order, keeping the default sum of the "Withdrawal MGD" field. 
+* Lastly, sort the States in descending order of the most used category (Irrigation).
 
 ![State Bar](media/tableau/StateBar.png)
-
-
-
-► To go back to the USGS chart (first duplicate the above sheet):
-
-* Remove the Top 10 State filter
-
-* Transpose the rows and columns
-
-* Sort on -- *well, if we had a longitude column we could do it...*
-
 
 ---
 
@@ -307,7 +324,7 @@ Now that we've created the data visualizations, we can organize the visualizatio
 
 - Add a `Dashboard` sheet
 
-  - Notice that instead of seeing your data on the left-hand side, you now see the data visualizations you have created. 
+  → *Notice that instead of seeing your data on the left-hand side, you now see the data visualizations you have created.* 
 
 - Add your `Total Water Use, 2000` map to the dashboard by dragging it over. 
 
@@ -324,7 +341,7 @@ Now that we've created the data visualizations, we can organize the visualizatio
       - Why does the bar chart not seem to work correctly?
         - Go to the `State Bar` worksheet and turn off the `Top 10 filter`. 
       - Now try selecting multiple states.
-- Save the workbook
+- Save the workbook 
 
 
   - Sometimes you will get an error saying it failed to saved the workbook. Click `open from Tableau Public`. This will let you sign in and you will see an older version of your workbook. Close that and then try to save your workbook again.
@@ -343,5 +360,6 @@ Storyboard is similar to the dashboard, except you can also include dashboards. 
 
 ![Story board](media/tableau/Storyboard.png)
 
+---
 
-
+END

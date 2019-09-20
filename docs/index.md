@@ -11,6 +11,8 @@ Instructors: John Fay, Edgar Virguez, Jun Shepard
 Aug 30 2, 2019 -- GH 1104
 ```
 
+ ►►==Course survey link:== https://duke.qualtrics.com/jfe/form/SV_54PbMvAq59a5mER ◄◄
+
 ## [Course overview](./README.html)
 
 [Why this course now?](./README.html)
