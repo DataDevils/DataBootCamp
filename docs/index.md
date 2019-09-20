@@ -72,6 +72,7 @@ Aug 30 2, 2019 -- GH 1104
   * Notebook: [Visualization-in-Python](./python3/Visualization-in-Python.html)
   * Notebook: [Mapping-with-plotnine](./Mapping-with-plotnine.html)
   * R-markdown: [USGSWaterPlots](USGSWaterPlots.html)
+    * (Raw Rmd [file](https://raw.githubusercontent.com/DataDevils/DataVis/master/rcran/USGSWaterPlots.Rmd))
 * **[Part 3: Visualization in action: Water Quality in Jordan Lake](./Unit3_Part3_WaterQualityTask.html)**
   * Python: 
     * [GitHub repo](https://github.com/DataDevils/DataVis): *clone into your [Jupyter environment](https://vm-manage.oit.duke.edu/containers)*
