@@ -207,7 +207,7 @@ Let's explore more of Tableau by attempting to recreate the USGS figure shown [h
 
 
 
-  ![Map](media/tableau/TotalWaterUse1.png)
+  ![Map](media/tableau/TotalWaterUse1.PNG)
 
 ### 2b. Filtering and changing the plotted data
 
@@ -219,7 +219,7 @@ Let's explore more of Tableau by attempting to recreate the USGS figure shown [h
 
 * Drag your derived "`Per Capita (mgd/person)`" field onto the `Color` section in the ~window.
 
-![Map](media/tableau/TotalWaterUse2.png)
+![Map](media/tableau/TotalWaterUse2.PNG)
 
 ---
 
@@ -248,7 +248,7 @@ Next, we'll tackle the pie chart shown here:
 - Convert your result to be a Pie chart
   - Optional: reorder your fields and color them to match the USGS figure..
 
-![pie](media/tableau/piechart.png)
+![pie](media/tableau/piechart.PNG)
 
 Some modifications:
 
@@ -256,7 +256,7 @@ Some modifications:
 
 - Set `Source` to be a column
 
-  ![Pie](media/tableau/PieChart2.png)
+  ![Pie](media/tableau/PieChart2.PNG)
 
 > What other charts might convey this information better than a pie chart?
 
@@ -358,7 +358,7 @@ Storyboard is similar to the dashboard, except you can also include dashboards. 
 
 
 
-![Story board](media/tableau/Storyboard.png)
+![Story board](media/tableau/StoryBoard.png)
 
 ---
 
