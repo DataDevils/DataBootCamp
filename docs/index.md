@@ -84,4 +84,5 @@ Aug 30 2, 2019 -- GH 1104
   * In action: https://biogas-test.web.duke.edu
   * R-code: https://raw.githubusercontent.com/johnpfay/Biogas_viewer/master/app.R
 
+► Video capture of Unit 3 → [LINK](https://nsoe.capture.duke.edu/Panopto/Pages/Viewer.aspx?id=d1066352-3cf2-4c13-93d2-aacb0145d5c2)
 
